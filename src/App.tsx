@@ -15,7 +15,7 @@ import { BackToTop } from './components/BackToTop';
 
 export const App: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8FAFC] dark:bg-[#060B13] text-[#0F172A] dark:text-[#E2E8F0] selection:bg-cyan-500/30 selection:text-cyan-400">
+    <div className="min-h-screen flex flex-col bg-[#F2F4F6] dark:bg-[#111110] text-[#111110] dark:text-[#F2F4F6] selection:bg-[#9FCAFC]/40 selection:text-slate-900">
       <ScrollProgress />
       <Navbar />
       

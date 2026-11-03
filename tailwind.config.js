@@ -8,22 +8,33 @@ export default {
   theme: {
     extend: {
       colors: {
+        ethan: {
+          offwhite: '#F2F4F6',
+          charcoal: '#111110',
+          charcoalLight: '#191918',
+          charcoalCard: '#1E1E1C',
+          softblue: '#9FCAFC',
+          softblueHover: '#88BCFB',
+          neutralgrey: '#A8A9A8',
+          borderDark: '#2C2C2A',
+          borderLight: '#E2E5E9',
+        },
         background: {
-          light: '#F8FAFC',
-          dark: '#060B13',
+          light: '#F2F4F6',
+          dark: '#111110',
           cardLight: '#FFFFFF',
-          cardDark: '#0D1524',
-          subtleDark: '#131F33',
+          cardDark: '#191918',
+          subtleDark: '#222220',
         },
         border: {
-          light: '#E2E8F0',
-          dark: '#1E2D45',
+          light: '#E2E5E9',
+          dark: '#2C2C2A',
         },
         brand: {
-          cyan: '#00F0FF',
+          cyan: '#9FCAFC',
+          softblue: '#9FCAFC',
           blue: '#3B82F6',
           indigo: '#6366F1',
-          violet: '#8B5CF6',
           emerald: '#10B981',
           amber: '#F59E0B',
         }
@@ -51,4 +62,3 @@ export default {
   },
   plugins: [],
 };
-
