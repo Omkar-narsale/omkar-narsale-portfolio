@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="./public/assets/omkar-profile.jpeg" alt="Omkar Narsale" width="170" height="170" style="border-radius: 50%; object-fit: cover; margin-bottom: 16px;" />
+
 # ⚡ Omkar Narsale — Personal Portfolio 2.0
 
 <p align="center">
