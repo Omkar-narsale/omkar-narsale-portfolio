@@ -1,6 +1,8 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Briefcase, Calendar, CheckCircle2, ShieldCheck } from 'lucide-react';
 import { EXPERIENCES } from '../data/portfolioData';
+import { customEase } from '../utils/animations';
 
 export const Experience: React.FC = () => {
   return (
@@ -8,7 +10,13 @@ export const Experience: React.FC = () => {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: customEase }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-wider text-[#111110] dark:text-[#9FCAFC] bg-[#9FCAFC]/20 border border-[#9FCAFC]/30 mb-3">
             <Briefcase className="w-3.5 h-3.5" />
             <span>Practical Experience &amp; Milestones</span>
@@ -20,20 +28,36 @@ export const Experience: React.FC = () => {
             Chronological timeline of verified virtual internships, intensive national buildathons, and collegiate service.
           </p>
           <div className="w-16 h-1 bg-[#9FCAFC] mx-auto mt-4 rounded-full" />
-        </div>
+        </motion.div>
 
         {/* Timeline Container */}
         <div className="relative border-l-2 border-[#E2E5E9] dark:border-[#2C2C2A] ml-4 sm:ml-8 pl-6 sm:pl-10 space-y-12">
           
-          {EXPERIENCES.map((item) => {
+          {EXPERIENCES.map((item, idx) => {
             return (
-              <div key={item.id} className="relative group">
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ delay: idx * 0.08, duration: 0.6, ease: customEase }}
+                className="relative group"
+              >
                 
                 {/* Node Dot on the timeline */}
-                <div className="absolute -left-[31px] sm:-left-[47px] top-1.5 w-5 h-5 rounded-full border-4 border-[#F2F4F6] dark:border-[#111110] bg-[#9FCAFC] group-hover:scale-125 transition-transform duration-300 shadow-[0_0_12px_rgba(159,202,252,0.8)]" />
+                <motion.div
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.08 + 0.15, type: 'spring', stiffness: 300 }}
+                  className="absolute -left-[31px] sm:-left-[47px] top-1.5 w-5 h-5 rounded-full border-4 border-[#F2F4F6] dark:border-[#111110] bg-[#9FCAFC] group-hover:scale-125 transition-transform duration-300 shadow-[0_0_12px_rgba(159,202,252,0.8)]"
+                />
 
-                {/* Card Container */}
-                <div className="rounded-3xl glass-panel p-6 sm:p-7 border border-[#E2E5E9] dark:border-[#2C2C2A] bg-white dark:bg-[#191918] shadow-sm hover:shadow-md transition-all">
+                {/* Card Container with subtle hover lift */}
+                <motion.div
+                  whileHover={{ y: -4, transition: { duration: 0.25 } }}
+                  className="rounded-3xl glass-panel p-6 sm:p-7 border border-[#E2E5E9] dark:border-[#2C2C2A] bg-white dark:bg-[#191918] shadow-sm hover:shadow-md transition-shadow duration-300"
+                >
                   
                   {/* Card Header */}
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
@@ -97,9 +121,9 @@ export const Experience: React.FC = () => {
                     )}
                   </div>
 
-                </div>
+                </motion.div>
 
-              </div>
+              </motion.div>
             );
           })}
 

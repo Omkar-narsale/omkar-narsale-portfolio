@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   FolderGit2, ExternalLink, ArrowUpRight, Search, 
   Info, Sparkles, Filter 
@@ -6,6 +7,7 @@ import {
 import { GithubIcon } from './Icons';
 import { PROJECTS, Project } from '../data/portfolioData';
 import { ProjectModal } from './ProjectModal';
+import { customEase } from '../utils/animations';
 
 const CATEGORIES = [
   'All',
@@ -44,7 +46,13 @@ export const Projects: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: customEase }}
+          className="text-center max-w-3xl mx-auto mb-14"
+        >
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-wider text-[#111110] dark:text-[#9FCAFC] bg-[#9FCAFC]/20 border border-[#9FCAFC]/30 mb-3">
             <FolderGit2 className="w-3.5 h-3.5" />
             <span>Engineering Showcase</span>
@@ -56,25 +64,39 @@ export const Projects: React.FC = () => {
             Practical, end-to-end applications spanning automated ETL data warehouses, LLM network diagnostics, real-time computer vision try-ons, and full-stack platforms.
           </p>
           <div className="w-16 h-1 bg-[#9FCAFC] mx-auto mt-4 rounded-full" />
-        </div>
+        </motion.div>
 
         {/* Filter Tabs and Search Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, ease: customEase }}
+          className="flex flex-col md:flex-row items-center justify-between gap-4 mb-12"
+        >
           
-          {/* Category Filter Pills */}
+          {/* Category Filter Pills with Layout Animation */}
           <div className="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-none">
             {CATEGORIES.map((cat) => (
-              <button
+              <motion.button
                 key={cat}
+                whileTap={{ scale: 0.96 }}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-200 ${
+                className={`relative px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-colors duration-200 ${
                   selectedCategory === cat
-                    ? 'bg-[#111110] dark:bg-[#F2F4F6] text-[#F2F4F6] dark:text-[#111110] font-bold shadow-xs'
+                    ? 'text-[#F2F4F6] dark:text-[#111110] font-bold'
                     : 'bg-[#F2F4F6] dark:bg-[#191918] text-slate-600 dark:text-[#A8A9A8] border border-[#E2E5E9] dark:border-[#2C2C2A] hover:text-[#111110] dark:hover:text-[#F2F4F6]'
                 }`}
               >
+                {selectedCategory === cat && (
+                  <motion.div
+                    layoutId="activeProjectFilter"
+                    className="absolute inset-0 bg-[#111110] dark:bg-[#F2F4F6] rounded-full -z-10 shadow-xs"
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                  />
+                )}
                 {cat}
-              </button>
+              </motion.button>
             ))}
           </div>
 
@@ -90,106 +112,121 @@ export const Projects: React.FC = () => {
             />
           </div>
 
-        </div>
+        </motion.div>
 
-        {/* Project Cards Grid */}
+        {/* Project Cards Grid with Motion Hover */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-          {filteredProjects.map((project) => (
-            <div
-              key={project.id}
-              className="flex flex-col justify-between rounded-3xl glass-panel glass-panel-hover border border-[#E2E5E9] dark:border-[#2C2C2A] bg-white dark:bg-[#191918] overflow-hidden group shadow-sm"
-            >
-              <div>
-                {/* Visual Thumbnail */}
-                <div className="relative h-48 w-full overflow-hidden bg-slate-950">
-                  <img
-                    src={project.thumbnail}
-                    alt={project.title}
-                    className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#111110] via-transparent to-transparent opacity-80" />
-                  
-                  {/* Floating Badges */}
-                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
-                    <span className="px-3 py-1 rounded-full text-[11px] font-mono font-semibold bg-[#111110]/90 text-[#9FCAFC] border border-[#2C2C2A] backdrop-blur-md">
-                      {project.category}
-                    </span>
-                    <span className="px-3 py-1 rounded-full text-[11px] font-mono font-medium bg-emerald-950/90 text-emerald-400 border border-emerald-800/80 backdrop-blur-md">
-                      {project.status}
-                    </span>
+          <AnimatePresence>
+            {filteredProjects.map((project, idx) => (
+              <motion.div
+                key={project.id}
+                layout
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.05, duration: 0.55, ease: customEase }}
+                whileHover={{ y: -6, transition: { duration: 0.25 } }}
+                className="flex flex-col justify-between rounded-3xl glass-panel border border-[#E2E5E9] dark:border-[#2C2C2A] bg-white dark:bg-[#191918] overflow-hidden group shadow-sm hover:border-[#9FCAFC]/60 hover:shadow-xl dark:hover:shadow-[0_16px_36px_rgba(159,202,252,0.12)] transition-colors duration-300"
+              >
+                <div>
+                  {/* Visual Thumbnail with Zoom on Hover */}
+                  <div className="relative h-48 w-full overflow-hidden bg-slate-950">
+                    <img
+                      src={project.thumbnail}
+                      alt={project.title}
+                      className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-600 ease-out"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#111110] via-transparent to-transparent opacity-80" />
+                    
+                    {/* Floating Badges */}
+                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
+                      <span className="px-3 py-1 rounded-full text-[11px] font-mono font-semibold bg-[#111110]/90 text-[#9FCAFC] border border-[#2C2C2A] backdrop-blur-md">
+                        {project.category}
+                      </span>
+                      <span className="px-3 py-1 rounded-full text-[11px] font-mono font-medium bg-emerald-950/90 text-emerald-400 border border-emerald-800/80 backdrop-blur-md">
+                        {project.status}
+                      </span>
+                    </div>
+
+                    <div className="absolute bottom-3 left-3 right-3">
+                      <h3 className="text-lg font-bold text-white group-hover:text-[#9FCAFC] transition-colors">
+                        {project.title}
+                      </h3>
+                    </div>
                   </div>
 
-                  <div className="absolute bottom-3 left-3 right-3">
-                    <h3 className="text-lg font-bold text-white group-hover:text-[#9FCAFC] transition-colors">
-                      {project.title}
-                    </h3>
+                  {/* Card Body */}
+                  <div className="p-5 sm:p-6">
+                    <p className="text-xs sm:text-sm text-slate-600 dark:text-[#A8A9A8] line-clamp-3 mb-4 leading-relaxed">
+                      {project.description}
+                    </p>
+
+                    {/* Animated Tech Tags */}
+                    <div className="flex flex-wrap gap-1.5 mb-2">
+                      {project.technologies.slice(0, 5).map((t) => (
+                        <motion.span
+                          key={t}
+                          whileHover={{ scale: 1.05 }}
+                          className="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-[#F2F4F6] dark:bg-[#222220] text-slate-700 dark:text-[#F2F4F6] border border-[#E2E5E9] dark:border-[#2C2C2A] cursor-default"
+                        >
+                          {t}
+                        </motion.span>
+                      ))}
+                      {project.technologies.length > 5 && (
+                        <span className="px-2 py-0.5 rounded-full text-[11px] font-mono text-[#A8A9A8]">
+                          +{project.technologies.length - 5}
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
 
-                {/* Card Body */}
-                <div className="p-5 sm:p-6">
-                  <p className="text-xs sm:text-sm text-slate-600 dark:text-[#A8A9A8] line-clamp-3 mb-4 leading-relaxed">
-                    {project.description}
-                  </p>
+                {/* Action Buttons with Micro-interactions */}
+                <div className="p-5 sm:p-6 pt-0 border-t border-[#E2E5E9] dark:border-[#2C2C2A] mt-3 flex items-center justify-between gap-2">
+                  <motion.button
+                    whileHover={{ scale: 1.04 }}
+                    whileTap={{ scale: 0.96 }}
+                    onClick={() => setSelectedProject(project)}
+                    className="flex items-center gap-1.5 text-xs font-semibold text-[#111110] dark:text-[#9FCAFC] hover:underline focus:outline-none"
+                  >
+                    <Info className="w-3.5 h-3.5" />
+                    <span>View Details</span>
+                  </motion.button>
 
-                  {/* Tech Tags */}
-                  <div className="flex flex-wrap gap-1.5 mb-2">
-                    {project.technologies.slice(0, 5).map((t) => (
-                      <span
-                        key={t}
-                        className="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-[#F2F4F6] dark:bg-[#222220] text-slate-700 dark:text-[#F2F4F6] border border-[#E2E5E9] dark:border-[#2C2C2A]"
+                  <div className="flex items-center gap-2">
+                    <motion.a
+                      whileHover={{ scale: 1.1, y: -2 }}
+                      whileTap={{ scale: 0.92 }}
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-full bg-[#F2F4F6] dark:bg-[#222220] text-slate-700 dark:text-[#F2F4F6] hover:text-[#9FCAFC] hover:bg-[#9FCAFC]/20 transition-colors"
+                      title="View GitHub Repository"
+                      aria-label={`View ${project.title} on GitHub`}
+                    >
+                      <GithubIcon className="w-4 h-4" />
+                    </motion.a>
+
+                    {project.liveUrl && (
+                      <motion.a
+                        whileHover={{ scale: 1.1, y: -2 }}
+                        whileTap={{ scale: 0.92 }}
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 rounded-full bg-[#9FCAFC]/20 text-[#111110] dark:text-[#9FCAFC] hover:bg-[#9FCAFC] hover:text-[#111110] transition-colors"
+                        title="Open Live Preview"
+                        aria-label={`Open ${project.title} live demo`}
                       >
-                        {t}
-                      </span>
-                    ))}
-                    {project.technologies.length > 5 && (
-                      <span className="px-2 py-0.5 rounded-full text-[11px] font-mono text-[#A8A9A8]">
-                        +{project.technologies.length - 5}
-                      </span>
+                        <ArrowUpRight className="w-4 h-4" />
+                      </motion.a>
                     )}
                   </div>
                 </div>
-              </div>
 
-              {/* Action Buttons */}
-              <div className="p-5 sm:p-6 pt-0 border-t border-[#E2E5E9] dark:border-[#2C2C2A] mt-3 flex items-center justify-between gap-2">
-                <button
-                  onClick={() => setSelectedProject(project)}
-                  className="flex items-center gap-1.5 text-xs font-semibold text-[#111110] dark:text-[#9FCAFC] hover:underline focus:outline-none"
-                >
-                  <Info className="w-3.5 h-3.5" />
-                  <span>View Details</span>
-                </button>
-
-                <div className="flex items-center gap-2">
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 rounded-full bg-[#F2F4F6] dark:bg-[#222220] text-slate-700 dark:text-[#F2F4F6] hover:text-[#9FCAFC] hover:bg-[#9FCAFC]/20 transition-colors"
-                    title="View GitHub Repository"
-                    aria-label={`View ${project.title} on GitHub`}
-                  >
-                    <GithubIcon className="w-4 h-4" />
-                  </a>
-
-                  {project.liveUrl && (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 rounded-full bg-[#9FCAFC]/20 text-[#111110] dark:text-[#9FCAFC] hover:bg-[#9FCAFC] hover:text-[#111110] transition-colors"
-                      title="Open Live Preview"
-                      aria-label={`Open ${project.title} live demo`}
-                    >
-                      <ArrowUpRight className="w-4 h-4" />
-                    </a>
-                  )}
-                </div>
-              </div>
-
-            </div>
-          ))}
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
 
         {filteredProjects.length === 0 && (

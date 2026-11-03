@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, FileText, ArrowUpRight } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 import { PERSONAL_INFO } from '../data/portfolioData';
@@ -40,7 +41,10 @@ export const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <header
+    <motion.header
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? 'py-3.5 bg-[#F2F4F6]/90 dark:bg-[#111110]/90 backdrop-blur-md border-b border-[#E2E5E9]/80 dark:border-[#2C2C2A]/80 shadow-sm'
@@ -56,13 +60,17 @@ export const Navbar: React.FC = () => {
             className="flex items-center gap-3 group focus:outline-none"
             aria-label="Omkar Narsale Home"
           >
-            <div className="w-9 h-9 rounded-full bg-[#111110] dark:bg-[#F2F4F6] text-[#F2F4F6] dark:text-[#111110] flex items-center justify-center font-bold text-xs tracking-wider transition-transform duration-300 group-hover:scale-105 shadow-sm">
+            <motion.div
+              whileHover={{ scale: 1.06, rotate: 2 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-9 h-9 rounded-full bg-[#111110] dark:bg-[#F2F4F6] text-[#F2F4F6] dark:text-[#111110] flex items-center justify-center font-bold text-xs tracking-wider shadow-sm"
+            >
               ON
-            </div>
+            </motion.div>
             <div className="flex flex-col">
               <span className="font-extrabold text-sm sm:text-base tracking-tight text-[#111110] dark:text-[#F2F4F6] flex items-center gap-1.5 uppercase">
                 Omkar Narsale
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500" title="Available for opportunities" />
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" title="Available for opportunities" />
               </span>
               <span className="text-[11px] font-mono text-[#A8A9A8] tracking-tight">
                 IT · Data &amp; AI
@@ -70,20 +78,27 @@ export const Navbar: React.FC = () => {
             </div>
           </a>
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center gap-1 bg-white/70 dark:bg-[#191918]/80 px-3 py-1.5 rounded-full border border-[#E2E5E9] dark:border-[#2C2C2A] backdrop-blur-md shadow-sm">
+          {/* Desktop Nav Links with Sliding Active Indicator */}
+          <nav className="hidden lg:flex items-center gap-1 bg-white/70 dark:bg-[#191918]/80 px-2 py-1.5 rounded-full border border-[#E2E5E9] dark:border-[#2C2C2A] backdrop-blur-md shadow-xs">
             {NAV_LINKS.map((link) => {
               const isActive = activeSection === link.href.substring(1);
               return (
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
+                  className={`relative px-3.5 py-1.5 rounded-full text-xs font-medium transition-colors duration-200 z-10 ${
                     isActive
-                      ? 'bg-[#111110] dark:bg-[#F2F4F6] text-[#F2F4F6] dark:text-[#111110] font-semibold shadow-xs'
+                      ? 'text-[#F2F4F6] dark:text-[#111110] font-semibold'
                       : 'text-slate-600 dark:text-[#A8A9A8] hover:text-[#111110] dark:hover:text-[#F2F4F6]'
                   }`}
                 >
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeNavIndicator"
+                      className="absolute inset-0 bg-[#111110] dark:bg-[#F2F4F6] rounded-full -z-10 shadow-xs"
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                    />
+                  )}
                   {link.name}
                 </a>
               );
@@ -94,81 +109,97 @@ export const Navbar: React.FC = () => {
           <div className="hidden sm:flex items-center gap-3">
             <ThemeToggle />
 
-            <a
+            <motion.a
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
               href={PERSONAL_INFO.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold text-[#111110] dark:text-[#F2F4F6] bg-white dark:bg-[#191918] hover:bg-[#9FCAFC] dark:hover:bg-[#9FCAFC] hover:text-[#111110] dark:hover:text-[#111110] border border-[#E2E5E9] dark:border-[#2C2C2A] transition-all duration-200 shadow-xs"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold text-[#111110] dark:text-[#F2F4F6] bg-white dark:bg-[#191918] hover:bg-[#9FCAFC] dark:hover:bg-[#9FCAFC] hover:text-[#111110] dark:hover:text-[#111110] border border-[#E2E5E9] dark:border-[#2C2C2A] transition-colors duration-200 shadow-xs"
             >
               <FileText className="w-3.5 h-3.5" />
               <span>Resume</span>
-            </a>
+            </motion.a>
 
-            <a
+            <motion.a
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
               href="#contact"
-              className="flex items-center gap-1 px-4 py-2 rounded-full text-xs font-semibold text-[#111110] bg-[#9FCAFC] hover:bg-[#88BCFB] shadow-sm transition-all duration-200 hover:scale-[1.02]"
+              className="flex items-center gap-1 px-4 py-2 rounded-full text-xs font-semibold text-[#111110] bg-[#9FCAFC] hover:bg-[#88BCFB] shadow-sm transition-colors duration-200"
             >
               <span>Connect</span>
-            </a>
+            </motion.a>
           </div>
 
           {/* Mobile Menu & Theme Toggle */}
           <div className="flex items-center gap-2 lg:hidden">
             <ThemeToggle />
-            <button
+            <motion.button
+              whileTap={{ scale: 0.92 }}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-full border border-[#E2E5E9] dark:border-[#2C2C2A] bg-white dark:bg-[#191918] text-[#111110] dark:text-[#F2F4F6] focus:outline-none"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
+            </motion.button>
           </div>
 
         </div>
       </div>
 
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[72px] p-5 bg-[#F2F4F6]/98 dark:bg-[#111110]/98 backdrop-blur-xl border-b border-[#E2E5E9] dark:border-[#2C2C2A] shadow-xl animate-fade-in">
-          <nav className="flex flex-col gap-1.5 py-2">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
-                  activeSection === link.href.substring(1)
-                    ? 'bg-[#9FCAFC]/25 text-[#111110] dark:text-[#9FCAFC] font-bold'
-                    : 'text-slate-600 dark:text-[#A8A9A8] hover:bg-white dark:hover:bg-[#191918]'
-                }`}
-              >
-                {link.name}
-              </a>
-            ))}
-            
-            <div className="pt-3 mt-2 border-t border-[#E2E5E9] dark:border-[#2C2C2A] flex flex-col gap-2">
-              <a
-                href={PERSONAL_INFO.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-semibold border border-[#E2E5E9] dark:border-[#2C2C2A] text-[#111110] dark:text-[#F2F4F6] bg-white dark:bg-[#191918]"
-              >
-                <FileText className="w-4 h-4 text-[#9FCAFC]" />
-                <span>View Full Resume</span>
-                <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
-              </a>
-              <a
-                href="#contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-semibold text-[#111110] bg-[#9FCAFC] hover:bg-[#88BCFB]"
-              >
-                <span>Get In Touch</span>
-              </a>
-            </div>
-          </nav>
-        </div>
-      )}
-    </header>
+      {/* Mobile Animated Drawer */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:hidden fixed inset-x-0 top-[72px] px-5 pb-6 pt-2 bg-[#F2F4F6]/98 dark:bg-[#111110]/98 backdrop-blur-xl border-b border-[#E2E5E9] dark:border-[#2C2C2A] shadow-xl overflow-hidden"
+          >
+            <nav className="flex flex-col gap-1.5 py-2">
+              {NAV_LINKS.map((link, idx) => (
+                <motion.a
+                  key={link.name}
+                  initial={{ opacity: 0, x: -12 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.04, duration: 0.3 }}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
+                    activeSection === link.href.substring(1)
+                      ? 'bg-[#9FCAFC]/25 text-[#111110] dark:text-[#9FCAFC] font-bold'
+                      : 'text-slate-600 dark:text-[#A8A9A8] hover:bg-white dark:hover:bg-[#191918]'
+                  }`}
+                >
+                  {link.name}
+                </motion.a>
+              ))}
+              
+              <div className="pt-3 mt-2 border-t border-[#E2E5E9] dark:border-[#2C2C2A] flex flex-col gap-2">
+                <a
+                  href={PERSONAL_INFO.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-semibold border border-[#E2E5E9] dark:border-[#2C2C2A] text-[#111110] dark:text-[#F2F4F6] bg-white dark:bg-[#191918]"
+                >
+                  <FileText className="w-4 h-4 text-[#9FCAFC]" />
+                  <span>View Full Resume</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
+                </a>
+                <a
+                  href="#contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-semibold text-[#111110] bg-[#9FCAFC] hover:bg-[#88BCFB]"
+                >
+                  <span>Get In Touch</span>
+                </a>
+              </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 };

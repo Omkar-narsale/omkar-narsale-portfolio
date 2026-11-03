@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Mail, Send, Copy, Check, MessageSquare, MapPin } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import { fadeInUp, fadeInLeft, fadeInRight } from '../utils/animations';
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -45,7 +47,13 @@ export const Contact: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          variants={fadeInUp}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-wider text-[#111110] dark:text-[#9FCAFC] bg-[#9FCAFC]/20 border border-[#9FCAFC]/30 mb-3">
             <MessageSquare className="w-3.5 h-3.5" />
             <span>Get In Touch</span>
@@ -57,12 +65,18 @@ export const Contact: React.FC = () => {
             Open to summer internships, data engineering collaborations, hackathons, and technical discussions.
           </p>
           <div className="w-16 h-1 bg-[#9FCAFC] mx-auto mt-4 rounded-full" />
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
           {/* Left Column: Direct Contact Info & Channels */}
-          <div className="lg:col-span-5 space-y-6">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-40px' }}
+            variants={fadeInLeft}
+            className="lg:col-span-5 space-y-6"
+          >
             <div className="rounded-3xl glass-panel p-6 sm:p-7 border border-[#E2E5E9] dark:border-[#2C2C2A] bg-white dark:bg-[#191918] shadow-sm space-y-5">
               
               <h3 className="text-lg font-bold text-[#111110] dark:text-[#F2F4F6]">
@@ -90,14 +104,16 @@ export const Contact: React.FC = () => {
                   </div>
                 </div>
 
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
                   onClick={copyEmail}
-                  className="p-2 rounded-full bg-white dark:bg-[#191918] text-[#111110] dark:text-[#F2F4F6] hover:text-[#9FCAFC] border border-[#E2E5E9] dark:border-[#2C2C2A] transition-all shadow-xs"
+                  className="p-2 rounded-full bg-white dark:bg-[#191918] text-[#111110] dark:text-[#F2F4F6] hover:text-[#9FCAFC] border border-[#E2E5E9] dark:border-[#2C2C2A] transition-colors shadow-xs"
                   title="Copy email to clipboard"
                   aria-label="Copy email"
                 >
                   {copied ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
-                </button>
+                </motion.button>
               </div>
 
               {/* Location Card */}
@@ -119,25 +135,29 @@ export const Contact: React.FC = () => {
                   Profiles &amp; Repositories
                 </span>
                 <div className="grid grid-cols-2 gap-3">
-                  <a
+                  <motion.a
+                    whileHover={{ y: -3, scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     href={PERSONAL_INFO.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2.5 p-3 rounded-full bg-[#F2F4F6] dark:bg-[#222220] border border-[#E2E5E9] dark:border-[#2C2C2A] hover:border-[#9FCAFC] text-xs font-semibold text-[#111110] dark:text-[#F2F4F6] hover:text-[#9FCAFC] transition-all justify-center"
+                    className="flex items-center gap-2.5 p-3 rounded-full bg-[#F2F4F6] dark:bg-[#222220] border border-[#E2E5E9] dark:border-[#2C2C2A] hover:border-[#9FCAFC] text-xs font-semibold text-[#111110] dark:text-[#F2F4F6] hover:text-[#9FCAFC] transition-colors justify-center"
                   >
                     <LinkedinIcon className="w-4 h-4 text-blue-500" />
                     <span>LinkedIn</span>
-                  </a>
+                  </motion.a>
 
-                  <a
+                  <motion.a
+                    whileHover={{ y: -3, scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     href={PERSONAL_INFO.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2.5 p-3 rounded-full bg-[#F2F4F6] dark:bg-[#222220] border border-[#E2E5E9] dark:border-[#2C2C2A] hover:border-[#9FCAFC] text-xs font-semibold text-[#111110] dark:text-[#F2F4F6] hover:text-[#9FCAFC] transition-all justify-center"
+                    className="flex items-center gap-2.5 p-3 rounded-full bg-[#F2F4F6] dark:bg-[#222220] border border-[#E2E5E9] dark:border-[#2C2C2A] hover:border-[#9FCAFC] text-xs font-semibold text-[#111110] dark:text-[#F2F4F6] hover:text-[#9FCAFC] transition-colors justify-center"
                   >
                     <GithubIcon className="w-4 h-4" />
                     <span>GitHub</span>
-                  </a>
+                  </motion.a>
                 </div>
               </div>
 
@@ -164,10 +184,16 @@ export const Contact: React.FC = () => {
               </div>
 
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Functional Contact Form */}
-          <div className="lg:col-span-7">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-40px' }}
+            variants={fadeInRight}
+            className="lg:col-span-7"
+          >
             <div className="rounded-3xl glass-panel p-6 sm:p-8 border border-[#E2E5E9] dark:border-[#2C2C2A] bg-white dark:bg-[#191918] shadow-sm">
               
               <h3 className="text-xl font-bold text-[#111110] dark:text-[#F2F4F6] mb-2">
@@ -255,10 +281,12 @@ export const Contact: React.FC = () => {
                     />
                   </div>
 
-                  <button
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-semibold text-xs sm:text-sm text-[#F2F4F6] dark:text-[#111110] bg-[#111110] dark:bg-[#F2F4F6] hover:bg-[#9FCAFC] dark:hover:bg-[#9FCAFC] hover:text-[#111110] dark:hover:text-[#111110] shadow-sm transition-all duration-200 disabled:opacity-50"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-semibold text-xs sm:text-sm text-[#F2F4F6] dark:text-[#111110] bg-[#111110] dark:bg-[#F2F4F6] hover:bg-[#9FCAFC] dark:hover:bg-[#9FCAFC] hover:text-[#111110] dark:hover:text-[#111110] shadow-sm transition-colors duration-200 disabled:opacity-50"
                   >
                     {isSubmitting ? (
                       <span>Preparing...</span>
@@ -268,12 +296,12 @@ export const Contact: React.FC = () => {
                         <span>Send Message</span>
                       </>
                     )}
-                  </button>
+                  </motion.button>
                 </form>
               )}
 
             </div>
-          </div>
+          </motion.div>
 
         </div>
 

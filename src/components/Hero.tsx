@@ -1,24 +1,36 @@
 import React from 'react';
-import { ArrowRight, FileText, Mail, MapPin, Sparkles, Award } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowRight, FileText, Mail } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, LeetCodeIcon } from './Icons';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import { fadeInUp, staggerContainer, customEase } from '../utils/animations';
 
 export const Hero: React.FC = () => {
   return (
     <section className="relative min-h-[92vh] pt-32 sm:pt-36 pb-20 flex flex-col justify-center overflow-hidden ethan-grid-pattern">
       {/* Background Soft Blue Ambient Glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[450px] bg-[#9FCAFC]/15 dark:bg-[#9FCAFC]/10 blur-[130px] pointer-events-none rounded-full" />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.2, ease: customEase }}
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[450px] bg-[#9FCAFC]/15 dark:bg-[#9FCAFC]/10 blur-[130px] pointer-events-none rounded-full"
+      />
       <div className="absolute bottom-10 right-10 w-[350px] h-[350px] bg-[#9FCAFC]/10 blur-[100px] pointer-events-none rounded-full" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           
-          {/* LEFT COLUMN: Ethan-Inspired Typography & Actions */}
-          <div className="lg:col-span-7 flex flex-col text-left space-y-6">
+          {/* LEFT COLUMN: Staggered Typography & Motion Actions */}
+          <motion.div
+            variants={staggerContainer(0.1, 0.1)}
+            initial="hidden"
+            animate="visible"
+            className="lg:col-span-7 flex flex-col text-left space-y-6"
+          >
             
             {/* Availability Pill */}
-            <div className="flex items-center">
+            <motion.div variants={fadeInUp} className="flex items-center">
               <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-[#E2E5E9] dark:border-[#2C2C2A] bg-white/80 dark:bg-[#191918]/80 backdrop-blur-md text-xs font-medium text-slate-700 dark:text-[#F2F4F6] shadow-xs">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -26,28 +38,40 @@ export const Hero: React.FC = () => {
                 </span>
                 <span>Available for Summer 2026 Opportunities</span>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Greeting */}
+            {/* Greeting & Headline */}
             <div className="space-y-3">
-              <div className="text-xs sm:text-sm font-mono uppercase tracking-widest text-[#A8A9A8] dark:text-[#A8A9A8] font-semibold">
+              <motion.div
+                variants={fadeInUp}
+                className="text-xs sm:text-sm font-mono uppercase tracking-widest text-[#A8A9A8] dark:text-[#A8A9A8] font-semibold"
+              >
                 Hello, I'm Omkar Narsale
-              </div>
+              </motion.div>
 
               {/* Large Headline */}
-              <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight text-[#111110] dark:text-[#F2F4F6] leading-[1.12]">
+              <motion.h1
+                variants={fadeInUp}
+                className="text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight text-[#111110] dark:text-[#F2F4F6] leading-[1.12]"
+              >
                 Building Digital Experiences. <br />
                 <span className="text-[#9FCAFC] dark:text-[#9FCAFC] drop-shadow-xs">Turning Data</span> Into Insights.
-              </h1>
+              </motion.h1>
             </div>
 
             {/* Short Introduction */}
-            <p className="text-base sm:text-lg text-slate-600 dark:text-[#A8A9A8] max-w-xl leading-relaxed">
+            <motion.p
+              variants={fadeInUp}
+              className="text-base sm:text-lg text-slate-600 dark:text-[#A8A9A8] max-w-xl leading-relaxed"
+            >
               I'm an Information Technology student passionate about Data Analytics, Artificial Intelligence, Computer Vision and Full-Stack Development.
-            </p>
+            </motion.p>
 
             {/* Personal Branding Role Tags */}
-            <div className="text-xs font-mono font-medium text-[#111110] dark:text-[#F2F4F6] flex flex-wrap items-center gap-2 pt-1">
+            <motion.div
+              variants={fadeInUp}
+              className="text-xs font-mono font-medium text-[#111110] dark:text-[#F2F4F6] flex flex-wrap items-center gap-2 pt-1"
+            >
               <span className="px-3 py-1 rounded-full bg-white dark:bg-[#1E1E1C] border border-[#E2E5E9] dark:border-[#2C2C2A] shadow-2xs">
                 Third-Year IT Student
               </span>
@@ -55,85 +79,72 @@ export const Hero: React.FC = () => {
               <span className="text-slate-600 dark:text-[#A8A9A8]">
                 Data Analytics &amp; Engineering | AI/ML | Computer Vision | Full-Stack
               </span>
-            </div>
+            </motion.div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-3.5 pt-2">
-              <a
+            {/* CTA Buttons with Fluid Motion */}
+            <motion.div variants={fadeInUp} className="flex flex-wrap items-center gap-3.5 pt-2">
+              <motion.a
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.97 }}
                 href="#projects"
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full font-semibold text-xs sm:text-sm text-[#F2F4F6] dark:text-[#111110] bg-[#111110] dark:bg-[#F2F4F6] hover:bg-[#9FCAFC] dark:hover:bg-[#9FCAFC] hover:text-[#111110] dark:hover:text-[#111110] shadow-sm transition-all duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-[#9FCAFC]"
+                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full font-semibold text-xs sm:text-sm text-[#F2F4F6] dark:text-[#111110] bg-[#111110] dark:bg-[#F2F4F6] hover:bg-[#9FCAFC] dark:hover:bg-[#9FCAFC] hover:text-[#111110] dark:hover:text-[#111110] shadow-sm transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#9FCAFC]"
               >
                 <span>Explore My Work</span>
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </motion.a>
 
-              <a
+              <motion.a
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.97 }}
                 href={PERSONAL_INFO.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-semibold text-xs sm:text-sm text-[#111110] dark:text-[#F2F4F6] bg-white dark:bg-[#191918] hover:bg-[#F2F4F6] dark:hover:bg-[#222220] border border-[#E2E5E9] dark:border-[#2C2C2A] shadow-xs transition-all duration-300 hover:scale-[1.02] focus:outline-none"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-semibold text-xs sm:text-sm text-[#111110] dark:text-[#F2F4F6] bg-white dark:bg-[#191918] hover:bg-[#F2F4F6] dark:hover:bg-[#222220] border border-[#E2E5E9] dark:border-[#2C2C2A] shadow-xs transition-colors duration-300 focus:outline-none"
               >
                 <FileText className="w-4 h-4 text-[#9FCAFC]" />
                 <span>Download Resume</span>
-              </a>
-            </div>
+              </motion.a>
+            </motion.div>
 
-            {/* Social Icons Row */}
-            <div className="flex items-center gap-4 pt-3 border-t border-[#E2E5E9] dark:border-[#2C2C2A]/80">
+            {/* Social Icons Row with Hover Lift */}
+            <motion.div variants={fadeInUp} className="flex items-center gap-4 pt-3 border-t border-[#E2E5E9] dark:border-[#2C2C2A]/80">
               <span className="text-xs font-mono uppercase tracking-wider text-[#A8A9A8]">
                 Connect:
               </span>
               <div className="flex items-center gap-2.5">
-                <a
-                  href={PERSONAL_INFO.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub Profile"
-                  className="w-9 h-9 rounded-full bg-white dark:bg-[#191918] border border-[#E2E5E9] dark:border-[#2C2C2A] text-[#111110] dark:text-[#F2F4F6] hover:text-[#9FCAFC] dark:hover:text-[#9FCAFC] hover:border-[#9FCAFC] flex items-center justify-center transition-all shadow-2xs hover:scale-105"
-                  title="GitHub: Omkar-narsale"
-                >
-                  <GithubIcon className="w-4 h-4" />
-                </a>
-
-                <a
-                  href={PERSONAL_INFO.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn Profile"
-                  className="w-9 h-9 rounded-full bg-white dark:bg-[#191918] border border-[#E2E5E9] dark:border-[#2C2C2A] text-[#111110] dark:text-[#F2F4F6] hover:text-[#9FCAFC] dark:hover:text-[#9FCAFC] hover:border-[#9FCAFC] flex items-center justify-center transition-all shadow-2xs hover:scale-105"
-                  title="LinkedIn: Omkar Narsale"
-                >
-                  <LinkedinIcon className="w-4 h-4" />
-                </a>
-
-                <a
-                  href={PERSONAL_INFO.leetcode}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LeetCode Profile"
-                  className="w-9 h-9 rounded-full bg-white dark:bg-[#191918] border border-[#E2E5E9] dark:border-[#2C2C2A] text-[#111110] dark:text-[#F2F4F6] hover:text-[#9FCAFC] dark:hover:text-[#9FCAFC] hover:border-[#9FCAFC] flex items-center justify-center transition-all shadow-2xs hover:scale-105 font-mono font-bold text-xs"
-                  title="LeetCode: 115+ Solved Problems"
-                >
-                  LC
-                </a>
-
-                <a
-                  href={`mailto:${PERSONAL_INFO.email}`}
-                  aria-label="Email Omkar Narsale"
-                  className="w-9 h-9 rounded-full bg-white dark:bg-[#191918] border border-[#E2E5E9] dark:border-[#2C2C2A] text-[#111110] dark:text-[#F2F4F6] hover:text-[#9FCAFC] dark:hover:text-[#9FCAFC] hover:border-[#9FCAFC] flex items-center justify-center transition-all shadow-2xs hover:scale-105"
-                  title={`Email: ${PERSONAL_INFO.email}`}
-                >
-                  <Mail className="w-4 h-4" />
-                </a>
+                {[
+                  { href: PERSONAL_INFO.github, label: 'GitHub Profile', title: 'GitHub: Omkar-narsale', icon: <GithubIcon className="w-4 h-4" /> },
+                  { href: PERSONAL_INFO.linkedin, label: 'LinkedIn Profile', title: 'LinkedIn: Omkar Narsale', icon: <LinkedinIcon className="w-4 h-4" /> },
+                  { href: PERSONAL_INFO.leetcode, label: 'LeetCode Profile', title: 'LeetCode: 115+ Solved Problems', text: 'LC' },
+                  { href: `mailto:${PERSONAL_INFO.email}`, label: 'Email Omkar Narsale', title: `Email: ${PERSONAL_INFO.email}`, icon: <Mail className="w-4 h-4" /> },
+                ].map((social, idx) => (
+                  <motion.a
+                    key={idx}
+                    whileHover={{ y: -3, scale: 1.08 }}
+                    whileTap={{ scale: 0.93 }}
+                    href={social.href}
+                    target={social.href.startsWith('mailto') ? undefined : '_blank'}
+                    rel={social.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+                    aria-label={social.label}
+                    title={social.title}
+                    className="w-9 h-9 rounded-full bg-white dark:bg-[#191918] border border-[#E2E5E9] dark:border-[#2C2C2A] text-[#111110] dark:text-[#F2F4F6] hover:text-[#9FCAFC] dark:hover:text-[#9FCAFC] hover:border-[#9FCAFC] flex items-center justify-center transition-colors shadow-2xs font-mono font-bold text-xs"
+                  >
+                    {social.icon || social.text}
+                  </motion.a>
+                ))}
               </div>
-            </div>
+            </motion.div>
 
-          </div>
+          </motion.div>
 
-          {/* RIGHT COLUMN: Actual Uploaded Professional Photograph (Ethan Style Frame) */}
+          {/* RIGHT COLUMN: Fade-In Portrait with Subtle Scale */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[420px] sm:max-w-[440px]">
-              
+            <motion.div
+              initial={{ opacity: 0, scale: 0.93, y: 16 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.85, ease: customEase }}
+              className="relative w-full max-w-[420px] sm:max-w-[440px]"
+            >
               {/* Subtle Backing Frame Glow */}
               <div className="absolute -inset-2 rounded-[38px] ethan-glow opacity-80 blur-xl pointer-events-none" />
 
@@ -171,8 +182,12 @@ export const Hero: React.FC = () => {
 
               </div>
 
-              {/* Top Floating Badge */}
-              <div className="hidden sm:flex absolute -top-3 -left-4 items-center gap-2 px-3.5 py-2 rounded-2xl bg-white/95 dark:bg-[#1E1E1C]/95 border border-[#E2E5E9] dark:border-[#2C2C2A] shadow-lg text-xs font-semibold text-[#111110] dark:text-[#F2F4F6] backdrop-blur-md">
+              {/* Top Floating Badge with Gentle Float Animation */}
+              <motion.div
+                animate={{ y: [0, -5, 0] }}
+                transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
+                className="hidden sm:flex absolute -top-3 -left-4 items-center gap-2 px-3.5 py-2 rounded-2xl bg-white/95 dark:bg-[#1E1E1C]/95 border border-[#E2E5E9] dark:border-[#2C2C2A] shadow-lg text-xs font-semibold text-[#111110] dark:text-[#F2F4F6] backdrop-blur-md"
+              >
                 <div className="w-6 h-6 rounded-lg bg-[#9FCAFC]/20 text-[#111110] dark:text-[#9FCAFC] flex items-center justify-center font-bold">
                   🎓
                 </div>
@@ -180,10 +195,14 @@ export const Hero: React.FC = () => {
                   <div className="text-[10px] text-[#A8A9A8] font-mono leading-none">Education</div>
                   <div className="text-xs font-bold leading-tight">B.E. Information Tech</div>
                 </div>
-              </div>
+              </motion.div>
 
-              {/* Bottom Right Floating Badge */}
-              <div className="hidden sm:flex absolute -bottom-3 -right-4 items-center gap-2 px-3.5 py-2 rounded-2xl bg-white/95 dark:bg-[#1E1E1C]/95 border border-[#E2E5E9] dark:border-[#2C2C2A] shadow-lg text-xs font-semibold text-[#111110] dark:text-[#F2F4F6] backdrop-blur-md">
+              {/* Bottom Right Floating Badge with Alternating Gentle Float */}
+              <motion.div
+                animate={{ y: [0, 5, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+                className="hidden sm:flex absolute -bottom-3 -right-4 items-center gap-2 px-3.5 py-2 rounded-2xl bg-white/95 dark:bg-[#1E1E1C]/95 border border-[#E2E5E9] dark:border-[#2C2C2A] shadow-lg text-xs font-semibold text-[#111110] dark:text-[#F2F4F6] backdrop-blur-md"
+              >
                 <div className="w-6 h-6 rounded-lg bg-emerald-500/20 text-emerald-500 flex items-center justify-center font-bold">
                   ✓
                 </div>
@@ -191,15 +210,20 @@ export const Hero: React.FC = () => {
                   <div className="text-[10px] text-[#A8A9A8] font-mono leading-none">Verified NPTEL</div>
                   <div className="text-xs font-bold text-emerald-600 dark:text-emerald-400 leading-tight">Elite 87% (IIT Kanpur)</div>
                 </div>
-              </div>
+              </motion.div>
 
-            </div>
+            </motion.div>
           </div>
 
         </div>
 
         {/* Minimalist Bottom Marquee Pill / Highlights */}
-        <div className="mt-16 pt-8 border-t border-[#E2E5E9] dark:border-[#2C2C2A]/80">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.6, ease: customEase }}
+          className="mt-16 pt-8 border-t border-[#E2E5E9] dark:border-[#2C2C2A]/80"
+        >
           <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 text-xs font-mono">
             <span className="text-[#A8A9A8] uppercase tracking-wider text-[11px] mr-2">
               Core Tech:
@@ -208,16 +232,17 @@ export const Hero: React.FC = () => {
               "Python", "SQL", "React 19", "FastAPI", "MySQL", 
               "Groq LLaMA 3.3", "OpenCV", "MediaPipe", "Power BI", 
               "TypeScript", "AWS Academy", "Tailwind CSS"
-            ].map((tech) => (
-              <span
+            ].map((tech, idx) => (
+              <motion.span
                 key={tech}
-                className="px-3 py-1 rounded-full bg-white dark:bg-[#191918] border border-[#E2E5E9] dark:border-[#2C2C2A] text-slate-700 dark:text-[#F2F4F6] hover:border-[#9FCAFC] hover:text-[#9FCAFC] transition-colors"
+                whileHover={{ y: -2, scale: 1.05 }}
+                className="px-3 py-1 rounded-full bg-white dark:bg-[#191918] border border-[#E2E5E9] dark:border-[#2C2C2A] text-slate-700 dark:text-[#F2F4F6] hover:border-[#9FCAFC] hover:text-[#9FCAFC] transition-colors cursor-default"
               >
                 {tech}
-              </span>
+              </motion.span>
             ))}
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>

@@ -1,6 +1,8 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { GraduationCap, Award, MapPin, Calendar, CheckCircle } from 'lucide-react';
 import { EDUCATION_DATA } from '../data/portfolioData';
+import { fadeInUp, staggerContainer } from '../utils/animations';
 
 export const Education: React.FC = () => {
   return (
@@ -8,7 +10,13 @@ export const Education: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          variants={fadeInUp}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-wider text-[#111110] dark:text-[#9FCAFC] bg-[#9FCAFC]/20 border border-[#9FCAFC]/30 mb-3">
             <GraduationCap className="w-3.5 h-3.5" />
             <span>Academic Background</span>
@@ -20,17 +28,26 @@ export const Education: React.FC = () => {
             A solid grounding in Information Technology, computational mathematics, and software systems.
           </p>
           <div className="w-16 h-1 bg-[#9FCAFC] mx-auto mt-4 rounded-full" />
-        </div>
+        </motion.div>
 
         {/* Education Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-40px' }}
+          variants={staggerContainer()}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+        >
           {EDUCATION_DATA.map((edu, idx) => {
             const isCurrent = idx === 0;
 
             return (
-              <div
+              <motion.div
                 key={edu.institution}
-                className={`flex flex-col justify-between rounded-3xl glass-panel p-6 sm:p-7 border transition-all duration-300 relative overflow-hidden ${
+                variants={fadeInUp}
+                whileHover={{ y: -6 }}
+                transition={{ type: 'spring', stiffness: 350, damping: 25 }}
+                className={`flex flex-col justify-between rounded-3xl glass-panel p-6 sm:p-7 border transition-colors duration-300 relative overflow-hidden ${
                   isCurrent
                     ? 'border-[#9FCAFC] dark:border-[#9FCAFC]/60 bg-gradient-to-b from-[#9FCAFC]/10 via-white to-white dark:from-[#9FCAFC]/5 dark:via-[#191918] dark:to-[#191918] shadow-md md:scale-105 z-10'
                     : 'border-[#E2E5E9] dark:border-[#2C2C2A] bg-[#F2F4F6] dark:bg-[#191918]/60 shadow-xs'
@@ -89,10 +106,10 @@ export const Education: React.FC = () => {
                   <MapPin className="w-3.5 h-3.5 text-[#A8A9A8]" />
                   <span className="truncate">{edu.location}</span>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
 
       </div>
     </section>
