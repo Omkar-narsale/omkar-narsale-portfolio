@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Omkar Narsale – Resume | Third-Year IT Student</title>
+    <meta name="description" content="Resume of Omkar Narsale - Third-Year Information Technology Student at SAKEC Mumbai. Data Analytics, Data Engineering, AI/ML, and Full-Stack Development." />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            font-size: 10pt;
+            color: #0f1f35;
+            background: #fff;
+            padding: 2.2cm 2cm 2cm 2cm;
+            max-width: 21.5cm;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        /* ── HEADER ── */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            border-bottom: 2.5px solid #2563eb;
+            padding-bottom: 10px;
+        }
+
+        .header-left h1 {
+            font-size: 22pt;
+            font-weight: 800;
+            color: #0f1f35;
+            letter-spacing: -.5px;
+            line-height: 1.1;
+        }
+
+        .header-left .title {
+            font-size: 10.5pt;
+            color: #2563eb;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .header-left .college {
+            font-size: 9.5pt;
+            color: #475569;
+            margin-top: 2px;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 8.8pt;
+            color: #475569;
+            line-height: 1.65;
+        }
+
+        .header-right a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .header-right a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── SECTIONS ── */
+        .section {
+            margin-top: 13px;
+        }
+
+        .section-title {
+            font-size: 10.5pt;
+            font-weight: 700;
+            color: #1e40af;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 3px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        /* ── ITEMS ── */
+        .item {
+            margin-bottom: 9px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .item-title {
+            font-size: 10pt;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .item-date {
+            font-size: 8.5pt;
+            color: #64748b;
+            white-space: nowrap;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .item-sub {
+            font-size: 9pt;
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .item-desc {
+            font-size: 9pt;
+            color: #334155;
+            line-height: 1.45;
+        }
+
+        .item-desc ul {
+            padding-left: 15px;
+            margin-top: 2px;
+        }
+
+        .item-desc ul li {
+            margin-bottom: 2px;
+        }
+
+        /* ── TAGS ── */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 4px;
+        }
+
+        .tag {
+            font-size: 7.5pt;
+            background: #eff6ff;
+            color: #1d4ed8;
+            border: 1px solid #bfdbfe;
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        /* ── EDUCATION ── */
+        .edu-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 6px;
+        }
+
+        .edu-deg {
+            font-weight: 700;
+            font-size: 9.8pt;
+            color: #0f172a;
+        }
+
+        .edu-school {
+            font-size: 9pt;
+            color: #2563eb;
+            font-weight: 500;
+        }
+
+        .edu-score {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9pt;
+            font-weight: 700;
+            color: #059669;
+        }
+
+        /* ── SKILLS ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4px 14px;
+        }
+
+        .skill-item {
+            font-size: 8.8pt;
+            color: #334155;
+            line-height: 1.4;
+        }
+
+        .skill-item strong {
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+
+        /* ── CERTS ── */
+        .cert-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4px 14px;
+        }
+
+        .cert-item {
+            font-size: 8.5pt;
+            color: #334155;
+            line-height: 1.4;
+        }
+
+        .cert-item::before {
+            content: "✓ ";
+            color: #059669;
+            font-weight: 700;
+        }
+
+        /* ── PRINT ── */
+        @media print {
+            body {
+                padding: 1.2cm 1.2cm;
+            }
+
+            a {
+                color: #2563eb !important;
+                text-decoration: none;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+        }
+
+        /* ── DOWNLOAD BANNER ── */
+        .download-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: .65rem 2rem;
+            font-size: .88rem;
+            z-index: 999;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .download-bar .btn-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .download-bar button.action-btn {
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            padding: .4rem 1.1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: .84rem;
+            transition: background 0.2s;
+        }
+
+        .download-bar button.action-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .download-bar a.back-btn {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: .84rem;
+            padding: .4rem .8rem;
+            border-radius: 6px;
+            border: 1px solid #334155;
+        }
+
+        .download-bar a.back-btn:hover {
+            color: #fff;
+            border-color: #64748b;
+        }
+
+        .download-bar button.close-btn {
+            background: transparent;
+            color: #94a3b8;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Download banner (hidden on print) -->
+    <div class="download-bar no-print" id="dlBar">
+        <div>
+            <strong>Omkar Narsale</strong> &nbsp;·&nbsp; Resume (Third-Year IT Student)
+        </div>
+        <div class="btn-group">
+            <a href="/" class="back-btn">← Back to Portfolio</a>
+            <button class="action-btn" onclick="window.print()">🖨️ Save as PDF / Print</button>
+            <button class="close-btn" onclick="document.getElementById('dlBar').style.display='none'; document.body.style.paddingTop='1.5cm'" title="Dismiss">✕</button>
+        </div>
+    </div>
+
+    <!-- ── HEADER ── -->
+    <div class="header">
+        <div class="header-left">
+            <h1>Omkar Narsale</h1>
+            <div class="title">Information Technology Student | Data Analyst | Developer | AI/ML Enthusiast</div>
+            <div class="college">Shah And Anchor Kutchhi Engineering College (SAKEC), Mumbai — Third Year IT</div>
+        </div>
+        <div class="header-right">
+            Mumbai, Maharashtra, India<br>
+            <a href="mailto:omkarnarsale@gmail.com">omkarnarsale@gmail.com</a><br>
+            <a href="https://github.com/Omkar-narsale" target="_blank">github.com/Omkar-narsale</a><br>
+            <a href="https://www.linkedin.com/in/omkar-narsale-56b188330/" target="_blank">linkedin.com/in/omkar-narsale</a><br>
+            <a href="https://leetcode.com/u/qlakbkpB58/" target="_blank">leetcode.com/u/qlakbkpB58</a>
+        </div>
+    </div>
+
+    <!-- ── PROFESSIONAL SUMMARY ── -->
+    <div class="section">
+        <div class="section-title">Professional Summary</div>
+        <div class="item-desc">
+            Information Technology student passionate about transforming raw data into meaningful insights and building intelligent, scalable applications. Experienced across Data Analytics, Data Engineering, AI/ML, Computer Vision, and Full-Stack Development. Proven track record building automated ETL pipelines, LLM-powered diagnostics, real-time computer vision systems, and full-stack platforms with 115+ solved LeetCode problems and 18+ industry-recognized certifications.
+        </div>
+    </div>
+
+    <!-- ── EDUCATION ── -->
+    <div class="section">
+        <div class="section-title">Education</div>
+
+        <div class="item">
+            <div class="edu-row">
+                <div>
+                    <div class="edu-deg">Bachelor of Engineering — Information Technology</div>
+                    <div class="edu-school">Shah And Anchor Kutchhi Engineering College (SAKEC), Mumbai</div>
+                </div>
+                <div class="item-date">2024 — Present (Third Year)</div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="edu-row">
+                <div>
+                    <div class="edu-deg">Higher Secondary Certificate (HSC) — Science Stream</div>
+                    <div class="edu-school">Maharashtra State Board</div>
+                </div>
+                <div style="text-align:right;">
+                    <span class="edu-score">83.83%</span>
+                    <span class="item-date">&nbsp;·&nbsp; 2024</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="edu-row">
+                <div>
+                    <div class="edu-deg">Secondary School Certificate (SSC) — 10th Standard</div>
+                    <div class="edu-school">Maharashtra State Board</div>
+                </div>
+                <div style="text-align:right;">
+                    <span class="edu-score">91.44%</span>
+                    <span class="item-date">&nbsp;·&nbsp; 2022</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── EXPERIENCE & INTERNSHIPS ── -->
+    <div class="section">
+        <div class="section-title">Experience & Internships</div>
+
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">Cisco AICTE Virtual Internship — Artificial Intelligence</div>
+                <div class="item-date">Jun – Aug 2026</div>
+            </div>
+            <div class="item-sub">Cisco Networking Academy · AICTE · Student ID: STU679b8dca09b921738247626</div>
+            <div class="item-desc">
+                Completed hands-on internship in Artificial Intelligence and intelligent networking. Focused on AI diagnostics, network automation, system reliability, and future enterprise technologies.
+            </div>
+            <div class="tags">
+                <span class="tag">Artificial Intelligence</span><span class="tag">Cisco NetAcad</span><span class="tag">Network Automation</span><span class="tag">AICTE</span>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">Cloud Virtual Internship — AWS Academy</div>
+                <div class="item-date">Jul – Sep 2025</div>
+            </div>
+            <div class="item-sub">AICTE-EduSkills · National Internship Portal · 10 Weeks · Grade E (Excellent: 80–89)</div>
+            <div class="item-desc">
+                Completed 10-week intensive cloud training covering AWS Cloud infrastructure, IAM, EC2, S3, cloud-native architecture, and cloud security fundamentals. Certificate ID: 8e650fa144ee80cf41fa82e53e70d858e.
+            </div>
+            <div class="tags">
+                <span class="tag">AWS Cloud</span><span class="tag">Cloud Architecture</span><span class="tag">IAM</span><span class="tag">S3/EC2</span>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">Cybersecurity Virtual Internship — Palo Alto Networks</div>
+                <div class="item-date">Apr – Jun 2025</div>
+            </div>
+            <div class="item-sub">AICTE-EduSkills · Supported by Palo Alto Networks · 10 Weeks · Grade E (Excellent: 80–89)</div>
+            <div class="item-desc">
+                Completed 10-week cybersecurity curriculum encompassing network security principles, SOC operations, cloud security, access control, and incident triage. Certificate ID: bc8fc5aac2760456fad3895c98517e59.
+            </div>
+            <div class="tags">
+                <span class="tag">Cybersecurity</span><span class="tag">Network Security</span><span class="tag">SOC</span><span class="tag">Palo Alto Networks</span>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">VEGA Hackathon 2026 — Participant & Builder</div>
+                <div class="item-date">2026</div>
+            </div>
+            <div class="item-sub">12-Hour SIH-Inspired Hackathon · ₹50,000 Prize Pool Track</div>
+            <div class="item-desc">
+                Collaborated in an intensive 12-hour build sprint developing an innovative software solution under high-pressure constraints.
+            </div>
+        </div>
+    </div>
+
+    <!-- ── FEATURED PROJECTS ── -->
+    <div class="section">
+        <div class="section-title">Featured Projects</div>
+
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">RetailFlow — Automated Retail Data Engineering & Analytics Platform</div>
+                <div class="item-date">Python, MySQL, React, Power BI</div>
+            </div>
+            <div class="item-desc">
+                Built an automated end-to-end retail ETL pipeline that watches incoming data drops, runs automated schema validation, cleans anomalies, performs feature engineering, and incrementally syncs into a MySQL data warehouse connected to Power BI dashboards.
+            </div>
+            <div class="tags">
+                <span class="tag">ETL Pipeline</span><span class="tag">Pandas</span><span class="tag">SQLAlchemy</span><span class="tag">Watchdog</span><span class="tag">MySQL</span><span class="tag">Power BI</span>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">NetSage AI — AI-Assisted Cisco Network Troubleshooting & Reasoning</div>
+                <div class="item-date">Python, Groq API, LLaMA 3.3, Streamlit</div>
+            </div>
+            <div class="item-desc">
+                Engineered an evidence-driven network diagnosis platform combining deterministic Python rules with Groq LLaMA 3.3 70B reasoning and human-in-the-loop governance to isolate Cisco router/switch faults and suggest remediation commands.
+            </div>
+            <div class="tags">
+                <span class="tag">LLaMA 3.3 70B</span><span class="tag">Groq API</span><span class="tag">Network Diagnostics</span><span class="tag">Prompt Engineering</span>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">MirrorFit XR — Real-Time Face Tracking & 3D Virtual Try-On</div>
+                <div class="item-date">Python, OpenCV, MediaPipe, PyTorch</div>
+            </div>
+            <div class="item-desc">
+                Developed an interactive computer vision application executing real-time 468-point facial mesh tracking and 3D head pose estimation via live webcam feed for seamless 2D and 3D glasses fitting.
+            </div>
+            <div class="tags">
+                <span class="tag">Computer Vision</span><span class="tag">MediaPipe</span><span class="tag">OpenCV</span><span class="tag">Head Pose Estimation</span>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">Fixly / FixNear — Local Home Services MERN Marketplace</div>
+                <div class="item-date">React 19, Node.js, Express, MongoDB</div>
+            </div>
+            <div class="item-desc">
+                Engineered a modern two-sided local services booking platform connecting homeowners with verified technicians. Includes real-time booking lifecycle, status tracking, and provider review moderation.
+            </div>
+            <div class="tags">
+                <span class="tag">React 19</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MongoDB Atlas</span><span class="tag">Tailwind CSS</span>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">Sam.AI — TinyLlama Interactive Conversational Agent</div>
+                <div class="item-date">Python, Streamlit, Hugging Face, TinyLlama</div>
+            </div>
+            <div class="item-desc">
+                Created a privacy-friendly local LLM chatbot with interactive chat history, token generation controls, hyperparameter tuning, and exportable conversation transcripts.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">Power BI Dashboards: Geopolitical War Impact & HR Analytics</div>
+                <div class="item-date">Power BI, DAX, Excel, Data Modeling</div>
+            </div>
+            <div class="item-desc">
+                Constructed high-impact analytical dashboards correlating geopolitical crises with energy/commodity market volatility, and an HR analytics suite evaluating employee attrition and departmental metrics.
+            </div>
+        </div>
+    </div>
+
+    <!-- ── TECHNICAL SKILLS ── -->
+    <div class="section">
+        <div class="section-title">Technical Skills</div>
+        <div class="skills-grid">
+            <div class="skill-item"><strong>Languages:</strong> Python, SQL, JavaScript (ES6+), C</div>
+            <div class="skill-item"><strong>Data Analytics:</strong> NumPy, Pandas, Matplotlib, Seaborn, Power BI, DAX, Power Query, Excel, EDA</div>
+            <div class="skill-item"><strong>Data Engineering:</strong> MySQL, PostgreSQL, MongoDB, SQLite, ETL Pipelines, SQLAlchemy, Watchdog</div>
+            <div class="skill-item"><strong>AI & Machine Learning:</strong> Generative AI, LangChain, Hugging Face, Groq API, TinyLlama, Embeddings</div>
+            <div class="skill-item"><strong>Computer Vision:</strong> OpenCV, MediaPipe, PyTorch, Face Mesh Tracking, Head Pose Estimation</div>
+            <div class="skill-item"><strong>Web Development:</strong> React, React 19, TypeScript, Vite, Tailwind CSS, Bootstrap, Flask, FastAPI, Node.js</div>
+            <div class="skill-item"><strong>Cloud & DevOps:</strong> AWS (EC2, S3, IAM), Vercel, Render, Git, GitHub, MongoDB Atlas, Neon PostgreSQL</div>
+            <div class="skill-item"><strong>Networking & Security:</strong> Cisco Packet Tracer, Wireshark, Network Security, Access Control, CCNA Concepts</div>
+        </div>
+    </div>
+
+    <!-- ── PROBLEM SOLVING & LEETCODE ── -->
+    <div class="section">
+        <div class="section-title">Problem Solving & Coding Badges</div>
+        <div class="item-desc">
+            <strong>LeetCode Solutions:</strong> 115+ Solved DSA & SQL Problems in Python · Profile: <a href="https://leetcode.com/u/qlakbkpB58/" target="_blank">leetcode.com/u/qlakbkpB58</a><br>
+            <strong>Core Topics:</strong> Arrays, Hashmaps, Two Pointers, Sliding Window, Binary Search, Sorting, SQL 50 (Window Functions, CTEs, Joins, Aggregations)<br>
+            <strong>Verified Badges:</strong> 100 Days Badge 2026 · 50 Days Badge 2026 · SQL 50 Badge · Active Daily Problem Solver
+        </div>
+    </div>
+
+    <!-- ── CERTIFICATIONS ── -->
+    <div class="section">
+        <div class="section-title">Key Certifications</div>
+        <div class="cert-list">
+            <div class="cert-item"><strong>NPTEL Elite (87%):</strong> Principles of Modern CDMA/MIMO/OFDM Wireless Comms (IIT Kanpur)</div>
+            <div class="cert-item"><strong>Bootstrap Training (100%):</strong> EduPyramids, SINE IIT Bombay · SWAYAM Plus (Cert #47563922YR)</div>
+            <div class="cert-item"><strong>Cisco Networking Academy:</strong> Networking Basics (Score: 80 - Advanced Level)</div>
+            <div class="cert-item"><strong>Cisco AICTE Virtual Internship:</strong> Artificial Intelligence Program 2026</div>
+            <div class="cert-item"><strong>AWS Academy:</strong> Cloud Foundations & Cloud-Native Architecture</div>
+            <div class="cert-item"><strong>Palo Alto Networks:</strong> Cybersecurity, SOC, Cloud & Network Security Fundamentals</div>
+            <div class="cert-item"><strong>IBM SkillsBuild:</strong> Artificial Intelligence Fundamentals & Data Fundamentals</div>
+            <div class="cert-item"><strong>Red Hat:</strong> Python Programming (AD141 RHA)</div>
+            <div class="cert-item"><strong>HP LIFE:</strong> Data Analytics</div>
+            <div class="cert-item"><strong>Simplilearn:</strong> Prompt Engineering & Generative AI Studio</div>
+        </div>
+    </div>
+
+</body>
+</html>
+

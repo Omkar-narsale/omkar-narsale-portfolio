@@ -1,11 +1,27 @@
-<<<<<<< HEAD
-.vercel
+# Dependencies
 node_modules
+.pnp
+.pnp.js
+
+# Production build
+dist
+dist-ssr
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
+
+# Environment & local files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vercel & IDE
+.vercel
+.vscode/*
+!.vscode/extensions.json
+.idea
 .DS_Store
 Thumbs.db
-=======
-.vercel
-node_modules
-.DS_Store
-Thumbs.db
->>>>>>> 34df80dfdc67b1ff1d16137f0e600394b75ca8fa
+*.log

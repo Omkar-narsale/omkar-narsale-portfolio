@@ -1,10 +1,21 @@
-<<<<<<< HEAD
 {
-    "cleanUrls": true,
-    "trailingSlash": false
-=======
-{
-    "cleanUrls": true,
-    "trailingSlash": false
->>>>>>> 34df80dfdc67b1ff1d16137f0e600394b75ca8fa
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/resume",
+      "destination": "/resume.html"
+    },
+    {
+      "source": "/resume.html",
+      "destination": "/resume.html"
+    },
+    {
+      "source": "/((?!assets/|.*\\..*).*)",
+      "destination": "/index.html"
+    }
+  ]
 }
+
