@@ -39,10 +39,12 @@ export const Hero: React.FC = () => {
               {/* Sophisticated Reference Headline */}
               <motion.h1
                 variants={fadeInUp}
-                className="text-3xl sm:text-4xl lg:text-[3.25rem] font-bold tracking-tight text-[#111110] dark:text-[#F2F4F6] leading-[1.15]"
+                className="text-3xl sm:text-4xl lg:text-[2.75rem] xl:text-[3.1rem] font-bold tracking-tight text-[#111110] dark:text-[#F2F4F6] leading-tight sm:leading-[1.25]"
               >
-                Building Digital Experiences. <br />
-                Turning Data <span className="text-[#6CA6EC] dark:text-[#9FCAFC]">Into Insights.</span>
+                <span className="block">Building Digital Experiences.</span>
+                <span className="block mt-1 sm:mt-1.5">
+                  Turning Data <span className="text-[#6CA6EC] dark:text-[#9FCAFC]">Into Insights.</span>
+                </span>
               </motion.h1>
             </div>
 
