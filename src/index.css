@@ -51,50 +51,30 @@
 
 /* Glassmorphism & Card Effects */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(226, 229, 233, 0.9);
 }
 
 .dark .glass-panel {
-  background: rgba(25, 25, 24, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(44, 44, 42, 0.8);
+  background: rgba(25, 25, 24, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(44, 44, 42, 0.85);
 }
 
 .glass-panel-hover {
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-panel-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 36px -10px rgba(159, 202, 252, 0.16);
-  border-color: rgba(159, 202, 252, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.08);
+  border-color: rgba(159, 202, 252, 0.6);
 }
 
 .dark .glass-panel-hover:hover {
-  box-shadow: 0 16px 36px -10px rgba(159, 202, 252, 0.12);
-  border-color: rgba(159, 202, 252, 0.35);
-}
-
-/* Subtle soft-blue radial glow for profile frame */
-.ethan-glow {
-  background: radial-gradient(circle at 50% 50%, rgba(159, 202, 252, 0.22) 0%, rgba(159, 202, 252, 0) 70%);
-}
-
-.dark .ethan-glow {
-  background: radial-gradient(circle at 50% 50%, rgba(159, 202, 252, 0.16) 0%, rgba(159, 202, 252, 0) 70%);
-}
-
-/* Subtle minimalist dot grid */
-.ethan-grid-pattern {
-  background-image: radial-gradient(rgba(168, 169, 168, 0.2) 1px, transparent 1px);
-  background-size: 32px 32px;
-}
-
-.dark .ethan-grid-pattern {
-  background-image: radial-gradient(rgba(168, 169, 168, 0.1) 1px, transparent 1px);
-  background-size: 32px 32px;
+  box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.3);
+  border-color: rgba(159, 202, 252, 0.3);
 }
