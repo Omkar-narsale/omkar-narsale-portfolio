@@ -127,10 +127,10 @@ export const Hero: React.FC = () => {
             >
               {/* Premium Editorial Portrait Container - Natural, unencumbered by floating widgets */}
               <div className="rounded-3xl p-2 sm:p-2.5 bg-white dark:bg-[#191918] border border-[#E2E5E9] dark:border-[#2C2C2A] shadow-md">
-                <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden bg-[#E9ECEF] dark:bg-[#222220]">
+                <div className="relative w-full aspect-[4/5] sm:aspect-[3/4] rounded-2xl overflow-hidden bg-[#111110]">
                   <img
                     src="/assets/omkar-profile.jpeg"
-                    alt="Omkar Narsale - Information Technology Student and Data Analyst wearing black formal blazer and mint shirt"
+                    alt="Omkar Narsale - Professional portrait in black formal blazer"
                     loading="eager"
                     fetchPriority="high"
                     className="w-full h-full object-cover object-[center_top] transition-transform duration-700 hover:scale-[1.02]"
