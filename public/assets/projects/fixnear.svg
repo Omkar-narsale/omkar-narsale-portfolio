@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="fx-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+    <linearGradient id="fx-card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.98" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#fx-bg)" />
+
+  <!-- App Header -->
+  <rect x="40" y="30" width="1120" height="64" rx="16" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+  <circle cx="75" cy="62" r="8" fill="#ef4444" />
+  <circle cx="100" cy="62" r="8" fill="#f59e0b" />
+  <circle cx="125" cy="62" r="8" fill="#10b981" />
+
+  <text x="160" y="68" fill="#F2F4F6" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700">FixNear</text>
+  <rect x="260" y="49" width="220" height="26" rx="13" fill="#a855f7" fill-opacity="0.15" stroke="#a855f7" stroke-opacity="0.4" />
+  <text x="370" y="67" text-anchor="middle" fill="#c084fc" font-family="monospace" font-size="12" font-weight="600">HOME SERVICES MARKETPLACE</text>
+
+  <!-- Search Input Simulation in Nav -->
+  <rect x="520" y="45" width="340" height="34" rx="17" fill="#0f172a" stroke="#334155" />
+  <text x="545" y="67" fill="#94a3b8" font-family="system-ui" font-size="12">Find electricians, plumbers, AC repair...</text>
+
+  <rect x="990" y="47" width="145" height="30" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="1" />
+  <text x="1062" y="67" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="12">MERN Stack MVP</text>
+
+  <!-- Left: Service Categories & Verified Providers -->
+  <g transform="translate(40, 115)">
+    <rect width="680" height="520" rx="16" fill="url(#fx-card)" stroke="#334155" stroke-width="1.2" />
+    <text x="28" y="38" fill="#F2F4F6" font-family="system-ui" font-size="16" font-weight="700">Verified Local Service Professionals</text>
+    <text x="28" y="58" fill="#94a3b8" font-family="system-ui" font-size="12">Navi Mumbai &amp; Mumbai Metropolitan Region</text>
+
+    <!-- Quick Category Badges -->
+    <g transform="translate(28, 75)">
+      <rect x="0" y="0" width="115" height="34" rx="17" fill="#9FCAFC" fill-opacity="0.15" stroke="#9FCAFC" />
+      <text x="57" y="22" text-anchor="middle" fill="#9FCAFC" font-family="system-ui" font-size="12" font-weight="600">⚡ Electrical</text>
+
+      <rect x="125" y="0" width="115" height="34" rx="17" fill="#1e293b" stroke="#334155" />
+      <text x="182" y="22" text-anchor="middle" fill="#94a3b8" font-family="system-ui" font-size="12">🚰 Plumbing</text>
+
+      <rect x="250" y="0" width="115" height="34" rx="17" fill="#1e293b" stroke="#334155" />
+      <text x="307" y="22" text-anchor="middle" fill="#94a3b8" font-family="system-ui" font-size="12">❄️ AC Repair</text>
+
+      <rect x="375" y="0" width="115" height="34" rx="17" fill="#1e293b" stroke="#334155" />
+      <text x="432" y="22" text-anchor="middle" fill="#94a3b8" font-family="system-ui" font-size="12">🔨 Carpentry</text>
+    </g>
+
+    <!-- Provider Listing Card 1 -->
+    <g transform="translate(28, 130)">
+      <rect width="624" height="110" rx="14" fill="#0f172a" stroke="#38bdf8" stroke-width="1.2" />
+      <circle cx="50" cy="55" r="28" fill="#1e293b" stroke="#38bdf8" />
+      <text x="50" y="62" text-anchor="middle" fill="#38bdf8" font-family="system-ui" font-size="20">⚡</text>
+
+      <text x="95" y="42" fill="#F2F4F6" font-family="system-ui" font-size="15" font-weight="700">Apex Electrical Solutions</text>
+      <rect x="290" y="27" width="75" height="20" rx="10" fill="#10b981" fill-opacity="0.2" />
+      <text x="327" y="41" text-anchor="middle" fill="#34d399" font-family="monospace" font-size="10" font-weight="700">VERIFIED</text>
+
+      <text x="95" y="65" fill="#f59e0b" font-family="system-ui" font-size="12">★ 4.9 <tspan fill="#94a3b8">(142 reviews)</tspan> · 2.1 km away</text>
+      <text x="95" y="88" fill="#94a3b8" font-family="system-ui" font-size="12">Short circuit repair, wiring inspection &amp; appliance setups</text>
+
+      <rect x="500" y="35" width="105" height="38" rx="19" fill="#38bdf8" />
+      <text x="552" y="59" text-anchor="middle" fill="#0f172a" font-family="system-ui" font-size="12" font-weight="700">Book Now</text>
+    </g>
+
+    <!-- Provider Listing Card 2 -->
+    <g transform="translate(28, 255)">
+      <rect width="624" height="110" rx="14" fill="#0f172a" stroke="#334155" stroke-width="1" />
+      <circle cx="50" cy="55" r="28" fill="#1e293b" stroke="#334155" />
+      <text x="50" y="62" text-anchor="middle" fill="#60a5fa" font-family="system-ui" font-size="20">🚰</text>
+
+      <text x="95" y="42" fill="#F2F4F6" font-family="system-ui" font-size="15" font-weight="700">AquaFix Plumbing Experts</text>
+      <rect x="290" y="27" width="75" height="20" rx="10" fill="#10b981" fill-opacity="0.2" />
+      <text x="327" y="41" text-anchor="middle" fill="#34d399" font-family="monospace" font-size="10" font-weight="700">VERIFIED</text>
+
+      <text x="95" y="65" fill="#f59e0b" font-family="system-ui" font-size="12">★ 4.8 <tspan fill="#94a3b8">(98 reviews)</tspan> · 1.4 km away</text>
+      <text x="95" y="88" fill="#94a3b8" font-family="system-ui" font-size="12">Leak detection, pipe repairs, drainage cleaning</text>
+
+      <rect x="500" y="35" width="105" height="38" rx="19" fill="#1e293b" stroke="#38bdf8" />
+      <text x="552" y="59" text-anchor="middle" fill="#38bdf8" font-family="system-ui" font-size="12" font-weight="600">Book Now</text>
+    </g>
+
+    <!-- Provider Listing Card 3 -->
+    <g transform="translate(28, 380)">
+      <rect width="624" height="110" rx="14" fill="#0f172a" stroke="#334155" stroke-width="1" />
+      <circle cx="50" cy="55" r="28" fill="#1e293b" stroke="#334155" />
+      <text x="50" y="62" text-anchor="middle" fill="#9FCAFC" font-family="system-ui" font-size="20">❄️</text>
+
+      <text x="95" y="42" fill="#F2F4F6" font-family="system-ui" font-size="15" font-weight="700">CoolWave Climate Care</text>
+      <rect x="270" y="27" width="75" height="20" rx="10" fill="#10b981" fill-opacity="0.2" />
+      <text x="307" y="41" text-anchor="middle" fill="#34d399" font-family="monospace" font-size="10" font-weight="700">VERIFIED</text>
+
+      <text x="95" y="65" fill="#f59e0b" font-family="system-ui" font-size="12">★ 4.9 <tspan fill="#94a3b8">(210 reviews)</tspan> · 3.5 km away</text>
+      <text x="95" y="88" fill="#94a3b8" font-family="system-ui" font-size="12">AC servicing, gas charging, compressor replacements</text>
+
+      <rect x="500" y="35" width="105" height="38" rx="19" fill="#1e293b" stroke="#38bdf8" />
+      <text x="552" y="59" text-anchor="middle" fill="#38bdf8" font-family="system-ui" font-size="12" font-weight="600">Book Now</text>
+    </g>
+  </g>
+
+  <!-- Right: Customer Booking Lifecycle & Status -->
+  <g transform="translate(740, 115)">
+    <rect width="420" height="520" rx="16" fill="url(#fx-card)" stroke="#334155" stroke-width="1.2" />
+    <text x="28" y="38" fill="#F2F4F6" font-family="system-ui" font-size="16" font-weight="700">Live Booking Tracker</text>
+    <text x="28" y="58" fill="#38bdf8" font-family="monospace" font-size="11">Order #FX-8942 · Real-Time Updates</text>
+
+    <!-- Status Timeline -->
+    <g transform="translate(28, 85)">
+      <!-- Step 1 (Done) -->
+      <circle cx="20" cy="20" r="12" fill="#10b981" />
+      <text x="20" y="25" text-anchor="middle" fill="#ffffff" font-size="12">✓</text>
+      <line x1="20" y1="32" x2="20" y2="78" stroke="#10b981" stroke-width="3" />
+      <text x="45" y="18" fill="#F2F4F6" font-family="system-ui" font-size="13" font-weight="600">Booking Confirmed</text>
+      <text x="45" y="35" fill="#94a3b8" font-family="monospace" font-size="11">10:15 AM · Scheduled</text>
+
+      <!-- Step 2 (Active) -->
+      <circle cx="20" cy="90" r="14" fill="#38bdf8" />
+      <circle cx="20" cy="90" r="8" fill="#ffffff" />
+      <line x1="20" y1="104" x2="20" y2="150" stroke="#334155" stroke-width="3" stroke-dasharray="3 3" />
+      <text x="45" y="88" fill="#38bdf8" font-family="system-ui" font-size="14" font-weight="700">Professional En Route</text>
+      <text x="45" y="105" fill="#94a3b8" font-family="monospace" font-size="11">ETA: 12 minutes (Vashi Sec 17)</text>
+
+      <!-- Step 3 (Pending) -->
+      <circle cx="20" cy="160" r="10" fill="#1e293b" stroke="#334155" stroke-width="2" />
+      <line x1="20" y1="170" x2="20" y2="215" stroke="#334155" stroke-width="3" stroke-dasharray="3 3" />
+      <text x="45" y="158" fill="#64748b" font-family="system-ui" font-size="13">Service in Progress</text>
+
+      <!-- Step 4 (Pending) -->
+      <circle cx="20" cy="225" r="10" fill="#1e293b" stroke="#334155" stroke-width="2" />
+      <text x="45" y="223" fill="#64748b" font-family="system-ui" font-size="13">Completed &amp; Payment</text>
+    </g>
+
+    <!-- Architecture & Tech Stack Card -->
+    <rect x="25" y="340" width="370" height="150" rx="12" fill="#0f172a" stroke="#334155" stroke-width="1" />
+    <text x="40" y="370" fill="#F2F4F6" font-family="system-ui" font-size="13" font-weight="700">Architecture &amp; Data Layer</text>
+    <text x="40" y="395" fill="#94a3b8" font-family="system-ui" font-size="12">Frontend: <tspan fill="#38bdf8">React 19 + Tailwind CSS</tspan></text>
+    <text x="40" y="420" fill="#94a3b8" font-family="system-ui" font-size="12">Backend: <tspan fill="#10b981">Node.js + Express REST APIs</tspan></text>
+    <text x="40" y="445" fill="#94a3b8" font-family="system-ui" font-size="12">Database: <tspan fill="#34d399">MongoDB Atlas Cluster</tspan></text>
+    <text x="40" y="470" fill="#94a3b8" font-family="system-ui" font-size="12">Deployment: <tspan fill="#9FCAFC">Vercel (UI) &amp; Render (API)</tspan></text>
+  </g>
+</svg>

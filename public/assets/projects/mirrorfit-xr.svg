@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="mf-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e17" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <linearGradient id="mf-cyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+    <linearGradient id="mf-frame" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#mf-bg)" />
+
+  <!-- Top Navigation Header -->
+  <rect x="40" y="30" width="1120" height="64" rx="16" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+  <circle cx="75" cy="62" r="8" fill="#ef4444" />
+  <circle cx="100" cy="62" r="8" fill="#f59e0b" />
+  <circle cx="125" cy="62" r="8" fill="#10b981" />
+
+  <text x="160" y="68" fill="#F2F4F6" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700">MIRRORFIT XR</text>
+  <rect x="315" y="49" width="195" height="26" rx="13" fill="#818cf8" fill-opacity="0.15" stroke="#818cf8" stroke-opacity="0.4" />
+  <text x="412" y="67" text-anchor="middle" fill="#818cf8" font-family="monospace" font-size="12" font-weight="600">3D VIRTUAL TRY-ON &amp; MESH</text>
+
+  <rect x="940" y="47" width="195" height="30" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="1" />
+  <circle cx="960" cy="62" r="5" fill="#10b981" />
+  <text x="975" y="67" fill="#38bdf8" font-family="monospace" font-size="12">Live Camera · 34.2 FPS</text>
+
+  <!-- Main Viewport: Camera Feed with Real-Time Face Mesh Tracking -->
+  <g transform="translate(40, 115)">
+    <!-- Camera Viewport Box -->
+    <rect width="700" height="520" rx="16" fill="#030712" stroke="#334155" stroke-width="1.5" />
+
+    <!-- Corner HUD Targeting brackets -->
+    <path d="M 30 60 L 30 30 L 60 30" fill="none" stroke="#38bdf8" stroke-width="3" />
+    <path d="M 670 60 L 670 30 L 640 30" fill="none" stroke="#38bdf8" stroke-width="3" />
+    <path d="M 30 460 L 30 490 L 60 490" fill="none" stroke="#38bdf8" stroke-width="3" />
+    <path d="M 670 460 L 670 490 L 640 490" fill="none" stroke="#38bdf8" stroke-width="3" />
+
+    <!-- Head & Face Mesh Contour (MediaPipe 468-point simulation) -->
+    <!-- Stylized Head Silhouette -->
+    <ellipse cx="350" cy="270" rx="160" ry="210" fill="#0f172a" stroke="#1e293b" stroke-width="2" />
+    
+    <!-- Wireframe Face Mesh Lines -->
+    <path d="M 230 180 Q 350 140 470 180" fill="none" stroke="#38bdf8" stroke-width="1" stroke-dasharray="3 3" opacity="0.6" />
+    <path d="M 210 240 Q 350 200 490 240" fill="none" stroke="#38bdf8" stroke-width="1" stroke-dasharray="3 3" opacity="0.6" />
+    <path d="M 210 320 Q 350 380 490 320" fill="none" stroke="#38bdf8" stroke-width="1" stroke-dasharray="3 3" opacity="0.6" />
+    <path d="M 250 400 Q 350 460 450 400" fill="none" stroke="#38bdf8" stroke-width="1" stroke-dasharray="3 3" opacity="0.6" />
+
+    <!-- Vertical Central Facial Axis -->
+    <line x1="350" y1="120" x2="350" y2="440" stroke="#818cf8" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.7" />
+
+    <!-- Mesh Points (Eyes, Nose, Cheeks, Jaw) -->
+    <g fill="#38bdf8" opacity="0.8">
+      <!-- Left Eye Contour -->
+      <circle cx="280" cy="235" r="3" /><circle cx="300" cy="230" r="3" /><circle cx="320" cy="235" r="3" /><circle cx="300" cy="242" r="3" />
+      <!-- Right Eye Contour -->
+      <circle cx="380" cy="235" r="3" /><circle cx="400" cy="230" r="3" /><circle cx="420" cy="235" r="3" /><circle cx="400" cy="242" r="3" />
+      <!-- Nose Bridge & Tip -->
+      <circle cx="350" cy="225" r="3" /><circle cx="350" cy="260" r="3" /><circle cx="350" cy="290" r="4" fill="#818cf8" /><circle cx="335" cy="295" r="3" /><circle cx="365" cy="295" r="3" />
+      <!-- Lips Contour -->
+      <circle cx="320" cy="350" r="3" /><circle cx="350" cy="342" r="3" /><circle cx="380" cy="350" r="3" /><circle cx="350" cy="365" r="3" />
+      <!-- Cheeks & Chin -->
+      <circle cx="240" cy="280" r="3" /><circle cx="460" cy="280" r="3" /><circle cx="260" cy="340" r="3" /><circle cx="440" cy="340" r="3" /><circle cx="350" cy="425" r="4" fill="#818cf8" />
+    </g>
+
+    <!-- 3D Projected Eyewear (Virtual Try-on Glasses Layer) -->
+    <g transform="translate(185, 205)">
+      <!-- Left Lens Frame -->
+      <rect x="35" y="10" width="120" height="60" rx="18" fill="#1e1b4b" fill-opacity="0.6" stroke="#38bdf8" stroke-width="4" />
+      <!-- Right Lens Frame -->
+      <rect x="175" y="10" width="120" height="60" rx="18" fill="#1e1b4b" fill-opacity="0.6" stroke="#38bdf8" stroke-width="4" />
+      <!-- Bridge -->
+      <path d="M 155 35 Q 165 25 175 35" fill="none" stroke="#38bdf8" stroke-width="4" />
+      <!-- Left Temple Arm -->
+      <path d="M 35 30 L 0 20" fill="none" stroke="#38bdf8" stroke-width="3" />
+      <!-- Right Temple Arm -->
+      <path d="M 295 30 L 330 20" fill="none" stroke="#38bdf8" stroke-width="3" />
+      <!-- Lens Reflections -->
+      <polygon points="50,20 80,20 65,55 35,55" fill="#ffffff" fill-opacity="0.15" />
+      <polygon points="190,20 220,20 205,55 175,55" fill="#ffffff" fill-opacity="0.15" />
+    </g>
+
+    <!-- Head Pose Estimation Overlay Pill -->
+    <rect x="30" y="445" width="320" height="45" rx="10" fill="#0f172a" fill-opacity="0.9" stroke="#334155" stroke-width="1" />
+    <text x="45" y="473" fill="#9FCAFC" font-family="monospace" font-size="12">Yaw: -2.4° | Pitch: +1.1° | Roll: 0.0°</text>
+
+    <!-- Model Detection Pill -->
+    <rect x="490" y="445" width="180" height="45" rx="10" fill="#0f172a" fill-opacity="0.9" stroke="#334155" stroke-width="1" />
+    <circle cx="510" cy="467" r="5" fill="#10b981" />
+    <text x="525" y="473" fill="#10b981" font-family="monospace" font-size="12">Face Detected 99.4%</text>
+  </g>
+
+  <!-- Right Side: Computer Vision Pipeline & Model Selector -->
+  <g transform="translate(760, 115)">
+    <rect width="400" height="520" rx="16" fill="url(#mf-frame)" stroke="#334155" stroke-width="1.2" />
+    <text x="28" y="38" fill="#F2F4F6" font-family="system-ui" font-size="16" font-weight="700">Spatial Geometry Engine</text>
+    <text x="28" y="58" fill="#94a3b8" font-family="monospace" font-size="11">OpenCV · MediaPipe · PyTorch</text>
+
+    <!-- Landmark Metric Card -->
+    <rect x="25" y="80" width="350" height="90" rx="12" fill="#0f172a" stroke="#334155" stroke-width="1" />
+    <text x="40" y="110" fill="#94a3b8" font-family="system-ui" font-size="12">Facial Landmark Density</text>
+    <text x="40" y="145" fill="#F2F4F6" font-family="system-ui" font-size="28" font-weight="800">468 Points</text>
+    <text x="250" y="142" fill="#38bdf8" font-family="monospace" font-size="12">3D Mesh</text>
+
+    <!-- Eyewear Catalog Selector -->
+    <text x="28" y="200" fill="#F2F4F6" font-family="system-ui" font-size="14" font-weight="600">Active Accessory Model</text>
+    
+    <!-- Option 1: Selected Glasses -->
+    <rect x="25" y="215" width="350" height="65" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5" />
+    <text x="45" y="242" fill="#F2F4F6" font-family="system-ui" font-size="13" font-weight="600">Aero Black Aviators (3D)</text>
+    <text x="45" y="262" fill="#38bdf8" font-family="monospace" font-size="11">Alpha Blended · Dynamic Scaling ON</text>
+    <circle cx="345" cy="247" r="6" fill="#38bdf8" />
+
+    <!-- Option 2 -->
+    <rect x="25" y="290" width="350" height="65" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1" />
+    <text x="45" y="317" fill="#94a3b8" font-family="system-ui" font-size="13" font-weight="600">Wayfarer Classic Polarized</text>
+    <text x="45" y="337" fill="#64748b" font-family="monospace" font-size="11">Ready to Project</text>
+
+    <!-- Performance Stats -->
+    <rect x="25" y="375" width="350" height="115" rx="12" fill="#0f172a" stroke="#334155" stroke-width="1" />
+    <text x="40" y="405" fill="#F2F4F6" font-family="system-ui" font-size="13" font-weight="700">Real-Time Performance</text>
+    <text x="40" y="430" fill="#94a3b8" font-family="system-ui" font-size="12">Inference Latency: <tspan fill="#10b981" font-weight="700">22 ms</tspan></text>
+    <text x="40" y="452" fill="#94a3b8" font-family="system-ui" font-size="12">Coordinate Stability: <tspan fill="#38bdf8" font-weight="700">99.2% (Kalman)</tspan></text>
+    <text x="40" y="474" fill="#94a3b8" font-family="system-ui" font-size="12">Look Snapshots: <tspan fill="#F2F4F6">Export to PNG Ready</tspan></text>
+  </g>
+</svg>

@@ -70,13 +70,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             </h3>
 
             {/* Preview image */}
-            <div className="relative w-full h-52 sm:h-64 rounded-2xl overflow-hidden mb-6 bg-slate-950 border border-[#E2E5E9] dark:border-[#2C2C2A]">
+            <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-6 bg-slate-950 border border-[#E2E5E9] dark:border-[#2C2C2A]">
               <img
                 src={project.thumbnail}
                 alt={project.title}
-                className="w-full h-full object-cover object-top opacity-90 hover:opacity-100 transition-opacity"
+                className="w-full h-full object-cover object-top opacity-95 hover:opacity-100 transition-opacity"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#111110] via-transparent to-transparent opacity-75" />
             </div>
 
             {/* Detailed Narrative */}

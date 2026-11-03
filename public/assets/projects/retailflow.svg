@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="rf-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117" />
+      <stop offset="100%" stop-color="#161b22" />
+    </linearGradient>
+    <linearGradient id="rf-blue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#9FCAFC" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    <linearGradient id="rf-card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1f2937" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#111827" stop-opacity="0.95" />
+    </linearGradient>
+    <pattern id="rf-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#253041" stroke-width="0.7" opacity="0.4" />
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#rf-bg)" />
+  <rect width="1200" height="675" fill="url(#rf-grid)" />
+
+  <!-- Top App Navigation Bar -->
+  <rect x="40" y="30" width="1120" height="64" rx="16" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+  <circle cx="75" cy="62" r="8" fill="#ef4444" />
+  <circle cx="100" cy="62" r="8" fill="#f59e0b" />
+  <circle cx="125" cy="62" r="8" fill="#10b981" />
+
+  <text x="160" y="68" fill="#F2F4F6" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700">RetailFlow</text>
+  <rect x="275" y="49" width="160" height="26" rx="13" fill="#9FCAFC" fill-opacity="0.15" stroke="#9FCAFC" stroke-opacity="0.4" />
+  <text x="355" y="67" text-anchor="middle" fill="#9FCAFC" font-family="monospace" font-size="12" font-weight="600">ETL PIPELINE ACTIVE</text>
+
+  <rect x="990" y="47" width="145" height="30" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="1" />
+  <circle cx="1010" cy="62" r="5" fill="#10b981" />
+  <text x="1025" y="67" fill="#94a3b8" font-family="monospace" font-size="12">Sync: 1.2s</text>
+
+  <!-- KPI Tiles -->
+  <g transform="translate(40, 115)">
+    <!-- Tile 1 -->
+    <rect x="0" y="0" width="260" height="100" rx="14" fill="url(#rf-card)" stroke="#334155" stroke-width="1.2" />
+    <text x="24" y="34" fill="#94a3b8" font-family="system-ui" font-size="13" font-weight="500">Processed Transactions</text>
+    <text x="24" y="74" fill="#F2F4F6" font-family="system-ui" font-size="28" font-weight="800">1,482,900</text>
+    <text x="215" y="72" fill="#10b981" font-family="monospace" font-size="13" font-weight="700">↑ 18%</text>
+
+    <!-- Tile 2 -->
+    <rect x="286" y="0" width="260" height="100" rx="14" fill="url(#rf-card)" stroke="#334155" stroke-width="1.2" />
+    <text x="310" y="34" fill="#94a3b8" font-family="system-ui" font-size="13" font-weight="500">Data Pipeline Quality</text>
+    <text x="310" y="74" fill="#38bdf8" font-family="system-ui" font-size="28" font-weight="800">99.98%</text>
+    <text x="500" y="72" fill="#9FCAFC" font-family="monospace" font-size="13" font-weight="600">Strict</text>
+
+    <!-- Tile 3 -->
+    <rect x="572" y="0" width="260" height="100" rx="14" fill="url(#rf-card)" stroke="#334155" stroke-width="1.2" />
+    <text x="596" y="34" fill="#94a3b8" font-family="system-ui" font-size="13" font-weight="500">Gross Retail Revenue</text>
+    <text x="596" y="74" fill="#F2F4F6" font-family="system-ui" font-size="28" font-weight="800">$4.85M</text>
+    <text x="785" y="72" fill="#10b981" font-family="monospace" font-size="13" font-weight="700">+12%</text>
+
+    <!-- Tile 4 -->
+    <rect x="858" y="0" width="262" height="100" rx="14" fill="url(#rf-card)" stroke="#334155" stroke-width="1.2" />
+    <text x="882" y="34" fill="#94a3b8" font-family="system-ui" font-size="13" font-weight="500">Incremental DB Latency</text>
+    <text x="882" y="74" fill="#10b981" font-family="system-ui" font-size="28" font-weight="800">14 ms</text>
+    <text x="1070" y="72" fill="#94a3b8" font-family="monospace" font-size="13">MySQL</text>
+  </g>
+
+  <!-- Left: Pipeline Stage Workflow Architecture -->
+  <g transform="translate(40, 235)">
+    <rect width="470" height="400" rx="16" fill="url(#rf-card)" stroke="#334155" stroke-width="1.2" />
+    <text x="28" y="40" fill="#F2F4F6" font-family="system-ui" font-size="17" font-weight="700">Automated ETL Architecture</text>
+    <text x="28" y="62" fill="#94a3b8" font-family="monospace" font-size="12">Watchdog Directory → Validation → MySQL</text>
+
+    <!-- Step 1 -->
+    <rect x="28" y="85" width="414" height="60" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2" />
+    <circle cx="58" cy="115" r="14" fill="#38bdf8" fill-opacity="0.2" />
+    <text x="58" y="120" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="13" font-weight="700">01</text>
+    <text x="86" y="110" fill="#F2F4F6" font-family="system-ui" font-size="14" font-weight="600">CSV Drop Ingestion (Watchdog)</text>
+    <text x="86" y="130" fill="#94a3b8" font-family="monospace" font-size="11">Monitors live folder · Auto-triggers on write</text>
+    <circle cx="418" cy="115" r="6" fill="#10b981" />
+
+    <!-- Connector 1 -->
+    <line x1="235" y1="145" x2="235" y2="165" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 3" />
+
+    <!-- Step 2 -->
+    <rect x="28" y="165" width="414" height="60" rx="10" fill="#1e293b" stroke="#9FCAFC" stroke-width="1.2" />
+    <circle cx="58" cy="195" r="14" fill="#9FCAFC" fill-opacity="0.2" />
+    <text x="58" y="200" text-anchor="middle" fill="#9FCAFC" font-family="monospace" font-size="13" font-weight="700">02</text>
+    <text x="86" y="190" fill="#F2F4F6" font-family="system-ui" font-size="14" font-weight="600">Pandas Cleaning &amp; Schema Check</text>
+    <text x="86" y="210" fill="#94a3b8" font-family="monospace" font-size="11">Type casting, anomaly removal, null impute</text>
+    <circle cx="418" cy="195" r="6" fill="#10b981" />
+
+    <!-- Connector 2 -->
+    <line x1="235" y1="225" x2="235" y2="245" stroke="#9FCAFC" stroke-width="2" stroke-dasharray="4 3" />
+
+    <!-- Step 3 -->
+    <rect x="28" y="245" width="414" height="60" rx="10" fill="#1e293b" stroke="#60a5fa" stroke-width="1.2" />
+    <circle cx="58" cy="275" r="14" fill="#60a5fa" fill-opacity="0.2" />
+    <text x="58" y="280" text-anchor="middle" fill="#60a5fa" font-family="monospace" font-size="13" font-weight="700">03</text>
+    <text x="86" y="270" fill="#F2F4F6" font-family="system-ui" font-size="14" font-weight="600">Feature Engineering &amp; KPIs</text>
+    <text x="86" y="290" fill="#94a3b8" font-family="monospace" font-size="11">Basket metrics, customer RFM, profit margins</text>
+    <circle cx="418" cy="275" r="6" fill="#10b981" />
+
+    <!-- Connector 3 -->
+    <line x1="235" y1="305" x2="235" y2="325" stroke="#60a5fa" stroke-width="2" stroke-dasharray="4 3" />
+
+    <!-- Step 4 -->
+    <rect x="28" y="325" width="414" height="60" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="1.2" />
+    <circle cx="58" cy="355" r="14" fill="#10b981" fill-opacity="0.2" />
+    <text x="58" y="360" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="13" font-weight="700">04</text>
+    <text x="86" y="350" fill="#F2F4F6" font-family="system-ui" font-size="14" font-weight="600">Incremental MySQL Data Warehouse</text>
+    <text x="86" y="370" fill="#94a3b8" font-family="monospace" font-size="11">Atomic transactions &amp; Power BI live views</text>
+    <circle cx="418" cy="355" r="6" fill="#10b981" />
+  </g>
+
+  <!-- Right: Real-Time Retail Analytics Dashboard -->
+  <g transform="translate(530, 235)">
+    <rect width="630" height="400" rx="16" fill="url(#rf-card)" stroke="#334155" stroke-width="1.2" />
+    <text x="28" y="40" fill="#F2F4F6" font-family="system-ui" font-size="17" font-weight="700">Retail Sales Velocity &amp; Category Trends</text>
+    <text x="28" y="62" fill="#94a3b8" font-family="monospace" font-size="12">Power BI Integrated Metrics Feed</text>
+
+    <!-- Bar Chart Grid -->
+    <g transform="translate(40, 90)">
+      <line x1="0" y1="0" x2="540" y2="0" stroke="#334155" stroke-dasharray="3 3" />
+      <line x1="0" y1="45" x2="540" y2="45" stroke="#334155" stroke-dasharray="3 3" />
+      <line x1="0" y1="90" x2="540" y2="90" stroke="#334155" stroke-dasharray="3 3" />
+      <line x1="0" y1="135" x2="540" y2="135" stroke="#334155" stroke-dasharray="3 3" />
+      <line x1="0" y1="180" x2="540" y2="180" stroke="#475569" stroke-width="1.5" />
+
+      <!-- Bars -->
+      <rect x="25" y="45" width="45" height="135" rx="6" fill="#38bdf8" />
+      <rect x="105" y="25" width="45" height="155" rx="6" fill="#9FCAFC" />
+      <rect x="185" y="70" width="45" height="110" rx="6" fill="#38bdf8" />
+      <rect x="265" y="15" width="45" height="165" rx="6" fill="#60a5fa" />
+      <rect x="345" y="55" width="45" height="125" rx="6" fill="#9FCAFC" />
+      <rect x="425" y="30" width="45" height="150" rx="6" fill="#38bdf8" />
+
+      <!-- Bar Labels -->
+      <text x="47" y="200" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="11">Apparel</text>
+      <text x="127" y="200" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="11">Electronics</text>
+      <text x="207" y="200" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="11">Home</text>
+      <text x="287" y="200" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="11">Beauty</text>
+      <text x="367" y="200" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="11">Grocery</text>
+      <text x="447" y="200" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="11">Sports</text>
+
+      <!-- Trend Line Overlay -->
+      <polyline points="47,65 127,40 207,85 287,30 367,70 447,45" fill="none" stroke="#f59e0b" stroke-width="3" stroke-linecap="round" />
+      <circle cx="47" cy="65" r="4" fill="#f59e0b" />
+      <circle cx="127" cy="40" r="4" fill="#f59e0b" />
+      <circle cx="207" cy="85" r="4" fill="#f59e0b" />
+      <circle cx="287" cy="30" r="4" fill="#f59e0b" />
+      <circle cx="367" cy="70" r="4" fill="#f59e0b" />
+      <circle cx="447" cy="45" r="4" fill="#f59e0b" />
+    </g>
+
+    <!-- Mini KPI strip at bottom of right card -->
+    <g transform="translate(28, 315)">
+      <rect width="574" height="65" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1" />
+      <text x="24" y="28" fill="#94a3b8" font-family="monospace" font-size="11">SCHEMA VALIDATION</text>
+      <text x="24" y="49" fill="#10b981" font-family="system-ui" font-size="15" font-weight="700">100% Passed · Zero Inconsistencies</text>
+
+      <text x="380" y="28" fill="#94a3b8" font-family="monospace" font-size="11">DATABASE ADAPTER</text>
+      <text x="380" y="49" fill="#9FCAFC" font-family="system-ui" font-size="15" font-weight="700">SQLAlchemy + MySQL</text>
+    </g>
+  </g>
+</svg>

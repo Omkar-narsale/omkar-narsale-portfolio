@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="db-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#041f2a" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="db-card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0e2a38" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#081822" stop-opacity="0.98" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#db-bg)" />
+
+  <!-- Top Power BI / Analytics Header -->
+  <rect x="40" y="30" width="1120" height="64" rx="16" fill="#0f2b38" stroke="#164e63" stroke-width="1.5" />
+  <circle cx="75" cy="62" r="8" fill="#ef4444" />
+  <circle cx="100" cy="62" r="8" fill="#f59e0b" />
+  <circle cx="125" cy="62" r="8" fill="#10b981" />
+
+  <text x="160" y="68" fill="#F2F4F6" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700">Diabetes Risk &amp; Lifestyle Analytics</text>
+  <rect x="525" y="49" width="195" height="26" rx="13" fill="#06b6d4" fill-opacity="0.15" stroke="#06b6d4" stroke-opacity="0.4" />
+  <text x="622" y="67" text-anchor="middle" fill="#22d3ee" font-family="monospace" font-size="12" font-weight="600">CLINICAL DAX MODEL</text>
+
+  <rect x="990" y="47" width="145" height="30" rx="8" fill="#082f49" stroke="#38bdf8" stroke-width="1" />
+  <text x="1062" y="67" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="12">Power BI Suite</text>
+
+  <!-- Top KPI Tiles -->
+  <g transform="translate(40, 115)">
+    <rect x="0" y="0" width="260" height="95" rx="14" fill="url(#db-card)" stroke="#164e63" stroke-width="1.2" />
+    <text x="24" y="32" fill="#94a3b8" font-family="system-ui" font-size="13">Analyzed Patient Cohort</text>
+    <text x="24" y="68" fill="#F2F4F6" font-family="system-ui" font-size="26" font-weight="800">76,800</text>
+    <text x="200" y="66" fill="#38bdf8" font-family="monospace" font-size="12">Records</text>
+
+    <rect x="286" y="0" width="260" height="95" rx="14" fill="url(#db-card)" stroke="#164e63" stroke-width="1.2" />
+    <text x="310" y="32" fill="#94a3b8" font-family="system-ui" font-size="13">High Risk Propensity</text>
+    <text x="310" y="68" fill="#f87171" font-family="system-ui" font-size="26" font-weight="800">31.4%</text>
+    <text x="475" y="66" fill="#fca5a5" font-family="monospace" font-size="12">Elevated</text>
+
+    <rect x="572" y="0" width="260" height="95" rx="14" fill="url(#db-card)" stroke="#164e63" stroke-width="1.2" />
+    <text x="596" y="32" fill="#94a3b8" font-family="system-ui" font-size="13">Avg Fasting Glucose</text>
+    <text x="596" y="68" fill="#fbbf24" font-family="system-ui" font-size="26" font-weight="800">142 mg/dL</text>
+    <text x="765" y="66" fill="#fcd34d" font-family="monospace" font-size="12">Borderline</text>
+
+    <rect x="858" y="0" width="262" height="95" rx="14" fill="url(#db-card)" stroke="#164e63" stroke-width="1.2" />
+    <text x="882" y="32" fill="#94a3b8" font-family="system-ui" font-size="13">Physical Inactivity Factor</text>
+    <text x="882" y="68" fill="#38bdf8" font-family="system-ui" font-size="26" font-weight="800">48.2%</text>
+    <text x="1055" y="66" fill="#9FCAFC" font-family="monospace" font-size="12">Lifestyle</text>
+  </g>
+
+  <!-- Left Chart: BMI vs Age Risk Heatmap & Scatter -->
+  <g transform="translate(40, 230)">
+    <rect width="540" height="405" rx="16" fill="url(#db-card)" stroke="#164e63" stroke-width="1.2" />
+    <text x="28" y="38" fill="#F2F4F6" font-family="system-ui" font-size="16" font-weight="700">Risk Correlation: BMI vs. Age Demographic</text>
+    <text x="28" y="58" fill="#94a3b8" font-family="monospace" font-size="11">Custom DAX Risk Score Grouping</text>
+
+    <!-- Scatter Plot Area -->
+    <g transform="translate(50, 90)">
+      <line x1="0" y1="0" x2="440" y2="0" stroke="#1e3a47" stroke-dasharray="3 3" />
+      <line x1="0" y1="60" x2="440" y2="60" stroke="#1e3a47" stroke-dasharray="3 3" />
+      <line x1="0" y1="120" x2="440" y2="120" stroke="#1e3a47" stroke-dasharray="3 3" />
+      <line x1="0" y1="180" x2="440" y2="180" stroke="#1e3a47" stroke-dasharray="3 3" />
+      <line x1="0" y1="240" x2="440" y2="240" stroke="#334155" stroke-width="1.5" />
+
+      <!-- Scatter Nodes: Green (Low Risk), Yellow (Moderate), Red (High Risk) -->
+      <!-- Low Risk Group (Younger / Normal BMI) -->
+      <circle cx="50" cy="210" r="6" fill="#10b981" opacity="0.8" />
+      <circle cx="80" cy="190" r="5" fill="#10b981" opacity="0.8" />
+      <circle cx="110" cy="200" r="6" fill="#10b981" opacity="0.8" />
+      <circle cx="130" cy="170" r="7" fill="#10b981" opacity="0.8" />
+      <circle cx="160" cy="180" r="5" fill="#10b981" opacity="0.8" />
+
+      <!-- Moderate Risk Group -->
+      <circle cx="180" cy="140" r="6" fill="#fbbf24" opacity="0.8" />
+      <circle cx="210" cy="130" r="7" fill="#fbbf24" opacity="0.8" />
+      <circle cx="240" cy="120" r="6" fill="#fbbf24" opacity="0.8" />
+      <circle cx="270" cy="110" r="8" fill="#fbbf24" opacity="0.8" />
+      <circle cx="300" cy="95" r="7" fill="#fbbf24" opacity="0.8" />
+
+      <!-- High Risk Cluster (Higher BMI & Older Age) -->
+      <circle cx="320" cy="65" r="9" fill="#ef4444" opacity="0.8" />
+      <circle cx="350" cy="45" r="8" fill="#ef4444" opacity="0.8" />
+      <circle cx="380" cy="30" r="10" fill="#ef4444" opacity="0.8" />
+      <circle cx="410" cy="20" r="11" fill="#ef4444" opacity="0.8" />
+
+      <!-- Axes Labels -->
+      <text x="0" y="260" fill="#94a3b8" font-family="monospace" font-size="11">Age 20</text>
+      <text x="140" y="260" fill="#94a3b8" font-family="monospace" font-size="11">Age 35</text>
+      <text x="280" y="260" fill="#94a3b8" font-family="monospace" font-size="11">Age 50</text>
+      <text x="400" y="260" fill="#94a3b8" font-family="monospace" font-size="11">Age 65+</text>
+    </g>
+
+    <!-- Legend -->
+    <g transform="translate(50, 360)">
+      <circle cx="10" cy="10" r="5" fill="#10b981" />
+      <text x="25" y="14" fill="#94a3b8" font-family="system-ui" font-size="12">Low Risk (&lt;10%)</text>
+
+      <circle cx="160" cy="10" r="5" fill="#fbbf24" />
+      <text x="175" y="14" fill="#94a3b8" font-family="system-ui" font-size="12">Moderate Risk (10-30%)</text>
+
+      <circle cx="330" cy="10" r="5" fill="#ef4444" />
+      <text x="345" y="14" fill="#94a3b8" font-family="system-ui" font-size="12">High Propensity (&gt;30%)</text>
+    </g>
+  </g>
+
+  <!-- Right Chart: Lifestyle Indicator Contributions (Bar breakdown) -->
+  <g transform="translate(605, 230)">
+    <rect width="555" height="405" rx="16" fill="url(#db-card)" stroke="#164e63" stroke-width="1.2" />
+    <text x="28" y="38" fill="#F2F4F6" font-family="system-ui" font-size="16" font-weight="700">Lifestyle Risk Indicators Impact</text>
+    <text x="28" y="58" fill="#94a3b8" font-family="monospace" font-size="11">Multivariate Regression Odds Ratio</text>
+
+    <!-- Bar Rows -->
+    <g transform="translate(28, 85)">
+      <!-- Factor 1 -->
+      <text x="0" y="18" fill="#F2F4F6" font-family="system-ui" font-size="13" font-weight="600">High Fasting Blood Sugar</text>
+      <text x="440" y="18" fill="#f87171" font-family="monospace" font-size="13" font-weight="700">+82% Risk</text>
+      <rect x="0" y="28" width="480" height="18" rx="9" fill="#082f49" />
+      <rect x="0" y="28" width="395" height="18" rx="9" fill="#ef4444" />
+
+      <!-- Factor 2 -->
+      <text x="0" y="80" fill="#F2F4F6" font-family="system-ui" font-size="13" font-weight="600">Elevated BMI (&gt; 28.5)</text>
+      <text x="440" y="80" fill="#fbbf24" font-family="monospace" font-size="13" font-weight="700">+64% Risk</text>
+      <rect x="0" y="90" width="480" height="18" rx="9" fill="#082f49" />
+      <rect x="0" y="90" width="308" height="18" rx="9" fill="#f59e0b" />
+
+      <!-- Factor 3 -->
+      <text x="0" y="142" fill="#F2F4F6" font-family="system-ui" font-size="13" font-weight="600">Sedentary Work Routine</text>
+      <text x="440" y="142" fill="#38bdf8" font-family="monospace" font-size="13" font-weight="700">+48% Risk</text>
+      <rect x="0" y="152" width="480" height="18" rx="9" fill="#082f49" />
+      <rect x="0" y="152" width="230" height="18" rx="9" fill="#38bdf8" />
+
+      <!-- Factor 4 -->
+      <text x="0" y="204" fill="#F2F4F6" font-family="system-ui" font-size="13" font-weight="600">Irregular Sleep Cycle (&lt;6 hrs)</text>
+      <text x="440" y="204" fill="#9FCAFC" font-family="monospace" font-size="13" font-weight="700">+35% Risk</text>
+      <rect x="0" y="214" width="480" height="18" rx="9" fill="#082f49" />
+      <rect x="0" y="214" width="168" height="18" rx="9" fill="#9FCAFC" />
+    </g>
+
+    <!-- Bottom summary box -->
+    <rect x="28" y="335" width="499" height="50" rx="10" fill="#032b38" stroke="#164e63" stroke-width="1" />
+    <text x="45" y="365" fill="#22d3ee" font-family="monospace" font-size="12">DAX Formulation: 14 dynamic measures · Cleaned in Power Query</text>
+  </g>
+</svg>

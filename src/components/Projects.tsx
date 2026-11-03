@@ -11,12 +11,12 @@ import { customEase } from '../utils/animations';
 
 const CATEGORIES = [
   'All',
+  'Data Analytics',
   'Data Engineering',
   'Artificial Intelligence',
   'Computer Vision',
-  'Data Analytics',
   'Full Stack',
-  'AI/ML'
+  'IoT / Hardware'
 ];
 
 export const Projects: React.FC = () => {
@@ -28,8 +28,8 @@ export const Projects: React.FC = () => {
     const matchesCategory =
       selectedCategory === 'All' ||
       p.category.toLowerCase() === selectedCategory.toLowerCase() ||
-      (selectedCategory === 'AI/ML' && (p.category === 'AI/ML' || p.category === 'Artificial Intelligence')) ||
-      (selectedCategory === 'Artificial Intelligence' && (p.category === 'AI/ML' || p.category === 'Artificial Intelligence'));
+      (selectedCategory === 'Artificial Intelligence' && (p.category === 'AI/ML' || p.category === 'Artificial Intelligence')) ||
+      (selectedCategory === 'IoT / Hardware' && (p.category === 'IoT / Hardware' || p.category.includes('IoT')));
 
     if (!searchQuery.trim()) return matchesCategory;
 
@@ -115,7 +115,7 @@ export const Projects: React.FC = () => {
         </motion.div>
 
         {/* Project Cards Grid with Motion Hover */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 items-stretch">
           <AnimatePresence>
             {filteredProjects.map((project, idx) => (
               <motion.div
@@ -126,44 +126,43 @@ export const Projects: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05, duration: 0.55, ease: customEase }}
                 whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                className="flex flex-col justify-between rounded-3xl glass-panel border border-[#E2E5E9] dark:border-[#2C2C2A] bg-white dark:bg-[#191918] overflow-hidden group shadow-sm hover:border-[#9FCAFC]/60 hover:shadow-xl dark:hover:shadow-[0_16px_36px_rgba(159,202,252,0.12)] transition-colors duration-300"
+                className="flex flex-col justify-between h-full rounded-3xl glass-panel border border-[#E2E5E9] dark:border-[#2C2C2A] bg-white dark:bg-[#191918] overflow-hidden group shadow-sm hover:border-[#9FCAFC]/60 hover:shadow-xl dark:hover:shadow-[0_16px_36px_rgba(159,202,252,0.12)] transition-colors duration-300"
               >
-                <div>
-                  {/* Visual Thumbnail with Zoom on Hover */}
-                  <div className="relative h-48 w-full overflow-hidden bg-slate-950">
+                <div className="flex flex-col flex-1">
+                  {/* Visual 16:9 Thumbnail with Zoom on Hover */}
+                  <div className="relative aspect-video w-full overflow-hidden bg-slate-950 border-b border-[#E2E5E9] dark:border-[#2C2C2A]">
                     <img
                       src={project.thumbnail}
                       alt={project.title}
-                      className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-600 ease-out"
+                      className="w-full h-full object-cover object-top opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-500 ease-out"
+                      loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#111110] via-transparent to-transparent opacity-80" />
                     
                     {/* Floating Badges */}
-                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
-                      <span className="px-3 py-1 rounded-full text-[11px] font-mono font-semibold bg-[#111110]/90 text-[#9FCAFC] border border-[#2C2C2A] backdrop-blur-md">
+                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none gap-2">
+                      <span className="px-2.5 py-1 rounded-full text-[11px] font-mono font-semibold bg-[#111110]/85 text-[#9FCAFC] border border-[#2C2C2A]/80 backdrop-blur-md shadow-xs">
                         {project.category}
                       </span>
-                      <span className="px-3 py-1 rounded-full text-[11px] font-mono font-medium bg-emerald-950/90 text-emerald-400 border border-emerald-800/80 backdrop-blur-md">
+                      <span className="px-2.5 py-1 rounded-full text-[11px] font-mono font-medium bg-emerald-950/85 text-emerald-400 border border-emerald-800/80 backdrop-blur-md shadow-xs">
                         {project.status}
                       </span>
-                    </div>
-
-                    <div className="absolute bottom-3 left-3 right-3">
-                      <h3 className="text-lg font-bold text-white group-hover:text-[#9FCAFC] transition-colors">
-                        {project.title}
-                      </h3>
                     </div>
                   </div>
 
                   {/* Card Body */}
-                  <div className="p-5 sm:p-6">
-                    <p className="text-xs sm:text-sm text-slate-600 dark:text-[#A8A9A8] line-clamp-3 mb-4 leading-relaxed">
-                      {project.description}
-                    </p>
+                  <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-lg font-bold text-[#111110] dark:text-[#F2F4F6] group-hover:text-[#9FCAFC] transition-colors mb-2 leading-snug">
+                        {project.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-600 dark:text-[#A8A9A8] line-clamp-3 mb-4 leading-relaxed">
+                        {project.description}
+                      </p>
+                    </div>
 
                     {/* Animated Tech Tags */}
-                    <div className="flex flex-wrap gap-1.5 mb-2">
-                      {project.technologies.slice(0, 5).map((t) => (
+                    <div className="flex flex-wrap gap-1.5 pt-2">
+                      {project.technologies.slice(0, 4).map((t) => (
                         <motion.span
                           key={t}
                           whileHover={{ scale: 1.05 }}
@@ -172,9 +171,9 @@ export const Projects: React.FC = () => {
                           {t}
                         </motion.span>
                       ))}
-                      {project.technologies.length > 5 && (
+                      {project.technologies.length > 4 && (
                         <span className="px-2 py-0.5 rounded-full text-[11px] font-mono text-[#A8A9A8]">
-                          +{project.technologies.length - 5}
+                          +{project.technologies.length - 4}
                         </span>
                       )}
                     </div>
@@ -182,7 +181,7 @@ export const Projects: React.FC = () => {
                 </div>
 
                 {/* Action Buttons with Micro-interactions */}
-                <div className="p-5 sm:p-6 pt-0 border-t border-[#E2E5E9] dark:border-[#2C2C2A] mt-3 flex items-center justify-between gap-2">
+                <div className="p-5 sm:p-6 pt-3 border-t border-[#E2E5E9] dark:border-[#2C2C2A] flex items-center justify-between gap-2 mt-auto">
                   <motion.button
                     whileHover={{ scale: 1.04 }}
                     whileTap={{ scale: 0.96 }}

@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="ns-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <linearGradient id="ns-card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95" />
+    </linearGradient>
+    <pattern id="ns-dots" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#334155" opacity="0.6" />
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#ns-bg)" />
+  <rect width="1200" height="675" fill="url(#ns-dots)" />
+
+  <!-- Top App Navigation Bar -->
+  <rect x="40" y="30" width="1120" height="64" rx="16" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+  <circle cx="75" cy="62" r="8" fill="#ef4444" />
+  <circle cx="100" cy="62" r="8" fill="#f59e0b" />
+  <circle cx="125" cy="62" r="8" fill="#10b981" />
+
+  <text x="160" y="68" fill="#F2F4F6" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700">NetSage AI</text>
+  <rect x="290" y="49" width="190" height="26" rx="13" fill="#38bdf8" fill-opacity="0.15" stroke="#38bdf8" stroke-opacity="0.4" />
+  <text x="385" y="67" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="12" font-weight="600">CISCO TOPOLOGY REASONER</text>
+
+  <rect x="940" y="47" width="195" height="30" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="1" />
+  <circle cx="960" cy="62" r="5" fill="#10b981" />
+  <text x="975" y="67" fill="#10b981" font-family="monospace" font-size="12">Groq LLaMA 3.3 · 70B</text>
+
+  <!-- Left Side: Interactive Network Topology Graph -->
+  <g transform="translate(40, 115)">
+    <rect width="600" height="520" rx="16" fill="url(#ns-card)" stroke="#334155" stroke-width="1.2" />
+    <text x="28" y="38" fill="#F2F4F6" font-family="system-ui" font-size="16" font-weight="700">Enterprise Network Topology Map</text>
+    <text x="28" y="58" fill="#94a3b8" font-family="monospace" font-size="11">Cisco Core &amp; Distribution Layer (OSPF Area 0)</text>
+
+    <!-- Topology Connections (Lines) -->
+    <line x1="300" y1="130" x2="160" y2="230" stroke="#38bdf8" stroke-width="2.5" />
+    <line x1="300" y1="130" x2="440" y2="230" stroke="#38bdf8" stroke-width="2.5" />
+    <line x1="160" y1="230" x2="440" y2="230" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 4" />
+    <line x1="160" y1="230" x2="100" y2="360" stroke="#10b981" stroke-width="2" />
+    <line x1="160" y1="230" x2="220" y2="360" stroke="#10b981" stroke-width="2" />
+    <line x1="440" y1="230" x2="380" y2="360" stroke="#10b981" stroke-width="2" />
+    <line x1="440" y1="230" x2="500" y2="360" stroke="#ef4444" stroke-width="2" stroke-dasharray="3 3" />
+
+    <!-- Node: Core Router R1 -->
+    <g transform="translate(255, 95)">
+      <rect width="90" height="65" rx="12" fill="#1e293b" stroke="#38bdf8" stroke-width="2" />
+      <circle cx="45" cy="25" r="10" fill="#38bdf8" fill-opacity="0.2" />
+      <text x="45" y="29" text-anchor="middle" fill="#38bdf8" font-family="system-ui" font-size="12" font-weight="700">R1</text>
+      <text x="45" y="47" text-anchor="middle" fill="#F2F4F6" font-family="monospace" font-size="10">Cisco 2901</text>
+      <circle cx="80" cy="12" r="4" fill="#10b981" />
+    </g>
+
+    <!-- Node: Distribution Switch SW-A -->
+    <g transform="translate(115, 195)">
+      <rect width="90" height="65" rx="12" fill="#1e293b" stroke="#9FCAFC" stroke-width="2" />
+      <circle cx="45" cy="25" r="10" fill="#9FCAFC" fill-opacity="0.2" />
+      <text x="45" y="29" text-anchor="middle" fill="#9FCAFC" font-family="system-ui" font-size="12" font-weight="700">SW1</text>
+      <text x="45" y="47" text-anchor="middle" fill="#F2F4F6" font-family="monospace" font-size="10">WS-C2960</text>
+      <circle cx="80" cy="12" r="4" fill="#10b981" />
+    </g>
+
+    <!-- Node: Distribution Switch SW-B -->
+    <g transform="translate(395, 195)">
+      <rect width="90" height="65" rx="12" fill="#1e293b" stroke="#9FCAFC" stroke-width="2" />
+      <circle cx="45" cy="25" r="10" fill="#9FCAFC" fill-opacity="0.2" />
+      <text x="45" y="29" text-anchor="middle" fill="#9FCAFC" font-family="system-ui" font-size="12" font-weight="700">SW2</text>
+      <text x="45" y="47" text-anchor="middle" fill="#F2F4F6" font-family="monospace" font-size="10">WS-C2960</text>
+      <circle cx="80" cy="12" r="4" fill="#f59e0b" />
+    </g>
+
+    <!-- Endpoints -->
+    <!-- PC1 -->
+    <g transform="translate(70, 340)">
+      <rect width="60" height="45" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1.2" />
+      <text x="30" y="24" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="10">VLAN 10</text>
+      <text x="30" y="37" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="9">Active</text>
+    </g>
+    <!-- PC2 -->
+    <g transform="translate(190, 340)">
+      <rect width="60" height="45" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1.2" />
+      <text x="30" y="24" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="10">VLAN 20</text>
+      <text x="30" y="37" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="9">Active</text>
+    </g>
+    <!-- Server 1 -->
+    <g transform="translate(350, 340)">
+      <rect width="60" height="45" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1.2" />
+      <text x="30" y="24" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="10">SRV-01</text>
+      <text x="30" y="37" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="9">Active</text>
+    </g>
+    <!-- Server 2 (Faulty link) -->
+    <g transform="translate(470, 340)">
+      <rect width="60" height="45" rx="8" fill="#450a0a" stroke="#ef4444" stroke-width="1.2" />
+      <text x="30" y="24" text-anchor="middle" fill="#fca5a5" font-family="monospace" font-size="10">SRV-02</text>
+      <text x="30" y="37" text-anchor="middle" fill="#ef4444" font-family="monospace" font-size="9">Timeout</text>
+    </g>
+
+    <!-- Bottom Status Bar -->
+    <g transform="translate(25, 435)">
+      <rect width="550" height="60" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1" />
+      <text x="20" y="25" fill="#94a3b8" font-family="monospace" font-size="11">TOPOLOGY TELEMETRY</text>
+      <text x="20" y="45" fill="#F2F4F6" font-family="system-ui" font-size="13" font-weight="600">6 Nodes Active · 1 Link Anomaly Detected</text>
+      <text x="420" y="35" fill="#38bdf8" font-family="monospace" font-size="12">Latency: 1.8ms</text>
+    </g>
+  </g>
+
+  <!-- Right Side: AI Diagnostic Reasoner & Cisco Rule Engine -->
+  <g transform="translate(660, 115)">
+    <rect width="500" height="520" rx="16" fill="url(#ns-card)" stroke="#334155" stroke-width="1.2" />
+    <text x="28" y="38" fill="#F2F4F6" font-family="system-ui" font-size="16" font-weight="700">AI Diagnostic Reasoning Engine</text>
+    <text x="28" y="58" fill="#38bdf8" font-family="monospace" font-size="11">Evidence Fusion: Deterministic Checks + Groq LLM</text>
+
+    <!-- Incident Banner -->
+    <rect x="25" y="80" width="450" height="75" rx="10" fill="#450a0a" stroke="#dc2626" stroke-width="1.2" />
+    <circle cx="50" cy="117" r="14" fill="#dc2626" fill-opacity="0.3" />
+    <text x="50" y="122" text-anchor="middle" fill="#fca5a5" font-family="monospace" font-size="14" font-weight="700">!</text>
+    <text x="75" y="105" fill="#fecaca" font-family="system-ui" font-size="13" font-weight="700">Anomaly: STP Blocking State on SW2 Gi0/2</text>
+    <text x="75" y="125" fill="#f87171" font-family="monospace" font-size="11">Packet loss detected on VLAN 30 trunk port</text>
+    <text x="75" y="142" fill="#fca5a5" font-family="monospace" font-size="10">Severity: High · Root Cause Isolation: 98.4% Confidence</text>
+
+    <!-- AI Diagnostic Playbook -->
+    <text x="28" y="185" fill="#9FCAFC" font-family="monospace" font-size="12" font-weight="600">RECOMMENDED REMEDIATION PLAYBOOK</text>
+    
+    <rect x="25" y="200" width="450" height="150" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1" />
+    <text x="40" y="230" fill="#a855f7" font-family="monospace" font-size="12">1. Verify Spanning Tree priority on Core R1:</text>
+    <text x="55" y="250" fill="#38bdf8" font-family="monospace" font-size="11">$ show spanning-tree vlan 30 brief</text>
+
+    <text x="40" y="280" fill="#a855f7" font-family="monospace" font-size="12">2. Adjust Root Bridge configuration:</text>
+    <text x="55" y="300" fill="#38bdf8" font-family="monospace" font-size="11">$ spanning-tree vlan 30 root primary</text>
+
+    <text x="40" y="330" fill="#10b981" font-family="monospace" font-size="11">✔ Safety Check Passed: No forwarding loops induced</text>
+
+    <!-- Verification / Governance Box -->
+    <rect x="25" y="365" width="450" height="130" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1" />
+    <text x="40" y="395" fill="#F2F4F6" font-family="system-ui" font-size="13" font-weight="700">Governance &amp; Human-in-the-Loop</text>
+    <text x="40" y="420" fill="#94a3b8" font-family="system-ui" font-size="12">62 Automated Diagnostic Unit Tests: <tspan fill="#10b981" font-weight="700">ALL PASSED</tspan></text>
+    <text x="40" y="445" fill="#94a3b8" font-family="system-ui" font-size="12">Cisco NetAcad Rulebase Compliance: <tspan fill="#38bdf8" font-weight="700">VERIFIED</tspan></text>
+    <text x="40" y="470" fill="#94a3b8" font-family="system-ui" font-size="12">Audited Command Output Diff: <tspan fill="#9FCAFC" font-weight="700">SYNTAX APPROVED</tspan></text>
+  </g>
+</svg>

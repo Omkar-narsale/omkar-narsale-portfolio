@@ -1,7 +1,7 @@
 export interface Project {
   id: string;
   title: string;
-  category: 'Data Analytics' | 'Data Engineering' | 'AI/ML' | 'Artificial Intelligence' | 'Computer Vision' | 'Full Stack' | 'Cybersecurity';
+  category: 'Data Analytics' | 'Data Engineering' | 'AI/ML' | 'Artificial Intelligence' | 'Computer Vision' | 'Full Stack' | 'Cybersecurity' | 'IoT / Hardware';
   description: string;
   detailedDescription?: string;
   features: string[];
@@ -187,7 +187,7 @@ export const PROJECTS: Project[] = [
     ],
     technologies: ["Python", "Pandas", "MySQL", "SQLAlchemy", "Watchdog", "React", "Power BI"],
     githubUrl: "https://github.com/Omkar-narsale/RetailFlow-Analytics-Platform",
-    thumbnail: "/assets/Dashboard 1.png",
+    thumbnail: "/assets/projects/retailflow.svg",
     status: "Verified & Built",
     highlights: ["Automated Ingestion", "Incremental Loading", "Data Quality Reports"]
   },
@@ -209,7 +209,7 @@ export const PROJECTS: Project[] = [
     ],
     technologies: ["Python", "Groq API", "LLaMA 3.3", "Streamlit", "Plotly", "Pydantic", "Networking"],
     githubUrl: "https://github.com/Omkar-narsale/NetSage-AI",
-    thumbnail: "/assets/war.jpeg",
+    thumbnail: "/assets/projects/netsage-ai.svg",
     status: "62 Tests Passed · Verified",
     highlights: ["Groq LLaMA 3.3", "Deterministic Rules", "Cisco NetAcad Integration"]
   },
@@ -231,7 +231,7 @@ export const PROJECTS: Project[] = [
     ],
     technologies: ["Python", "OpenCV", "MediaPipe", "PyTorch", "Computer Vision", "NumPy"],
     githubUrl: "https://github.com/Omkar-narsale/MirrorFit-Real-Time-Face-Tracking",
-    thumbnail: "/assets/SAM_AI_1.png",
+    thumbnail: "/assets/projects/mirrorfit-xr.svg",
     status: "Tested Prototype",
     highlights: ["468 Face Landmarks", "Head Pose Angles", "Real-Time 30+ FPS"]
   },
@@ -252,7 +252,7 @@ export const PROJECTS: Project[] = [
     ],
     technologies: ["MongoDB", "Express.js", "React 19", "Node.js", "MongoDB Atlas", "Vercel", "Render", "Tailwind CSS"],
     githubUrl: "https://github.com/Omkar-narsale/Fixly-Local-Services",
-    thumbnail: "/assets/Dashboard 1.png",
+    thumbnail: "/assets/projects/fixnear.svg",
     status: "Full-Stack MVP",
     highlights: ["React 19 + Node.js", "Two-Sided Marketplace", "MongoDB Atlas"]
   },
@@ -272,7 +272,7 @@ export const PROJECTS: Project[] = [
     ],
     technologies: ["Python", "Streamlit", "TinyLlama", "Hugging Face", "Transformers", "PyTorch"],
     githubUrl: "https://github.com/Omkar-narsale/Sam-AI-Tnyllama-Chatbot",
-    thumbnail: "/assets/SAM_AI_2.png",
+    thumbnail: "/assets/SAM_AI_1.png",
     status: "Verified Open Source",
     highlights: ["Zero External API Fee", "Local Inference", "Hugging Face"]
   },
@@ -291,7 +291,7 @@ export const PROJECTS: Project[] = [
     ],
     technologies: ["Power BI", "DAX", "Data Cleaning", "Data Visualization", "Power Query"],
     githubUrl: "https://github.com/Omkar-narsale",
-    thumbnail: "/assets/Dashboard 1.png",
+    thumbnail: "/assets/projects/diabetes-analytics.svg",
     status: "Completed Analytics",
     highlights: ["DAX Measures", "Risk Correlation", "Power Query Cleaning"]
   },
@@ -348,9 +348,28 @@ export const PROJECTS: Project[] = [
     ],
     technologies: ["Python", "Flask", "MySQL", "HTML5", "CSS3", "Bootstrap"],
     githubUrl: "https://github.com/Omkar-narsale",
-    thumbnail: "/assets/Dashboard 1.png",
+    thumbnail: "/assets/projects/hospital-system.svg",
     status: "Verified Project",
     highlights: ["Flask Backend", "Relational MySQL", "CRUD Operations"]
+  },
+  {
+    id: "smart-irrigation",
+    title: "Smart Irrigation & Soil Automation System",
+    category: "IoT / Hardware",
+    description: "Automated IoT irrigation control system leveraging Arduino microcontrollers and soil moisture sensors to optimize water conservation.",
+    detailedDescription: "Engineered an intelligent irrigation telemetry prototype using an Arduino microcontroller, analog capacitive soil moisture probes, DHT11 humidity sensors, and a 12V solenoid relay valve. Automates water dispensing based on dynamic soil saturation thresholds.",
+    features: [
+      "Real-time capacitive soil moisture sensing",
+      "Automated threshold-based relay valve actuation",
+      "Ambient temperature and humidity monitoring",
+      "Water conservation telemetry reporting",
+      "Fail-safe auto pump shutdown logic"
+    ],
+    technologies: ["IoT", "Arduino", "C++", "Sensors", "Hardware Simulation", "Automation"],
+    githubUrl: "https://github.com/Omkar-narsale",
+    thumbnail: "/assets/projects/smart-irrigation.svg",
+    status: "Hardware Prototype",
+    highlights: ["Soil Moisture Telemetry", "Automated Solenoid Valve", "Water Conservation"]
   },
   {
     id: "resume-iq",
@@ -367,7 +386,7 @@ export const PROJECTS: Project[] = [
     ],
     technologies: ["Python", "LangChain", "Sentence Transformers", "FastAPI", "Prompt Engineering"],
     githubUrl: "https://github.com/Omkar-narsale",
-    thumbnail: "/assets/SAM_AI_1.png",
+    thumbnail: "/assets/projects/resume-iq.svg",
     status: "Development & Research",
     highlights: ["Vector Similarity", "Semantic Matching", "Skill Extraction"]
   },
@@ -386,7 +405,7 @@ export const PROJECTS: Project[] = [
     ],
     technologies: ["Python", "FastAPI", "PostgreSQL", "React", "Machine Learning", "REST APIs"],
     githubUrl: "https://github.com/Omkar-narsale",
-    thumbnail: "/assets/Dashboard 1.png",
+    thumbnail: "/assets/projects/eduguard-ai.svg",
     status: "Hackathon Project",
     highlights: ["FastAPI + Postgres", "Role-Based Dashboards", "ML Risk Scoring"]
   },
@@ -405,7 +424,7 @@ export const PROJECTS: Project[] = [
     ],
     technologies: ["SQL", "MySQL", "Data Cleaning", "Data Modeling", "ETL"],
     githubUrl: "https://github.com/Omkar-narsale/Data-cleaning-using-SQL",
-    thumbnail: "/assets/Dashboard 1.png",
+    thumbnail: "/assets/projects/data-cleaning-sql.svg",
     status: "Verified Open Source",
     highlights: ["Window Functions", "Schema Standardization", "Data Hygiene"]
   }

@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="eg-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="eg-card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.98" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#eg-bg)" />
+
+  <!-- Top App Navigation Bar -->
+  <rect x="40" y="30" width="1120" height="64" rx="16" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+  <circle cx="75" cy="62" r="8" fill="#ef4444" />
+  <circle cx="100" cy="62" r="8" fill="#f59e0b" />
+  <circle cx="125" cy="62" r="8" fill="#10b981" />
+
+  <text x="160" y="68" fill="#F2F4F6" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700">EduGuard AI — Student Dropout Risk Prediction</text>
+  <rect x="650" y="49" width="180" height="26" rx="13" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-opacity="0.4" />
+  <text x="740" y="67" text-anchor="middle" fill="#fbbf24" font-family="monospace" font-size="12" font-weight="600">HACKATHON ML SYSTEM</text>
+
+  <rect x="990" y="47" width="145" height="30" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="1" />
+  <text x="1062" y="67" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="12">Counselor View</text>
+
+  <!-- Top Metrics Bar -->
+  <g transform="translate(40, 115)">
+    <rect x="0" y="0" width="260" height="95" rx="14" fill="url(#eg-card)" stroke="#334155" stroke-width="1.2" />
+    <text x="24" y="32" fill="#94a3b8" font-family="system-ui" font-size="13">Monitored Cohort</text>
+    <text x="24" y="68" fill="#F2F4F6" font-family="system-ui" font-size="28" font-weight="800">3,450</text>
+    <text x="190" y="66" fill="#38bdf8" font-family="monospace" font-size="12">Students</text>
+
+    <rect x="286" y="0" width="260" height="95" rx="14" fill="url(#eg-card)" stroke="#334155" stroke-width="1.2" />
+    <text x="310" y="32" fill="#94a3b8" font-family="system-ui" font-size="13">High Risk of Dropout</text>
+    <text x="310" y="68" fill="#f87171" font-family="system-ui" font-size="28" font-weight="800">84</text>
+    <text x="470" y="66" fill="#fca5a5" font-family="monospace" font-size="12">Flagged</text>
+
+    <rect x="572" y="0" width="260" height="95" rx="14" fill="url(#eg-card)" stroke="#334155" stroke-width="1.2" />
+    <text x="596" y="32" fill="#94a3b8" font-family="system-ui" font-size="13">Early Interventions Done</text>
+    <text x="596" y="68" fill="#10b981" font-family="system-ui" font-size="28" font-weight="800">62</text>
+    <text x="750" y="66" fill="#34d399" font-family="monospace" font-size="12">Counseling</text>
+
+    <rect x="858" y="0" width="262" height="95" rx="14" fill="url(#eg-card)" stroke="#334155" stroke-width="1.2" />
+    <text x="882" y="32" fill="#94a3b8" font-family="system-ui" font-size="13">ML Model Accuracy</text>
+    <text x="882" y="68" fill="#fbbf24" font-family="system-ui" font-size="28" font-weight="800">92.4%</text>
+    <text x="1055" y="66" fill="#fcd34d" font-family="monospace" font-size="12">F1 Score</text>
+  </g>
+
+  <!-- Left: Early Warning Student Risk Queue -->
+  <g transform="translate(40, 230)">
+    <rect width="660" height="405" rx="16" fill="url(#eg-card)" stroke="#334155" stroke-width="1.2" />
+    <text x="28" y="38" fill="#F2F4F6" font-family="system-ui" font-size="16" font-weight="700">Early Warning Intervention Feed</text>
+    <text x="28" y="58" fill="#94a3b8" font-family="monospace" font-size="11">FastAPI Backend · PostgreSQL Relational Store</text>
+
+    <!-- Table Header -->
+    <g transform="translate(28, 80)">
+      <rect width="604" height="36" rx="8" fill="#0f172a" />
+      <text x="20" y="23" fill="#94a3b8" font-family="monospace" font-size="11">ROLL NO</text>
+      <text x="110" y="23" fill="#94a3b8" font-family="monospace" font-size="11">STUDENT</text>
+      <text x="240" y="23" fill="#94a3b8" font-family="monospace" font-size="11">ATTENDANCE</text>
+      <text x="360" y="23" fill="#94a3b8" font-family="monospace" font-size="11">GPA</text>
+      <text x="440" y="23" fill="#94a3b8" font-family="monospace" font-size="11">RISK TIER</text>
+      <text x="540" y="23" fill="#94a3b8" font-family="monospace" font-size="11">ACTION</text>
+    </g>
+
+    <!-- Row 1 (High Risk) -->
+    <g transform="translate(28, 126)">
+      <rect width="604" height="50" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="0.8" />
+      <text x="20" y="30" fill="#38bdf8" font-family="monospace" font-size="12">#IT-2024-041</text>
+      <text x="110" y="30" fill="#F2F4F6" font-family="system-ui" font-size="13" font-weight="600">Sameer Khan</text>
+      <text x="240" y="30" fill="#ef4444" font-family="monospace" font-size="12" font-weight="700">54% (Low)</text>
+      <text x="360" y="30" fill="#f59e0b" font-family="monospace" font-size="12">5.8 / 10</text>
+      <rect x="430" y="14" width="75" height="22" rx="11" fill="#ef4444" fill-opacity="0.2" />
+      <text x="467" y="29" text-anchor="middle" fill="#fca5a5" font-family="monospace" font-size="10" font-weight="700">HIGH RISK</text>
+      <text x="540" y="30" fill="#38bdf8" font-family="system-ui" font-size="12" font-weight="600">Notify HOD</text>
+    </g>
+
+    <!-- Row 2 (Moderate Risk) -->
+    <g transform="translate(28, 186)">
+      <rect width="604" height="50" rx="8" fill="#1e293b" stroke="#334155" stroke-width="0.8" />
+      <text x="20" y="30" fill="#38bdf8" font-family="monospace" font-size="12">#IT-2024-088</text>
+      <text x="110" y="30" fill="#F2F4F6" font-family="system-ui" font-size="13" font-weight="600">Priya Nair</text>
+      <text x="240" y="30" fill="#f59e0b" font-family="monospace" font-size="12">68%</text>
+      <text x="360" y="30" fill="#F2F4F6" font-family="monospace" font-size="12">6.9 / 10</text>
+      <rect x="430" y="14" width="75" height="22" rx="11" fill="#f59e0b" fill-opacity="0.2" />
+      <text x="467" y="29" text-anchor="middle" fill="#fbbf24" font-family="monospace" font-size="10" font-weight="700">MODERATE</text>
+      <text x="540" y="30" fill="#38bdf8" font-family="system-ui" font-size="12">Counseling</text>
+    </g>
+
+    <!-- Row 3 (Safe / Low Risk) -->
+    <g transform="translate(28, 246)">
+      <rect width="604" height="50" rx="8" fill="#1e293b" stroke="#334155" stroke-width="0.8" />
+      <text x="20" y="30" fill="#38bdf8" font-family="monospace" font-size="12">#IT-2024-112</text>
+      <text x="110" y="30" fill="#F2F4F6" font-family="system-ui" font-size="13" font-weight="600">Rohan Varma</text>
+      <text x="240" y="30" fill="#10b981" font-family="monospace" font-size="12">89%</text>
+      <text x="360" y="30" fill="#10b981" font-family="monospace" font-size="12">8.6 / 10</text>
+      <rect x="430" y="14" width="75" height="22" rx="11" fill="#10b981" fill-opacity="0.2" />
+      <text x="467" y="29" text-anchor="middle" fill="#34d399" font-family="monospace" font-size="10" font-weight="700">LOW RISK</text>
+      <text x="540" y="30" fill="#94a3b8" font-family="system-ui" font-size="12">Monitoring</text>
+    </g>
+
+    <text x="35" y="340" fill="#94a3b8" font-family="monospace" font-size="11">Real-time CSV export · Role-based permissions: Counselor, Teacher, HOD, Student</text>
+  </g>
+
+  <!-- Right: Risk Factor Model Importance -->
+  <g transform="translate(720, 230)">
+    <rect width="440" height="405" rx="16" fill="url(#eg-card)" stroke="#334155" stroke-width="1.2" />
+    <text x="28" y="38" fill="#F2F4F6" font-family="system-ui" font-size="16" font-weight="700">Model Feature Weights</text>
+    <text x="28" y="58" fill="#fbbf24" font-family="monospace" font-size="11">Random Forest &amp; XGBoost Classifiers</text>
+
+    <!-- Bars -->
+    <g transform="translate(28, 85)">
+      <text x="0" y="18" fill="#F2F4F6" font-family="system-ui" font-size="12">Consecutive Class Absences (Weight: 42%)</text>
+      <rect x="0" y="26" width="380" height="14" rx="7" fill="#0f172a" />
+      <rect x="0" y="26" width="280" height="14" rx="7" fill="#ef4444" />
+
+      <text x="0" y="70" fill="#F2F4F6" font-family="system-ui" font-size="12">Internal Exam Score Drop (Weight: 28%)</text>
+      <rect x="0" y="78" width="380" height="14" rx="7" fill="#0f172a" />
+      <rect x="0" y="78" width="200" height="14" rx="7" fill="#f59e0b" />
+
+      <text x="0" y="122" fill="#F2F4F6" font-family="system-ui" font-size="12">Assignment Submission Delay (Weight: 18%)</text>
+      <rect x="0" y="130" width="380" height="14" rx="7" fill="#0f172a" />
+      <rect x="0" y="130" width="130" height="14" rx="7" fill="#38bdf8" />
+
+      <text x="0" y="174" fill="#F2F4F6" font-family="system-ui" font-size="12">Extracurricular Disengagement (Weight: 12%)</text>
+      <rect x="0" y="182" width="380" height="14" rx="7" fill="#0f172a" />
+      <rect x="0" y="182" width="85" height="14" rx="7" fill="#9FCAFC" />
+    </g>
+
+    <!-- Hackathon Accreditation Card -->
+    <g transform="translate(25, 290)">
+      <rect width="390" height="95" rx="12" fill="#0f172a" stroke="#334155" stroke-width="1" />
+      <text x="25" y="32" fill="#F2F4F6" font-family="system-ui" font-size="13" font-weight="700">Hackathon Prototype Highlights</text>
+      <text x="25" y="55" fill="#94a3b8" font-family="system-ui" font-size="12">Built during SAKEC College Hackathon</text>
+      <text x="25" y="75" fill="#34d399" font-family="monospace" font-size="11">✔ Automated counselor notification email trigger</text>
+    </g>
+  </g>
+</svg>
