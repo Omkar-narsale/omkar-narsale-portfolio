@@ -121,13 +121,32 @@ export const CodingSection: React.FC = () => {
                     viewport={{ once: true }}
                     transition={{ delay: bIdx * 0.1, duration: 0.5, ease: customEase }}
                     whileHover={{ scale: 1.03, y: -2, transition: { duration: 0.2 } }}
-                    className="flex items-center gap-4 p-3 rounded-2xl bg-[#F2F4F6] dark:bg-[#222220] border border-[#E2E5E9] dark:border-[#2C2C2A] cursor-default"
+                    className="flex items-center gap-4 p-3 rounded-2xl bg-[#F2F4F6] dark:bg-[#222220] border border-[#E2E5E9] dark:border-[#2C2C2A] cursor-pointer group"
                   >
-                    <div className="w-14 h-14 rounded-xl bg-slate-950 p-1 shrink-0 flex items-center justify-center border border-slate-800 shadow-2xs">
-                      <img src={badge.image} alt={badge.name} className="w-12 h-12 object-contain" />
+                    <div style={{ perspective: 800 }} className="shrink-0">
+                      <motion.div
+                        initial={{ rotateY: 0, scale: 0.85 }}
+                        animate={{ rotateY: [0, 360], scale: [0.85, 1.08, 1] }}
+                        transition={{
+                          delay: 0.3 + bIdx * 0.25,
+                          duration: 1.1,
+                          ease: [0.25, 1, 0.5, 1],
+                        }}
+                        whileHover={{
+                          rotateY: 360,
+                          transition: { duration: 0.85, ease: 'easeInOut' },
+                        }}
+                        className="w-14 h-14 rounded-xl bg-slate-950 p-1 flex items-center justify-center border border-slate-800 shadow-2xs group-hover:border-amber-500/60 group-hover:shadow-[0_0_18px_rgba(245,158,11,0.45)] transition-all"
+                      >
+                        <img
+                          src={badge.image}
+                          alt={badge.name}
+                          className="w-12 h-12 object-contain filter drop-shadow-[0_0_8px_rgba(255,161,22,0.4)]"
+                        />
+                      </motion.div>
                     </div>
                     <div>
-                      <h4 className="text-xs sm:text-sm font-bold text-[#111110] dark:text-[#F2F4F6]">
+                      <h4 className="text-xs sm:text-sm font-bold text-[#111110] dark:text-[#F2F4F6] group-hover:text-amber-500 dark:group-hover:text-amber-400 transition-colors">
                         {badge.name}
                       </h4>
                       <p className="text-[11px] text-slate-500 dark:text-[#A8A9A8] leading-snug mt-0.5">

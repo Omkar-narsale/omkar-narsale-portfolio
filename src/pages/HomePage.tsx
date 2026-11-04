@@ -179,10 +179,23 @@ export const HomePage: React.FC = () => {
                   <span>Verified LeetCode Badges</span>
                 </h3>
                 <div className="grid grid-cols-3 gap-3">
-                  {LEETCODE_DATA.badges.map((b) => (
-                    <div key={b.name} className="flex flex-col items-center text-center p-3 rounded-2xl bg-[#F2F4F6] dark:bg-[#222220] border border-[#E2E5E9] dark:border-[#2C2C2A]">
-                      <img src={b.image} alt={b.name} className="w-12 h-12 object-contain mb-2" />
-                      <span className="text-[11px] font-semibold text-[#111110] dark:text-[#F2F4F6] leading-tight">
+                  {LEETCODE_DATA.badges.map((b, idx) => (
+                    <div
+                      key={b.name}
+                      style={{ perspective: 600 }}
+                      className="flex flex-col items-center text-center p-3 rounded-2xl bg-[#F2F4F6] dark:bg-[#222220] border border-[#E2E5E9] dark:border-[#2C2C2A] group cursor-pointer"
+                    >
+                      <motion.div
+                        initial={{ rotateY: 0 }}
+                        whileInView={{ rotateY: [0, 360] }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 + idx * 0.2, duration: 1.1, ease: [0.25, 1, 0.5, 1] }}
+                        whileHover={{ rotateY: 360, transition: { duration: 0.8 } }}
+                        className="mb-2"
+                      >
+                        <img src={b.image} alt={b.name} className="w-12 h-12 object-contain filter drop-shadow-[0_0_6px_rgba(255,161,22,0.4)]" />
+                      </motion.div>
+                      <span className="text-[11px] font-semibold text-[#111110] dark:text-[#F2F4F6] leading-tight group-hover:text-amber-500 transition-colors">
                         {b.name}
                       </span>
                     </div>
