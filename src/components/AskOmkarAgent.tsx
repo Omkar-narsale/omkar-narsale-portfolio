@@ -142,7 +142,7 @@ export const AskOmkarAgent: React.FC = () => {
     // 5. College / Education / Degree
     if (q.includes('education') || q.includes('college') || q.includes('study') || q.includes('degree') || q.includes('sakec') || q.includes('cgpa')) {
       return {
-        text: `Omkar is a **Third-Year Information Technology Student** at **Shah and Anchor Kutchhi Engineering College (SAKEC), Mumbai** (2023 - 2027) with a **7.74 CGPA**, specializing in Data Analytics, Database Management Systems, AI/ML, and Computer Networks.`,
+        text: `Omkar is a **Third-Year Information Technology Student** at **Shah and Anchor Kutchhi Engineering College (SAKEC), Mumbai** (2024 — Present) with an outstanding **9.55 CGPA**, specializing in Data Analytics, Database Management Systems, AI/ML, and Computer Networks.`,
         links: [
           { label: 'View Academic Journey', url: '/experience' },
           { label: 'View Printable Resume', url: '/resume', external: true },

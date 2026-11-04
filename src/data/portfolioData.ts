@@ -63,7 +63,7 @@ export const PERSONAL_INFO = {
   name: "Omkar Narsale",
   headline: "Turning Data Into Insights. Building Technology Into Solutions.",
   subheading: "Information Technology Student | Data Analyst | Developer | AI/ML Enthusiast",
-  educationBadge: "Third-Year Information Technology Student · SAKEC Mumbai",
+  educationBadge: "Third-Year IT Student · SAKEC Mumbai (9.55 CGPA)",
   institution: "Shah and Anchor Kutchhi Engineering College (SAKEC), Mumbai",
   location: "Mumbai, Maharashtra, India",
   email: "narsaleomkar2006@gmail.com",
@@ -644,6 +644,7 @@ export const EDUCATION_DATA: EducationItem[] = [
     duration: "2024 — Present",
     status: "Third Year Student",
     location: "Chembur, Mumbai, Maharashtra, India",
+    score: "9.55 CGPA",
     highlights: [
       "Specializing in Data Analytics, Database Management Systems, AI/ML, and Computer Networks.",
       "Active participant in collegiate hackathons, technical committees, and NSS social initiatives.",
