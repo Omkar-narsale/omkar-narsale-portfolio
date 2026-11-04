@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Compass, Lightbulb, Zap, Rocket, BookOpen, Layers, Terminal, CheckCircle2 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { fadeInUp, customEase } from '../utils/animations';
+import { MaskedReveal } from './ScrollReveal';
 
 export const About: React.FC = () => {
   return (
@@ -21,9 +22,11 @@ export const About: React.FC = () => {
             <Compass className="w-3.5 h-3.5" />
             <span>Engineering Journey &amp; Mission</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#111110] dark:text-[#F2F4F6]">
-            From Core Logic to Scalable Intelligent Systems
-          </h2>
+          <MaskedReveal>
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#111110] dark:text-[#F2F4F6]">
+              From Core Logic to Scalable Intelligent Systems
+            </h2>
+          </MaskedReveal>
           <div className="w-16 h-1 bg-[#9FCAFC] mx-auto mt-4 rounded-full" />
         </motion.div>
 

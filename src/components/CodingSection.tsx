@@ -4,6 +4,7 @@ import { Database, Code, ExternalLink, Award, Flame } from 'lucide-react';
 import { GithubIcon } from './Icons';
 import { LEETCODE_DATA } from '../data/portfolioData';
 import { customEase } from '../utils/animations';
+import { MaskedReveal } from './ScrollReveal';
 
 export const CodingSection: React.FC = () => {
   return (
@@ -22,9 +23,11 @@ export const CodingSection: React.FC = () => {
             <Flame className="w-3.5 h-3.5 text-amber-500" />
             <span>Problem Solving &amp; Algorithms</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#111110] dark:text-[#F2F4F6]">
-            LeetCode DSA &amp; SQL Mastery
-          </h2>
+          <MaskedReveal>
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#111110] dark:text-[#F2F4F6]">
+              LeetCode DSA &amp; SQL Mastery
+            </h2>
+          </MaskedReveal>
           <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-[#A8A9A8]">
             Disciplined daily algorithmic practice in Python and advanced SQL database querying.
           </p>

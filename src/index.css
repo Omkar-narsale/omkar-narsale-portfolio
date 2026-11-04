@@ -57,6 +57,27 @@
   border: 1px solid rgba(226, 229, 233, 0.9);
 }
 
+/* Lenis Smooth Scrolling Core */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
 .dark .glass-panel {
   background: rgba(25, 25, 24, 0.85);
   backdrop-filter: blur(12px);

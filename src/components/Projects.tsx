@@ -8,6 +8,7 @@ import { GithubIcon } from './Icons';
 import { PROJECTS, Project } from '../data/portfolioData';
 import { ProjectModal } from './ProjectModal';
 import { customEase } from '../utils/animations';
+import { MaskedReveal } from './ScrollReveal';
 
 const CATEGORIES = [
   'All',
@@ -57,9 +58,11 @@ export const Projects: React.FC = () => {
             <FolderGit2 className="w-3.5 h-3.5" />
             <span>Engineering Showcase</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#111110] dark:text-[#F2F4F6]">
-            Featured Projects &amp; Software Systems
-          </h2>
+          <MaskedReveal>
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#111110] dark:text-[#F2F4F6]">
+              Featured Projects &amp; Software Systems
+            </h2>
+          </MaskedReveal>
           <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-[#A8A9A8] max-w-2xl mx-auto">
             Practical, end-to-end applications spanning automated ETL data warehouses, LLM network diagnostics, real-time computer vision try-ons, and full-stack platforms.
           </p>

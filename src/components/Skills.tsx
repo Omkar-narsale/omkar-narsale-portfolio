@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { SKILL_CATEGORIES } from '../data/portfolioData';
 import { customEase } from '../utils/animations';
+import { MaskedReveal } from './ScrollReveal';
 
 const ICON_MAP: Record<string, React.ReactNode> = {
   Code2: <Code2 className="w-5 h-5" />,
@@ -52,9 +53,11 @@ export const Skills: React.FC = () => {
             <Sparkles className="w-3.5 h-3.5" />
             <span>Technical Capabilities</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#111110] dark:text-[#F2F4F6]">
-            Engineering Skills &amp; Technology Stack
-          </h2>
+          <MaskedReveal>
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#111110] dark:text-[#F2F4F6]">
+              Engineering Skills &amp; Technology Stack
+            </h2>
+          </MaskedReveal>
           <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-[#A8A9A8] max-w-2xl mx-auto">
             Systematically categorized technologies backed by real codebases, academic projects, and industry virtual internships. No inflated percentages—only verified proficiency.
           </p>

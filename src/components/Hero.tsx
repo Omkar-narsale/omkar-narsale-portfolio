@@ -1,19 +1,30 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, FileText, Mail } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, LeetCodeIcon } from './Icons';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { fadeInUp, staggerContainer, customEase } from '../utils/animations';
 
 export const Hero: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  });
+
+  const portraitY = useTransform(scrollYProgress, [0, 1], [0, 50]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, 25]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.9], [1, 0.3]);
+
   return (
-    <section className="relative pt-32 sm:pt-40 pb-16 sm:pb-24 overflow-hidden bg-[#F2F4F6] dark:bg-[#111110]">
+    <section ref={sectionRef} className="relative pt-32 sm:pt-40 pb-16 sm:pb-24 overflow-hidden bg-[#F2F4F6] dark:bg-[#111110]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* LEFT COLUMN: Editorial Typography & Actions */}
           <motion.div
+            style={{ y: contentY, opacity: heroOpacity }}
             variants={staggerContainer(0.08, 0.05)}
             initial="hidden"
             animate="visible"
@@ -122,6 +133,7 @@ export const Hero: React.FC = () => {
           {/* RIGHT COLUMN: Editorial Clean Portrait Presentation */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <motion.div
+              style={{ y: portraitY, opacity: heroOpacity }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: customEase }}
