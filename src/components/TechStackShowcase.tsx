@@ -1,6 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SpotlightCard } from './SpotlightCard';
+import {
+  AntigravityIcon,
+  ChatGPTIcon,
+  GeminiIcon,
+  DeepSeekIcon,
+  PerplexityIcon,
+  GitHubCopilotIcon,
+} from './AIIcons';
 
 interface TechItem {
   name: string;
@@ -35,13 +43,13 @@ const TECH_STACK_ITEMS: TechItem[] = [
   { name: 'Vercel', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg' },
 ];
 
-const WORKFLOW_ITEMS: TechItem[] = [
-  { name: 'Antigravity', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/googledeepmind.svg' },
-  { name: 'ChatGPT', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/openai.svg' },
-  { name: 'Gemini', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/googlegemini.svg' },
-  { name: 'DeepSeek', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/deepseek.svg' },
-  { name: 'Perplexity', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/perplexity.svg' },
-  { name: 'GitHub Copilot', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/githubcopilot.svg' },
+const WORKFLOW_ITEMS = [
+  { name: 'Antigravity', iconNode: <AntigravityIcon className="w-9 h-9 sm:w-10 sm:h-10" /> },
+  { name: 'ChatGPT', iconNode: <ChatGPTIcon className="w-9 h-9 sm:w-10 sm:h-10" /> },
+  { name: 'Gemini', iconNode: <GeminiIcon className="w-9 h-9 sm:w-10 sm:h-10" /> },
+  { name: 'DeepSeek', iconNode: <DeepSeekIcon className="w-9 h-9 sm:w-10 sm:h-10" /> },
+  { name: 'Perplexity', iconNode: <PerplexityIcon className="w-9 h-9 sm:w-10 sm:h-10" /> },
+  { name: 'GitHub Copilot', iconNode: <GitHubCopilotIcon className="w-9 h-9 sm:w-10 sm:h-10" /> },
 ];
 
 const MARQUEE_ITEMS = [
@@ -141,12 +149,7 @@ export const TechStackShowcase: React.FC = () => {
               className="w-[105px] sm:w-[120px] h-[105px] sm:h-[120px] rounded-2xl bg-white dark:bg-[#191918] border border-[#E2E5E9] dark:border-[#2C2C2A] shadow-xs hover:shadow-md hover:border-[#9FCAFC] transition-colors flex flex-col items-center justify-center p-3 text-center cursor-default group"
             >
               <div className="w-10 h-10 sm:w-11 sm:h-11 mb-2 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <img
-                  src={item.icon}
-                  alt={item.name}
-                  className="w-full h-full object-contain filter dark:brightness-110"
-                  loading="lazy"
-                />
+                {item.iconNode}
               </div>
               <span className="text-[11px] sm:text-xs font-semibold text-[#111110] dark:text-[#F2F4F6] tracking-tight truncate max-w-full">
                 {item.name}
@@ -176,3 +179,4 @@ export const TechStackShowcase: React.FC = () => {
 };
 
 export default TechStackShowcase;
+
