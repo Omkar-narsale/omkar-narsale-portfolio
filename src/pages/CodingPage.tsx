@@ -10,3 +10,4 @@ export const CodingPage: React.FC = () => {
 };
 
 export default CodingPage;
+

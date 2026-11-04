@@ -17,3 +17,4 @@ export const ScrollToTopOnRoute: React.FC = () => {
 };
 
 export default ScrollToTopOnRoute;
+

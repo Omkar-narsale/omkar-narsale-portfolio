@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Flame, FolderGit2, Sparkles, Award } from 'lucide-react';
 import { Hero } from '../components/Hero';
+import { TechStackShowcase } from '../components/TechStackShowcase';
 import { Contact } from '../components/Contact';
 import { PROJECTS, LEETCODE_DATA } from '../data/portfolioData';
 import { SpotlightCard } from '../components/SpotlightCard';
@@ -18,7 +19,10 @@ export const HomePage: React.FC = () => {
       {/* 1. Ethan Minimalist Hero */}
       <Hero />
 
-      {/* 2. Curated Projects Highlight */}
+      {/* 2. Interactive Tech Stack & AI Workflow Toolkit with Marquee */}
+      <TechStackShowcase />
+
+      {/* 3. Curated Projects Highlight */}
       <section className="py-20 relative bg-white dark:bg-[#111110] border-t border-[#E2E5E9] dark:border-[#2C2C2A]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           
@@ -198,3 +202,4 @@ export const HomePage: React.FC = () => {
 };
 
 export default HomePage;
+
