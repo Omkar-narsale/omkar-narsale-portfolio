@@ -3,7 +3,11 @@ import { FileText, ArrowUp } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onReplayIntro?: () => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onReplayIntro }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -107,13 +111,25 @@ export const Footer: React.FC = () => {
             © {new Date().getFullYear()} Omkar Narsale · Portfolio 2.0. Inspired by Ethan Minimalist Visual Direction.
           </div>
 
-          <button
-            onClick={scrollToTop}
-            className="flex items-center gap-1.5 text-[#A8A9A8] hover:text-[#9FCAFC] transition-colors"
-          >
-            <span>Back to top</span>
-            <ArrowUp className="w-3.5 h-3.5" />
-          </button>
+          <div className="flex items-center gap-4">
+            {onReplayIntro && (
+              <button
+                onClick={onReplayIntro}
+                className="flex items-center gap-1.5 text-[#A8A9A8] hover:text-[#E5A83B] transition-colors"
+                title="Replay Matrix ASCII Portrait Intro"
+              >
+                <span className="font-mono text-[10px] uppercase tracking-wider">[Replay Intro]</span>
+              </button>
+            )}
+
+            <button
+              onClick={scrollToTop}
+              className="flex items-center gap-1.5 text-[#A8A9A8] hover:text-[#9FCAFC] transition-colors"
+            >
+              <span>Back to top</span>
+              <ArrowUp className="w-3.5 h-3.5" />
+            </button>
+          </div>
         </div>
 
       </div>
