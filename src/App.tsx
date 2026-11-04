@@ -5,6 +5,7 @@ import { SmoothScroll } from './components/SmoothScroll';
 import { CustomCursor } from './components/CustomCursor';
 import { AsciiIntro } from './components/AsciiIntro';
 import { CommandPalette } from './components/CommandPalette';
+import { AskOmkarAgent } from './components/AskOmkarAgent';
 import { ScrollProgress } from './components/ScrollProgress';
 import { ScrollToTopOnRoute } from './components/ScrollToTopOnRoute';
 import { Navbar } from './components/Navbar';
@@ -87,6 +88,7 @@ export const App: React.FC = () => {
 
           <Footer onReplayIntro={() => setShowIntro(true)} />
           <BackToTop />
+          <AskOmkarAgent />
         </div>
       </SmoothScroll>
     </BrowserRouter>
