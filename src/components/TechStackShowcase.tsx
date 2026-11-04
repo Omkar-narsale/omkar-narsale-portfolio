@@ -72,7 +72,7 @@ const MARQUEE_ITEMS = [
 
 export const TechStackShowcase: React.FC = () => {
   return (
-    <section className="py-20 relative overflow-hidden bg-[#F2F4F6] dark:bg-[#111110] border-t border-[#E2E5E9] dark:border-[#2C2C2A]">
+    <section id="tech-stack" className="py-20 relative overflow-hidden bg-[#F2F4F6] dark:bg-[#111110] border-t border-[#E2E5E9] dark:border-[#2C2C2A]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* SECTION 1: TECH STACK */}

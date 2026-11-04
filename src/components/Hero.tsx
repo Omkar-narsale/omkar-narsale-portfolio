@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { HolographicTilt } from './HolographicTilt';
+import { CircularScrollBadge } from './CircularScrollBadge';
 import { ArrowRight, FileText, Mail } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, LeetCodeIcon } from './Icons';
 import { PERSONAL_INFO } from '../data/portfolioData';
@@ -100,32 +101,37 @@ export const Hero: React.FC = () => {
               </motion.a>
             </motion.div>
 
-            {/* Understated Social Presence */}
-            <motion.div variants={fadeInUp} className="flex items-center gap-5 pt-4 border-t border-[#E2E5E9]/80 dark:border-[#2C2C2A]/80 w-full">
-              <span className="text-xs font-mono uppercase tracking-wider text-[#A8A9A8]">
-                Connect:
-              </span>
-              <div className="flex items-center gap-3">
-                {[
-                  { href: PERSONAL_INFO.github, label: 'GitHub', icon: <GithubIcon className="w-4 h-4" /> },
-                  { href: PERSONAL_INFO.linkedin, label: 'LinkedIn', icon: <LinkedinIcon className="w-4 h-4" /> },
-                  { href: PERSONAL_INFO.leetcode, label: 'LeetCode', icon: <LeetCodeIcon className="w-4 h-4" /> },
-                  { href: `mailto:${PERSONAL_INFO.email}`, label: 'Email', icon: <Mail className="w-4 h-4" /> },
-                ].map((social, idx) => (
-                  <motion.a
-                    key={idx}
-                    whileHover={{ y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    href={social.href}
-                    target={social.href.startsWith('mailto') ? undefined : '_blank'}
-                    rel={social.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
-                    aria-label={social.label}
-                    className="p-2 text-[#524E4D] dark:text-[#A8A9A8] hover:text-[#111110] dark:hover:text-[#F2F4F6] transition-colors"
-                  >
-                    {social.icon}
-                  </motion.a>
-                ))}
+            {/* Understated Social Presence & Rotating Circular Scroll Badge */}
+            <motion.div variants={fadeInUp} className="flex flex-wrap items-center justify-between pt-4 border-t border-[#E2E5E9]/80 dark:border-[#2C2C2A]/80 w-full gap-4">
+              <div className="flex items-center gap-4">
+                <span className="text-xs font-mono uppercase tracking-wider text-[#A8A9A8]">
+                  Connect:
+                </span>
+                <div className="flex items-center gap-2 sm:gap-3">
+                  {[
+                    { href: PERSONAL_INFO.github, label: 'GitHub', icon: <GithubIcon className="w-4 h-4" /> },
+                    { href: PERSONAL_INFO.linkedin, label: 'LinkedIn', icon: <LinkedinIcon className="w-4 h-4" /> },
+                    { href: PERSONAL_INFO.leetcode, label: 'LeetCode', icon: <LeetCodeIcon className="w-4 h-4" /> },
+                    { href: `mailto:${PERSONAL_INFO.email}`, label: 'Email', icon: <Mail className="w-4 h-4" /> },
+                  ].map((social, idx) => (
+                    <motion.a
+                      key={idx}
+                      whileHover={{ y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      href={social.href}
+                      target={social.href.startsWith('mailto') ? undefined : '_blank'}
+                      rel={social.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+                      aria-label={social.label}
+                      className="p-2 text-[#524E4D] dark:text-[#A8A9A8] hover:text-[#111110] dark:hover:text-[#F2F4F6] transition-colors"
+                    >
+                      {social.icon}
+                    </motion.a>
+                  ))}
+                </div>
               </div>
+
+              {/* Rotating Circular Scroll Badge from Video */}
+              <CircularScrollBadge targetId="tech-stack" className="hidden sm:flex" />
             </motion.div>
 
           </motion.div>
@@ -156,6 +162,11 @@ export const Hero: React.FC = () => {
             </motion.div>
           </div>
 
+        </div>
+
+        {/* Mobile View of Rotating Circular Scroll Badge */}
+        <div className="flex sm:hidden justify-center mt-12 mb-2">
+          <CircularScrollBadge targetId="tech-stack" />
         </div>
 
         {/* Minimal Bottom Horizontal Divider & Domain Highlights */}
