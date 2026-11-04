@@ -73,3 +73,4 @@ export const CircularScrollBadge: React.FC<CircularScrollBadgeProps> = ({
 };
 
 export default CircularScrollBadge;
+

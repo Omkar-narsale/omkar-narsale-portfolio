@@ -270,7 +270,7 @@ The verified printable resume is available at:
 
 ## 📬 Contact & Socials
 
-- 📧 **Email**: [omkarnarsale@gmail.com](mailto:omkarnarsale@gmail.com)
+- 📧 **Email**: [narsaleomkar2006@gmail.com](mailto:narsaleomkar2006@gmail.com)
 - 💼 **LinkedIn**: [linkedin.com/in/omkar-narsale](https://www.linkedin.com/in/omkar-narsale-56b188330/)
 - 🐙 **GitHub**: [github.com/Omkar-narsale](https://github.com/Omkar-narsale)
 - ⚡ **LeetCode**: [leetcode.com/u/qlakbkpB58](https://leetcode.com/u/qlakbkpB58/)

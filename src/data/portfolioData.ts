@@ -66,7 +66,7 @@ export const PERSONAL_INFO = {
   educationBadge: "Third-Year Information Technology Student · SAKEC Mumbai",
   institution: "Shah and Anchor Kutchhi Engineering College (SAKEC), Mumbai",
   location: "Mumbai, Maharashtra, India",
-  email: "omkarnarsale@gmail.com",
+  email: "narsaleomkar2006@gmail.com",
   github: "https://github.com/Omkar-narsale",
   linkedin: "https://www.linkedin.com/in/omkar-narsale-56b188330/",
   leetcode: "https://leetcode.com/u/qlakbkpB58/",
