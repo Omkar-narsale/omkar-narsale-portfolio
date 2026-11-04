@@ -19,24 +19,27 @@ export const Footer: React.FC<FooterProps> = ({ onReplayIntro }) => {
   };
 
   return (
-    <footer className="py-14 bg-[#111110] text-[#A8A9A8] border-t border-[#2C2C2A] text-xs">
+    <footer className="pt-16 pb-28 sm:pb-32 bg-[#111110] text-[#A8A9A8] border-t border-[#2C2C2A] text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
           
           {/* Brand Info */}
           <div className="md:col-span-5 space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-[#F2F4F6] text-[#111110] flex items-center justify-center font-bold text-xs">
-                ON
+            <div className="flex items-center gap-2.5">
+              <div className="flex items-center font-syne font-black text-base tracking-[-0.03em] uppercase">
+                <span className="text-[#F2F4F6]">OMKAR</span>
+                <span className="mx-1 text-[#9FCAFC] font-light">/</span>
+                <span className="text-[#A8A9A8]">NARSALE</span>
               </div>
-              <span className="font-bold text-base text-[#F2F4F6] tracking-tight uppercase">
-                Omkar Narsale
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#9FCAFC] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#9FCAFC]"></span>
               </span>
             </div>
             
             <p className="text-[#A8A9A8] text-xs max-w-sm leading-relaxed">
-              Third-Year Information Technology Student at Shah and Anchor Kutchhi Engineering College (SAKEC), Mumbai. Focused on Data Engineering, Machine Learning, Computer Vision, and scalable applications.
+              Third-Year Information Technology Student at Shah and Anchor Kutchhi Engineering College (SAKEC), Mumbai (9.55 CGPA). Focused on Data Engineering, Machine Learning, Computer Vision, and scalable applications.
             </p>
 
             <div className="flex items-center gap-2 text-[11px] font-mono text-emerald-400">
@@ -119,16 +122,16 @@ export const Footer: React.FC<FooterProps> = ({ onReplayIntro }) => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-[#2C2C2A] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono">
-          <div>
-            © {new Date().getFullYear()} Omkar Narsale · Portfolio 2.0. Inspired by Ethan Minimalist Visual Direction.
+        <div className="pt-8 border-t border-[#2C2C2A] flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] font-mono sm:pr-28">
+          <div className="text-center md:text-left text-[#A8A9A8]">
+            © {new Date().getFullYear()} <span className="text-[#F2F4F6] font-semibold">Omkar Narsale</span> · Portfolio 2.0. Inspired by Ethan Minimalist Visual Direction.
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-5">
             {onReplayIntro && (
               <button
                 onClick={onReplayIntro}
-                className="flex items-center gap-1.5 text-[#A8A9A8] hover:text-[#E5A83B] transition-colors"
+                className="flex items-center gap-1.5 text-[#A8A9A8] hover:text-[#9FCAFC] transition-colors cursor-pointer"
                 title="Replay Matrix ASCII Portrait Intro"
               >
                 <span className="font-mono text-[10px] uppercase tracking-wider">[Replay Intro]</span>
@@ -137,7 +140,7 @@ export const Footer: React.FC<FooterProps> = ({ onReplayIntro }) => {
 
             <button
               onClick={scrollToTop}
-              className="flex items-center gap-1.5 text-[#A8A9A8] hover:text-[#9FCAFC] transition-colors"
+              className="flex items-center gap-1.5 text-[#A8A9A8] hover:text-[#9FCAFC] transition-colors cursor-pointer"
             >
               <span>Back to top</span>
               <ArrowUp className="w-3.5 h-3.5" />
