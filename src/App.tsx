@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { SmoothScroll } from './components/SmoothScroll';
 import { CustomCursor } from './components/CustomCursor';
 import { AsciiIntro } from './components/AsciiIntro';
+import { CommandPalette } from './components/CommandPalette';
 import { ScrollProgress } from './components/ScrollProgress';
 import { ScrollToTopOnRoute } from './components/ScrollToTopOnRoute';
 import { Navbar } from './components/Navbar';
@@ -46,6 +47,19 @@ const AnimatedRoutes: React.FC = () => {
 
 export const App: React.FC = () => {
   const [showIntro, setShowIntro] = useState<boolean>(true);
+  const [commandPaletteOpen, setCommandPaletteOpen] = useState<boolean>(false);
+
+  // Global Cmd+K / Ctrl+K keyboard shortcut
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setCommandPaletteOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   return (
     <BrowserRouter>
@@ -54,9 +68,18 @@ export const App: React.FC = () => {
         <ScrollToTopOnRoute />
         {showIntro && <AsciiIntro onComplete={() => setShowIntro(false)} />}
         
+        <CommandPalette
+          isOpen={commandPaletteOpen}
+          onClose={() => setCommandPaletteOpen(false)}
+          onTriggerIntro={() => setShowIntro(true)}
+        />
+        
         <div className="min-h-screen flex flex-col bg-[#F2F4F6] dark:bg-[#111110] text-[#111110] dark:text-[#F2F4F6] selection:bg-[#9FCAFC]/40 selection:text-slate-900">
           <ScrollProgress />
-          <Navbar onTriggerIntro={() => setShowIntro(true)} />
+          <Navbar
+            onTriggerIntro={() => setShowIntro(true)}
+            onOpenCommandPalette={() => setCommandPaletteOpen(true)}
+          />
           
           <main className="flex-1 flex flex-col">
             <AnimatedRoutes />

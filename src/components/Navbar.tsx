@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowUpRight, Volume2, VolumeX } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Volume2, VolumeX, Command } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 import sound from '../utils/sound';
 
 interface NavbarProps {
   onTriggerIntro?: () => void;
+  onOpenCommandPalette?: () => void;
 }
 
 const PAGE_LINKS = [
@@ -18,7 +19,7 @@ const PAGE_LINKS = [
   { name: 'Contact', path: '/contact' },
 ];
 
-export const Navbar: React.FC<NavbarProps> = ({ onTriggerIntro }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onTriggerIntro, onOpenCommandPalette }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(sound.isSoundEnabled());
@@ -147,6 +148,22 @@ export const Navbar: React.FC<NavbarProps> = ({ onTriggerIntro }) => {
 
           {/* Right Action CTA, Audio Toggle & Theme Toggle */}
           <div className="hidden sm:flex items-center gap-2.5">
+            {/* Command Palette Trigger Pill (Raycast / Linear Style) */}
+            <motion.button
+              whileTap={{ scale: 0.92 }}
+              onClick={() => {
+                sound.playClick();
+                if (onOpenCommandPalette) onOpenCommandPalette();
+              }}
+              onMouseEnter={() => sound.playHover()}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#E2E5E9] dark:border-[#2C2C2A] bg-white dark:bg-[#191918] text-[#524E4D] dark:text-[#A8A9A8] hover:text-[#111110] dark:hover:text-[#F2F4F6] hover:border-[#9FCAFC] transition-colors focus:outline-none cursor-pointer"
+              title="Open Command Palette (Cmd + K / Ctrl + K)"
+              aria-label="Open Command Palette"
+            >
+              <Command className="w-3.5 h-3.5 text-[#9FCAFC]" />
+              <span className="text-[11px] font-mono font-bold tracking-tight">K</span>
+            </motion.button>
+
             {/* Audio FX Toggle Button */}
             <motion.button
               whileTap={{ scale: 0.92 }}
@@ -180,6 +197,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onTriggerIntro }) => {
 
           {/* Mobile Menu Toggle & Theme Toggle */}
           <div className="flex items-center gap-2 lg:hidden">
+            <motion.button
+              whileTap={{ scale: 0.92 }}
+              onClick={() => {
+                sound.playClick();
+                if (onOpenCommandPalette) onOpenCommandPalette();
+              }}
+              className="p-2 rounded-full border border-[#E2E5E9] dark:border-[#2C2C2A] bg-white dark:bg-[#191918] text-[#524E4D] dark:text-[#A8A9A8]"
+              aria-label="Open Command Palette"
+              title="Command Palette"
+            >
+              <Command className="w-4 h-4 text-[#9FCAFC]" />
+            </motion.button>
+
             <motion.button
               whileTap={{ scale: 0.92 }}
               onClick={handleToggleSound}
@@ -254,6 +284,23 @@ export const Navbar: React.FC<NavbarProps> = ({ onTriggerIntro }) => {
                   </NavLink>
                 );
               })}
+
+              <button
+                onClick={() => {
+                  sound.playClick();
+                  setMobileMenuOpen(false);
+                  if (onOpenCommandPalette) onOpenCommandPalette();
+                }}
+                className="flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-medium transition-colors text-[#524E4D] dark:text-[#A8A9A8] hover:bg-black/5 dark:hover:bg-white/5 text-left"
+              >
+                <span className="flex items-center gap-2">
+                  <Command className="w-4 h-4 text-[#9FCAFC]" />
+                  <span>Command Palette</span>
+                </span>
+                <kbd className="px-2 py-0.5 text-[10px] font-mono rounded bg-black/5 dark:bg-white/10 text-[#888]">
+                  ⌘K
+                </kbd>
+              </button>
 
               <div className="pt-3 mt-2 border-t border-[#E2E5E9] dark:border-[#2C2C2A]">
                 <button

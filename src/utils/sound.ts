@@ -140,6 +140,56 @@ class SoundManager {
       osc.stop(this.ctx.currentTime + 0.02);
     } catch (e) {}
   }
+
+  // Smooth futuristic swoosh for command palette / modal open
+  public playOpen() {
+    if (!this.enabled) return;
+    try {
+      this.initContext();
+      if (!this.ctx) return;
+
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(260, this.ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(540, this.ctx.currentTime + 0.08);
+
+      gain.gain.setValueAtTime(0.035, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + 0.08);
+
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.08);
+    } catch (e) {}
+  }
+
+  // Soft descend tone on close
+  public playClose() {
+    if (!this.enabled) return;
+    try {
+      this.initContext();
+      if (!this.ctx) return;
+
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(420, this.ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(180, this.ctx.currentTime + 0.06);
+
+      gain.gain.setValueAtTime(0.025, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + 0.06);
+
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.06);
+    } catch (e) {}
+  }
 }
 
 export const sound = new SoundManager();
