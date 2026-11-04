@@ -56,7 +56,7 @@ export const App: React.FC = () => {
         
         <div className="min-h-screen flex flex-col bg-[#F2F4F6] dark:bg-[#111110] text-[#111110] dark:text-[#F2F4F6] selection:bg-[#9FCAFC]/40 selection:text-slate-900">
           <ScrollProgress />
-          <Navbar />
+          <Navbar onTriggerIntro={() => setShowIntro(true)} />
           
           <main className="flex-1 flex flex-col">
             <AnimatedRoutes />

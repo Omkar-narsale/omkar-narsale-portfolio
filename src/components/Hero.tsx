@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { HolographicTilt } from './HolographicTilt';
 import { ArrowRight, FileText, Mail } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, LeetCodeIcon } from './Icons';
 import { PERSONAL_INFO } from '../data/portfolioData';
@@ -138,18 +139,20 @@ export const Hero: React.FC = () => {
               transition={{ duration: 0.8, ease: customEase }}
               className="relative w-full max-w-[360px] sm:max-w-[390px]"
             >
-              {/* Premium Editorial Portrait Container - Natural, unencumbered by floating widgets */}
-              <div className="rounded-3xl p-2 sm:p-2.5 bg-white dark:bg-[#191918] border border-[#E2E5E9] dark:border-[#2C2C2A] shadow-md">
-                <div className="relative w-full aspect-[4/5] sm:aspect-[3/4] rounded-2xl overflow-hidden bg-[#111110]">
-                  <img
-                    src="/assets/omkar-profile.jpeg"
-                    alt="Omkar Narsale - Professional portrait in black formal blazer"
-                    loading="eager"
-                    fetchPriority="high"
-                    className="w-full h-full object-cover object-[center_top] transition-transform duration-700 hover:scale-[1.02]"
-                  />
+              {/* Premium 3D Holographic Portrait Presentation */}
+              <HolographicTilt>
+                <div className="rounded-3xl p-2 sm:p-2.5 bg-white dark:bg-[#191918] border border-[#E2E5E9] dark:border-[#2C2C2A] shadow-md">
+                  <div className="relative w-full aspect-[4/5] sm:aspect-[3/4] rounded-2xl overflow-hidden bg-[#111110]">
+                    <img
+                      src="/assets/omkar-profile.jpeg"
+                      alt="Omkar Narsale - Professional portrait in black formal blazer"
+                      loading="eager"
+                      fetchPriority="high"
+                      className="w-full h-full object-cover object-[center_top] transition-transform duration-700"
+                    />
+                  </div>
                 </div>
-              </div>
+              </HolographicTilt>
             </motion.div>
           </div>
 

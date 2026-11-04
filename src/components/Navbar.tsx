@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Volume2, VolumeX } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
+import sound from '../utils/sound';
+
+interface NavbarProps {
+  onTriggerIntro?: () => void;
+}
 
 const PAGE_LINKS = [
   { name: 'Home', path: '/' },
@@ -13,10 +18,12 @@ const PAGE_LINKS = [
   { name: 'Contact', path: '/contact' },
 ];
 
-export const Navbar: React.FC = () => {
+export const Navbar: React.FC<NavbarProps> = ({ onTriggerIntro }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [soundEnabled, setSoundEnabled] = useState(sound.isSoundEnabled());
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +39,20 @@ export const Navbar: React.FC = () => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
 
+  const handleHomeClick = (e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    sound.playClick();
+    if (onTriggerIntro) {
+      onTriggerIntro();
+    }
+    navigate('/');
+  };
+
+  const handleToggleSound = () => {
+    const nextState = sound.toggleSound();
+    setSoundEnabled(nextState);
+  };
+
   return (
     <motion.header
       initial={{ y: -16, opacity: 0 }}
@@ -46,26 +67,65 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between">
           
-          {/* Logo / Brand Name */}
-          <Link
-            to="/"
-            className="flex items-center gap-2 group focus:outline-none"
-            aria-label="Omkar Narsale Home"
+          {/* Logo / Brand Name - Unique Crazy Syne Typography with Cyber Pulse */}
+          <button
+            onClick={handleHomeClick}
+            onMouseEnter={() => sound.playHover()}
+            className="flex items-center gap-2.5 group focus:outline-none text-left cursor-pointer"
+            aria-label="Omkar Narsale - Launch Intro Matrix"
+            title="Click to trigger interactive ASCII matrix intro"
           >
-            <span className="font-extrabold text-sm sm:text-base tracking-tight text-[#111110] dark:text-[#F2F4F6] uppercase">
-              Omkar Narsale
+            <div className="flex items-center font-syne font-black text-base sm:text-lg tracking-[-0.03em] uppercase">
+              <span className="text-[#111110] dark:text-[#F2F4F6] group-hover:text-[#9FCAFC] transition-colors">
+                OMKAR
+              </span>
+              <span className="mx-1 text-[#9FCAFC] font-light">/</span>
+              <span className="text-[#524E4D] dark:text-[#A8A9A8] group-hover:text-[#111110] dark:group-hover:text-[#F2F4F6] transition-colors">
+                NARSALE
+              </span>
+            </div>
+            
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#9FCAFC] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#9FCAFC]"></span>
             </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#9FCAFC] inline-block" />
-          </Link>
+          </button>
 
           {/* Desktop Nav Links */}
           <nav className="hidden lg:flex items-center gap-7">
             {PAGE_LINKS.map((link) => {
               const isActive = location.pathname === link.path;
+
+              if (link.path === '/') {
+                return (
+                  <button
+                    key={link.name}
+                    onClick={handleHomeClick}
+                    onMouseEnter={() => sound.playHover()}
+                    className={`text-xs sm:text-sm font-medium transition-colors duration-200 relative py-1 cursor-pointer ${
+                      isActive
+                        ? 'text-[#111110] dark:text-[#F2F4F6] font-semibold'
+                        : 'text-[#524E4D] dark:text-[#A8A9A8] hover:text-[#111110] dark:hover:text-[#F2F4F6]'
+                    }`}
+                  >
+                    {link.name}
+                    {isActive && (
+                      <motion.span
+                        layoutId="navActiveLine"
+                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#9FCAFC] rounded-full"
+                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                  </button>
+                );
+              }
+
               return (
                 <NavLink
                   key={link.name}
                   to={link.path}
+                  onMouseEnter={() => sound.playHover()}
+                  onClick={() => sound.playClick()}
                   className={`text-xs sm:text-sm font-medium transition-colors duration-200 relative py-1 ${
                     isActive
                       ? 'text-[#111110] dark:text-[#F2F4F6] font-semibold'
@@ -85,25 +145,58 @@ export const Navbar: React.FC = () => {
             })}
           </nav>
 
-          {/* Right Action CTA & Theme Toggle */}
-          <div className="hidden sm:flex items-center gap-3">
+          {/* Right Action CTA, Audio Toggle & Theme Toggle */}
+          <div className="hidden sm:flex items-center gap-2.5">
+            {/* Audio FX Toggle Button */}
+            <motion.button
+              whileTap={{ scale: 0.92 }}
+              onClick={handleToggleSound}
+              onMouseEnter={() => sound.playHover()}
+              className="p-2.5 rounded-full border border-[#E2E5E9] dark:border-[#2C2C2A] bg-white dark:bg-[#191918] text-[#524E4D] dark:text-[#A8A9A8] hover:text-[#111110] dark:hover:text-[#F2F4F6] hover:border-[#9FCAFC] transition-colors focus:outline-none"
+              title={soundEnabled ? 'Mute Interactive Sound' : 'Enable Interactive Sound'}
+              aria-label="Toggle UI Sound FX"
+            >
+              {soundEnabled ? (
+                <Volume2 className="w-4 h-4 text-[#9FCAFC]" />
+              ) : (
+                <VolumeX className="w-4 h-4 opacity-50" />
+              )}
+            </motion.button>
+
             <ThemeToggle />
 
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-semibold text-[#F2F4F6] dark:text-[#111110] bg-[#111110] dark:bg-[#F2F4F6] hover:bg-[#9FCAFC] dark:hover:bg-[#9FCAFC] hover:text-[#111110] dark:hover:text-[#111110] transition-colors duration-200 shadow-xs"
+            <button
+              onClick={() => {
+                sound.playClick();
+                navigate('/contact');
+              }}
+              onMouseEnter={() => sound.playHover()}
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-semibold text-[#F2F4F6] dark:text-[#111110] bg-[#111110] dark:bg-[#F2F4F6] hover:bg-[#9FCAFC] dark:hover:bg-[#9FCAFC] hover:text-[#111110] dark:hover:text-[#111110] transition-colors duration-200 shadow-xs cursor-pointer"
             >
               <span>Let's Talk</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
-            </Link>
+            </button>
           </div>
 
           {/* Mobile Menu Toggle & Theme Toggle */}
           <div className="flex items-center gap-2 lg:hidden">
-            <ThemeToggle />
             <motion.button
               whileTap={{ scale: 0.92 }}
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              onClick={handleToggleSound}
+              className="p-2 rounded-full border border-[#E2E5E9] dark:border-[#2C2C2A] bg-white dark:bg-[#191918] text-[#524E4D] dark:text-[#A8A9A8]"
+              aria-label="Toggle UI Sound"
+            >
+              {soundEnabled ? <Volume2 className="w-4 h-4 text-[#9FCAFC]" /> : <VolumeX className="w-4 h-4 opacity-50" />}
+            </motion.button>
+
+            <ThemeToggle />
+
+            <motion.button
+              whileTap={{ scale: 0.92 }}
+              onClick={() => {
+                sound.playClick();
+                setMobileMenuOpen(!mobileMenuOpen);
+              }}
               className="p-2 rounded-full border border-[#E2E5E9] dark:border-[#2C2C2A] bg-white dark:bg-[#191918] text-[#111110] dark:text-[#F2F4F6] focus:outline-none"
               aria-label="Toggle navigation menu"
             >
@@ -125,31 +218,54 @@ export const Navbar: React.FC = () => {
             className="lg:hidden fixed inset-x-0 top-[68px] px-6 pb-6 pt-3 bg-[#F2F4F6]/98 dark:bg-[#111110]/98 backdrop-blur-xl border-b border-[#E2E5E9] dark:border-[#2C2C2A] shadow-lg overflow-hidden"
           >
             <nav className="flex flex-col gap-1 py-2">
-              {PAGE_LINKS.map((link) => (
-                <NavLink
-                  key={link.name}
-                  to={link.path}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={({ isActive }) =>
-                    `px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
-                      isActive
-                        ? 'bg-[#9FCAFC]/20 text-[#111110] dark:text-[#9FCAFC] font-semibold'
-                        : 'text-[#524E4D] dark:text-[#A8A9A8] hover:bg-black/5 dark:hover:bg-white/5'
-                    }`
-                  }
-                >
-                  {link.name}
-                </NavLink>
-              ))}
+              {PAGE_LINKS.map((link) => {
+                if (link.path === '/') {
+                  return (
+                    <button
+                      key={link.name}
+                      onClick={(e) => {
+                        setMobileMenuOpen(false);
+                        handleHomeClick(e);
+                      }}
+                      className="text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-colors text-[#524E4D] dark:text-[#A8A9A8] hover:bg-black/5 dark:hover:bg-white/5"
+                    >
+                      {link.name} (Trigger Intro)
+                    </button>
+                  );
+                }
+
+                return (
+                  <NavLink
+                    key={link.name}
+                    to={link.path}
+                    onClick={() => {
+                      sound.playClick();
+                      setMobileMenuOpen(false);
+                    }}
+                    className={({ isActive }) =>
+                      `px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
+                        isActive
+                          ? 'bg-[#9FCAFC]/20 text-[#111110] dark:text-[#9FCAFC] font-semibold'
+                          : 'text-[#524E4D] dark:text-[#A8A9A8] hover:bg-black/5 dark:hover:bg-white/5'
+                      }`
+                    }
+                  >
+                    {link.name}
+                  </NavLink>
+                );
+              })}
 
               <div className="pt-3 mt-2 border-t border-[#E2E5E9] dark:border-[#2C2C2A]">
-                <Link
-                  to="/contact"
-                  onClick={() => setMobileMenuOpen(false)}
+                <button
+                  onClick={() => {
+                    sound.playClick();
+                    setMobileMenuOpen(false);
+                    navigate('/contact');
+                  }}
                   className="w-full py-3 rounded-full text-center text-xs font-semibold bg-[#111110] text-[#F2F4F6] dark:bg-[#F2F4F6] dark:text-[#111110] block"
                 >
                   Let's Talk
-                </Link>
+                </button>
               </div>
             </nav>
           </motion.div>

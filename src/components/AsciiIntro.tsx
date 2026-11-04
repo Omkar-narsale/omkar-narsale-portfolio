@@ -5,6 +5,7 @@ import {
   ASCII_GRID_ROWS,
   getPortraitLuminanceData,
 } from '../data/asciiPortraitData';
+import sound from '../utils/sound';
 
 interface AsciiIntroProps {
   onComplete: () => void;
@@ -192,8 +193,12 @@ export const AsciiIntro: React.FC<AsciiIntroProps> = ({ onComplete }) => {
       }
 
       if (rawPct < 100) {
+        if (Math.random() < 0.08) {
+          sound.playTerminalBeep();
+        }
         animId = requestAnimationFrame(renderFrame);
       } else {
+        sound.playSuccess();
         // Finished loading: hold for 380ms then smoothly trigger exit transition
         setTimeout(() => {
           setIsFinishing(true);

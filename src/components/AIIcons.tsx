@@ -84,3 +84,4 @@ export const GitHubCopilotIcon: React.FC<{ className?: string }> = ({ className 
     <ellipse cx="60" cy="49" rx="6" ry="6" fill="#A78BFA" />
   </svg>
 );
+
