@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FileText, ArrowUp } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 import { PERSONAL_INFO } from '../data/portfolioData';
@@ -47,17 +48,24 @@ export const Footer: React.FC<FooterProps> = ({ onReplayIntro }) => {
           {/* Quick Navigation */}
           <div className="md:col-span-3 space-y-2">
             <span className="block font-mono text-xs uppercase tracking-wider text-[#F2F4F6] font-semibold mb-3">
-              Navigation
+              Pages
             </span>
             <ul className="space-y-1.5">
-              {['About', 'Skills', 'Projects', 'Experience', 'Education', 'Certifications', 'Coding', 'Contact'].map((item) => (
-                <li key={item}>
-                  <a
-                    href={`#${item.toLowerCase()}`}
+              {[
+                { name: 'Home', path: '/' },
+                { name: 'Featured Projects', path: '/projects' },
+                { name: 'LeetCode & Problem Solving', path: '/coding' },
+                { name: 'Experience & Certifications', path: '/experience' },
+                { name: 'About & Tech Capabilities', path: '/about' },
+                { name: 'Contact & Inquiries', path: '/contact' },
+              ].map((item) => (
+                <li key={item.name}>
+                  <Link
+                    to={item.path}
                     className="hover:text-[#9FCAFC] transition-colors"
                   >
-                    {item}
-                  </a>
+                    {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>

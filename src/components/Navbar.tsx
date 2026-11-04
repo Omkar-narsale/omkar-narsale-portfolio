@@ -1,44 +1,36 @@
 import React, { useState, useEffect } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
-import { PERSONAL_INFO } from '../data/portfolioData';
 
-const NAV_LINKS = [
-  { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Education', href: '#education' },
-  { name: 'Certifications', href: '#certifications' },
-  { name: 'Coding', href: '#coding' },
-  { name: 'Contact', href: '#contact' },
+const PAGE_LINKS = [
+  { name: 'Home', path: '/' },
+  { name: 'Projects', path: '/projects' },
+  { name: 'Coding & DSA', path: '/coding' },
+  { name: 'Experience', path: '/experience' },
+  { name: 'About', path: '/about' },
+  { name: 'Contact', path: '/contact' },
 ];
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('about');
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
-
-      const sections = NAV_LINKS.map(link => link.href.substring(1));
-      const currentScroll = window.scrollY + 180;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = document.getElementById(sections[i]);
-        if (section && section.offsetTop <= currentScroll) {
-          setActiveSection(sections[i]);
-          break;
-        }
-      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close mobile drawer on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
 
   return (
     <motion.header
@@ -55,8 +47,8 @@ export const Navbar: React.FC = () => {
         <div className="flex items-center justify-between">
           
           {/* Logo / Brand Name */}
-          <a
-            href="#"
+          <Link
+            to="/"
             className="flex items-center gap-2 group focus:outline-none"
             aria-label="Omkar Narsale Home"
           >
@@ -64,16 +56,16 @@ export const Navbar: React.FC = () => {
               Omkar Narsale
             </span>
             <span className="w-1.5 h-1.5 rounded-full bg-[#9FCAFC] inline-block" />
-          </a>
+          </Link>
 
-          {/* Desktop Nav Links - Clean Minimal Navigation without Bulky Capsule */}
+          {/* Desktop Nav Links */}
           <nav className="hidden lg:flex items-center gap-7">
-            {NAV_LINKS.map((link) => {
-              const isActive = activeSection === link.href.substring(1);
+            {PAGE_LINKS.map((link) => {
+              const isActive = location.pathname === link.path;
               return (
-                <a
+                <NavLink
                   key={link.name}
-                  href={link.href}
+                  to={link.path}
                   className={`text-xs sm:text-sm font-medium transition-colors duration-200 relative py-1 ${
                     isActive
                       ? 'text-[#111110] dark:text-[#F2F4F6] font-semibold'
@@ -88,7 +80,7 @@ export const Navbar: React.FC = () => {
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
-                </a>
+                </NavLink>
               );
             })}
           </nav>
@@ -97,15 +89,13 @@ export const Navbar: React.FC = () => {
           <div className="hidden sm:flex items-center gap-3">
             <ThemeToggle />
 
-            <motion.a
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              href="#contact"
+            <Link
+              to="/contact"
               className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-semibold text-[#F2F4F6] dark:text-[#111110] bg-[#111110] dark:bg-[#F2F4F6] hover:bg-[#9FCAFC] dark:hover:bg-[#9FCAFC] hover:text-[#111110] dark:hover:text-[#111110] transition-colors duration-200 shadow-xs"
             >
               <span>Let's Talk</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
-            </motion.a>
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle & Theme Toggle */}
@@ -135,33 +125,31 @@ export const Navbar: React.FC = () => {
             className="lg:hidden fixed inset-x-0 top-[68px] px-6 pb-6 pt-3 bg-[#F2F4F6]/98 dark:bg-[#111110]/98 backdrop-blur-xl border-b border-[#E2E5E9] dark:border-[#2C2C2A] shadow-lg overflow-hidden"
           >
             <nav className="flex flex-col gap-1 py-2">
-              {NAV_LINKS.map((link, idx) => (
-                <motion.a
+              {PAGE_LINKS.map((link) => (
+                <NavLink
                   key={link.name}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: idx * 0.03, duration: 0.25 }}
-                  href={link.href}
+                  to={link.path}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
-                    activeSection === link.href.substring(1)
-                      ? 'bg-[#9FCAFC]/20 text-[#111110] dark:text-[#9FCAFC] font-semibold'
-                      : 'text-[#524E4D] dark:text-[#A8A9A8] hover:bg-white dark:hover:bg-[#191918]'
-                  }`}
+                  className={({ isActive }) =>
+                    `px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
+                      isActive
+                        ? 'bg-[#9FCAFC]/20 text-[#111110] dark:text-[#9FCAFC] font-semibold'
+                        : 'text-[#524E4D] dark:text-[#A8A9A8] hover:bg-black/5 dark:hover:bg-white/5'
+                    }`
+                  }
                 >
                   {link.name}
-                </motion.a>
+                </NavLink>
               ))}
-              
-              <div className="pt-3 mt-2 border-t border-[#E2E5E9] dark:border-[#2C2C2A] flex flex-col gap-2">
-                <a
-                  href="#contact"
+
+              <div className="pt-3 mt-2 border-t border-[#E2E5E9] dark:border-[#2C2C2A]">
+                <Link
+                  to="/contact"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-semibold text-[#F2F4F6] dark:text-[#111110] bg-[#111110] dark:bg-[#F2F4F6]"
+                  className="w-full py-3 rounded-full text-center text-xs font-semibold bg-[#111110] text-[#F2F4F6] dark:bg-[#F2F4F6] dark:text-[#111110] block"
                 >
-                  <span>Let's Talk</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </a>
+                  Let's Talk
+                </Link>
               </div>
             </nav>
           </motion.div>
@@ -170,3 +158,5 @@ export const Navbar: React.FC = () => {
     </motion.header>
   );
 };
+
+export default Navbar;

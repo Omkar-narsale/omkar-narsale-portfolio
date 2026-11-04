@@ -134,3 +134,4 @@ export const CustomCursor: React.FC = () => {
 };
 
 export default CustomCursor;
+

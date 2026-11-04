@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, FileText, Mail } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, LeetCodeIcon } from './Icons';
@@ -77,15 +78,13 @@ export const Hero: React.FC = () => {
 
             {/* Action Buttons */}
             <motion.div variants={fadeInUp} className="flex flex-wrap items-center gap-4 pt-2">
-              <motion.a
-                whileHover={{ scale: 1.02, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                href="#projects"
+              <Link
+                to="/projects"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-semibold text-[#F2F4F6] dark:text-[#111110] bg-[#111110] dark:bg-[#F2F4F6] hover:bg-[#9FCAFC] dark:hover:bg-[#9FCAFC] hover:text-[#111110] dark:hover:text-[#111110] transition-colors duration-200 shadow-xs"
               >
                 <span>Explore My Work</span>
                 <ArrowRight className="w-4 h-4" />
-              </motion.a>
+              </Link>
 
               <motion.a
                 whileHover={{ scale: 1.02, y: -2 }}
