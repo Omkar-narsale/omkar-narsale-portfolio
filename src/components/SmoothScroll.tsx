@@ -59,3 +59,4 @@ export const SmoothScroll: React.FC<{ children: React.ReactNode }> = ({ children
 };
 
 export default SmoothScroll;
+

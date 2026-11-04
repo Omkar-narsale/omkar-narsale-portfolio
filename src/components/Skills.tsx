@@ -7,6 +7,7 @@ import {
 import { SKILL_CATEGORIES } from '../data/portfolioData';
 import { customEase } from '../utils/animations';
 import { MaskedReveal } from './ScrollReveal';
+import { SpotlightCard } from './SpotlightCard';
 
 const ICON_MAP: Record<string, React.ReactNode> = {
   Code2: <Code2 className="w-5 h-5" />,
@@ -121,58 +122,60 @@ export const Skills: React.FC = () => {
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.05, duration: 0.55, ease: customEase }}
                   whileHover={{ y: -5, transition: { duration: 0.25 } }}
-                  className={`flex flex-col justify-between p-6 rounded-3xl glass-panel border transition-colors duration-300 ${
+                  className={`flex flex-col justify-between rounded-3xl glass-panel border transition-colors duration-300 overflow-hidden ${
                     hasMatch
                       ? 'border-[#E2E5E9] dark:border-[#2C2C2A] bg-white dark:bg-[#191918] hover:border-[#9FCAFC]/60 hover:shadow-lg dark:hover:shadow-[0_8px_30px_rgba(159,202,252,0.1)]'
                       : 'opacity-40'
                   }`}
                 >
-                  <div>
-                    {/* Category Header */}
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-full bg-[#9FCAFC]/20 border border-[#9FCAFC]/30 text-[#111110] dark:text-[#9FCAFC] flex items-center justify-center shrink-0">
-                        {ICON_MAP[category.iconName] || <Code2 className="w-5 h-5" />}
+                  <SpotlightCard className="p-6 flex flex-col justify-between h-full w-full">
+                    <div>
+                      {/* Category Header */}
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-10 h-10 rounded-full bg-[#9FCAFC]/20 border border-[#9FCAFC]/30 text-[#111110] dark:text-[#9FCAFC] flex items-center justify-center shrink-0">
+                          {ICON_MAP[category.iconName] || <Code2 className="w-5 h-5" />}
+                        </div>
+                        <div>
+                          <h3 className="text-base font-bold text-[#111110] dark:text-[#F2F4F6] leading-snug">
+                            {category.title}
+                          </h3>
+                          <span className="text-[11px] font-mono text-[#9FCAFC]">
+                            {category.skills.length} competencies
+                          </span>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="text-base font-bold text-[#111110] dark:text-[#F2F4F6] leading-snug">
-                          {category.title}
-                        </h3>
-                        <span className="text-[11px] font-mono text-[#9FCAFC]">
-                          {category.skills.length} competencies
-                        </span>
+
+                      <p className="text-xs text-slate-500 dark:text-[#A8A9A8] mb-5 leading-relaxed">
+                        {category.description}
+                      </p>
+
+                      {/* Animated Skills Pills */}
+                      <div className="flex flex-wrap gap-2">
+                        {category.skills.map((skill) => {
+                          const isHighlighted = searchTerm && skill.toLowerCase().includes(searchTerm.toLowerCase());
+                          return (
+                            <motion.span
+                              key={skill}
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.96 }}
+                              className={`px-3 py-1 rounded-full text-xs font-medium transition-all cursor-default ${
+                                isHighlighted
+                                  ? 'bg-[#9FCAFC] text-[#111110] font-bold shadow-md shadow-[#9FCAFC]/30'
+                                  : 'bg-[#F2F4F6] dark:bg-[#222220] border border-[#E2E5E9] dark:border-[#2C2C2A] text-slate-700 dark:text-[#F2F4F6] hover:border-[#9FCAFC] hover:text-[#9FCAFC]'
+                              }`}
+                            >
+                              {skill}
+                            </motion.span>
+                          );
+                        })}
                       </div>
                     </div>
 
-                    <p className="text-xs text-slate-500 dark:text-[#A8A9A8] mb-5 leading-relaxed">
-                      {category.description}
-                    </p>
-
-                    {/* Animated Skills Pills */}
-                    <div className="flex flex-wrap gap-2">
-                      {category.skills.map((skill) => {
-                        const isHighlighted = searchTerm && skill.toLowerCase().includes(searchTerm.toLowerCase());
-                        return (
-                          <motion.span
-                            key={skill}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.96 }}
-                            className={`px-3 py-1 rounded-full text-xs font-medium transition-all cursor-default ${
-                              isHighlighted
-                                ? 'bg-[#9FCAFC] text-[#111110] font-bold shadow-md shadow-[#9FCAFC]/30'
-                                : 'bg-[#F2F4F6] dark:bg-[#222220] border border-[#E2E5E9] dark:border-[#2C2C2A] text-slate-700 dark:text-[#F2F4F6] hover:border-[#9FCAFC] hover:text-[#9FCAFC]'
-                            }`}
-                          >
-                            {skill}
-                          </motion.span>
-                        );
-                      })}
+                    <div className="pt-4 mt-6 border-t border-[#E2E5E9] dark:border-[#2C2C2A] flex items-center justify-between text-[11px] font-mono text-[#A8A9A8]">
+                      <span>Verified Stack</span>
+                      <CheckCircle className="w-3.5 h-3.5 text-emerald-500" />
                     </div>
-                  </div>
-
-                  <div className="pt-4 mt-6 border-t border-[#E2E5E9] dark:border-[#2C2C2A] flex items-center justify-between text-[11px] font-mono text-[#A8A9A8]">
-                    <span>Verified Stack</span>
-                    <CheckCircle className="w-3.5 h-3.5 text-emerald-500" />
-                  </div>
+                  </SpotlightCard>
                 </motion.div>
               );
             })}

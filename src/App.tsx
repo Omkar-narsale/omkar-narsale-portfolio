@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { SmoothScroll } from './components/SmoothScroll';
+import { CustomCursor } from './components/CustomCursor';
 import { AsciiIntro } from './components/AsciiIntro';
 import { ScrollProgress } from './components/ScrollProgress';
 import { Navbar } from './components/Navbar';
@@ -20,6 +21,7 @@ export const App: React.FC = () => {
 
   return (
     <SmoothScroll>
+      <CustomCursor />
       {showIntro && <AsciiIntro onComplete={() => setShowIntro(false)} />}
       <div className="min-h-screen flex flex-col bg-[#F2F4F6] dark:bg-[#111110] text-[#111110] dark:text-[#F2F4F6] selection:bg-[#9FCAFC]/40 selection:text-slate-900">
         <ScrollProgress />

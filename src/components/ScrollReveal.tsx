@@ -97,3 +97,4 @@ export const CardScrollReveal: React.FC<CardScrollRevealProps> = ({
     </motion.div>
   );
 };
+

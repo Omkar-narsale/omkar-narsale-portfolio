@@ -9,6 +9,7 @@ import { PROJECTS, Project } from '../data/portfolioData';
 import { ProjectModal } from './ProjectModal';
 import { customEase } from '../utils/animations';
 import { MaskedReveal } from './ScrollReveal';
+import { SpotlightCard } from './SpotlightCard';
 
 const CATEGORIES = [
   'All',
@@ -129,11 +130,13 @@ export const Projects: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05, duration: 0.55, ease: customEase }}
                 whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                className="flex flex-col justify-between h-full rounded-3xl glass-panel border border-[#E2E5E9] dark:border-[#2C2C2A] bg-white dark:bg-[#191918] overflow-hidden group shadow-sm hover:border-[#9FCAFC]/60 hover:shadow-xl dark:hover:shadow-[0_16px_36px_rgba(159,202,252,0.12)] transition-colors duration-300"
+                data-cursor="view"
+                className="flex flex-col justify-between h-full rounded-3xl glass-panel border border-[#E2E5E9] dark:border-[#2C2C2A] bg-white dark:bg-[#191918] overflow-hidden group shadow-sm hover:border-[#9FCAFC]/60 hover:shadow-xl dark:hover:shadow-[0_16px_36px_rgba(159,202,252,0.12)] transition-colors duration-300 relative"
               >
-                <div className="flex flex-col flex-1">
-                  {/* Visual 16:9 Thumbnail with Zoom on Hover */}
-                  <div className="relative aspect-video w-full overflow-hidden bg-slate-950 border-b border-[#E2E5E9] dark:border-[#2C2C2A]">
+                <SpotlightCard className="flex flex-col justify-between h-full w-full">
+                  <div className="flex flex-col flex-1">
+                    {/* Visual 16:9 Thumbnail with Zoom on Hover */}
+                    <div className="relative aspect-video w-full overflow-hidden bg-slate-950 border-b border-[#E2E5E9] dark:border-[#2C2C2A]">
                     <img
                       src={project.thumbnail}
                       alt={project.title}
@@ -226,6 +229,7 @@ export const Projects: React.FC = () => {
                   </div>
                 </div>
 
+                </SpotlightCard>
               </motion.div>
             ))}
           </AnimatePresence>

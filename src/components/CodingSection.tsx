@@ -5,6 +5,7 @@ import { GithubIcon } from './Icons';
 import { LEETCODE_DATA } from '../data/portfolioData';
 import { customEase } from '../utils/animations';
 import { MaskedReveal } from './ScrollReveal';
+import { SpotlightCard } from './SpotlightCard';
 
 export const CodingSection: React.FC = () => {
   return (
@@ -105,7 +106,7 @@ export const CodingSection: React.FC = () => {
             transition={{ duration: 0.7, ease: customEase }}
             className="lg:col-span-5"
           >
-            <div className="p-6 rounded-3xl glass-panel border border-[#E2E5E9] dark:border-[#2C2C2A] bg-white dark:bg-[#191918] shadow-sm">
+            <SpotlightCard className="p-6 rounded-3xl glass-panel border border-[#E2E5E9] dark:border-[#2C2C2A] bg-white dark:bg-[#191918] shadow-sm">
               <h3 className="text-base font-bold text-[#111110] dark:text-[#F2F4F6] mb-4 flex items-center gap-2">
                 <Award className="w-5 h-5 text-amber-500" />
                 <span>Verified LeetCode Badges</span>
@@ -136,7 +137,7 @@ export const CodingSection: React.FC = () => {
                   </motion.div>
                 ))}
               </div>
-            </div>
+            </SpotlightCard>
           </motion.div>
 
         </div>
