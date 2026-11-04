@@ -8,6 +8,14 @@ import { GithubIcon, LinkedinIcon, LeetCodeIcon } from './Icons';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { fadeInUp, staggerContainer, customEase } from '../utils/animations';
 
+const DOMAIN_ITEMS = [
+  'DATA ANALYTICS',
+  'DATA ENGINEERING',
+  'ARTIFICIAL INTELLIGENCE',
+  'COMPUTER VISION',
+  'FULL-STACK DEVELOPMENT',
+];
+
 export const Hero: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -169,22 +177,27 @@ export const Hero: React.FC = () => {
           <CircularScrollBadge targetId="tech-stack" />
         </div>
 
-        {/* Minimal Bottom Horizontal Divider & Domain Highlights */}
+        {/* Continuous Running Sliding Marquee for Domains */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="mt-16 sm:mt-20 pt-8 border-t border-[#E2E5E9] dark:border-[#2C2C2A] flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-[#A8A9A8]"
+          className="relative mt-16 sm:mt-20 pt-8 border-t border-[#E2E5E9] dark:border-[#2C2C2A] overflow-hidden select-none"
         >
-          <span>DATA ANALYTICS</span>
-          <span className="hidden sm:inline">·</span>
-          <span>DATA ENGINEERING</span>
-          <span className="hidden sm:inline">·</span>
-          <span>ARTIFICIAL INTELLIGENCE</span>
-          <span className="hidden sm:inline">·</span>
-          <span>COMPUTER VISION</span>
-          <span className="hidden sm:inline">·</span>
-          <span>FULL-STACK DEVELOPMENT</span>
+          {/* Subtle gradient edges for smooth fading */}
+          <div className="pointer-events-none absolute left-0 top-8 bottom-0 w-12 sm:w-20 bg-gradient-to-r from-[#F2F4F6] dark:from-[#111110] to-transparent z-10" />
+          <div className="pointer-events-none absolute right-0 top-8 bottom-0 w-12 sm:w-20 bg-gradient-to-l from-[#F2F4F6] dark:from-[#111110] to-transparent z-10" />
+
+          <div className="flex w-max items-center animate-marquee whitespace-nowrap py-1">
+            {[...DOMAIN_ITEMS, ...DOMAIN_ITEMS, ...DOMAIN_ITEMS, ...DOMAIN_ITEMS].map((domain, idx) => (
+              <div key={idx} className="flex items-center gap-6 sm:gap-8 px-3 sm:px-4">
+                <span className="text-xs sm:text-[13px] font-mono font-medium tracking-wider text-[#686968] dark:text-[#A8A9A8] hover:text-[#111110] dark:hover:text-[#F2F4F6] transition-colors">
+                  {domain}
+                </span>
+                <span className="text-xs text-[#A8A9A8] dark:text-[#555553]">·</span>
+              </div>
+            ))}
+          </div>
         </motion.div>
 
       </div>
